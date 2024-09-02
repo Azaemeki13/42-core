@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaemeki13 <azaemeki13@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 10:00:13 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/09/02 10:23:48 by azaemeki13       ###   ########.fr       */
+/*   Created: 2024/09/02 11:03:08 by azaemeki13        #+#    #+#             */
+/*   Updated: 2024/09/02 11:12:28 by azaemeki13       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
-void * ft_memset (void *ptr, int value, size_t num)
+void * ft_memccpy( void* dest, const void* src, int c, size_t count)
 {
-    char *base;
-    int i;
+    unsigned char * destination;
+    unsigned const char * source;
+    size_t i;
 
-    i = 0; 
-    base = (char*) ptr;
-    while (i < num)
+    i = 0;
+    destination = (unsigned char *) dest;
+    source = (unsigned const char *) src;
+    while ( i < count)
     {
-        base[i] = (char) value;
+        if ( source[i] == (char) c)
+        {
+            destination[i] = source[i];
+            return dest;
+        }
+        destination[i] = source[i];
         i++;
     }
-    return ptr;
+    return dest;
 }
-/*
-int main ()
-{
-  char str[] = "almost every programmer should know memset!";
-  ft_memset (str,'-',6);
-  puts (str);
-  return 0;
-}
-*/
