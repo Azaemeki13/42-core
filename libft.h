@@ -13,6 +13,6 @@
 #ifndef LIBFT_H
 #define LIBFT_H
 
-typedef unsigned long size_t;
+typedef long long unsigned int size_t;
 
 #endif
