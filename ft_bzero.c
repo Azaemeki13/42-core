@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaemeki13 <azaemeki13@student.42.fr>      +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:27:12 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/09/02 10:59:12 by azaemeki13       ###   ########.fr       */
+/*   Updated: 2024/10/16 11:50:36 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 // #include <stdio.h>
 
-void ft_bzero (void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
     char *base;
     size_t i;
 
-    i = 0; 
-    base = (char*) s;
+    i = 0;
+    base = (char *)s;
     while (i < n)
     {
         base[i] = '\0';
         i++;
     }
 }
-/* 
+/*
 int main() {
     char str[] = "almost every programmer should know memset!";
-    
+
     ft_bzero(str, 6);
 
     // Display each character explicitly

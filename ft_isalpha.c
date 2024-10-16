@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 10:00:13 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/10/16 11:52:53 by cauffret         ###   ########.fr       */
+/*   Created: 2024/10/16 11:38:31 by cauffret          #+#    #+#             */
+/*   Updated: 2024/10/16 14:52:22 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-// #include <stdio.h>
+// #include "libft.h"
 
-void *ft_memset(void *ptr, int value, size_t num)
+int ft_isalpha(int argument1)
 {
-  char *base;
-  int i;
-
-  i = 0;
-  base = (char *)ptr;
-  while (i < num)
-  {
-    base[i] = (char)value;
-    i++;
-  }
-  return ptr;
+    char convert;
+    convert = (char)argument1;
+    if ((convert < 'A' || argument1 > 'Z') && (argument1 < 'a' || argument1 > 'z'))
+        return 0;
+    return 1;
 }
 /*
-int main ()
+int main(void)
 {
-  char str[] = "almost every programmer should know memset!";
-  ft_memset (str,'-',6);
-  puts (str);
-  return 0;
+    int a;
+    a = 3;
+
+    a = ft_isalpha('a');
+    printf("%d", a);
 }
 */

@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 10:00:13 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/10/16 11:52:53 by cauffret         ###   ########.fr       */
+/*   Created: 2024/10/16 15:01:33 by cauffret          #+#    #+#             */
+/*   Updated: 2024/10/16 15:02:00 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-// #include <stdio.h>
+#include <stdio.h>
 
-void *ft_memset(void *ptr, int value, size_t num)
+int ft_tolower(int argument1)
 {
-  char *base;
-  int i;
+    char convert;
 
-  i = 0;
-  base = (char *)ptr;
-  while (i < num)
-  {
-    base[i] = (char)value;
-    i++;
-  }
-  return ptr;
+    convert = (char)argument1;
+    if (convert > 'A' || convert < 'Z')
+        return convert += 32;
+    return 0;
 }
-/*
-int main ()
+
+int main(void)
 {
-  char str[] = "almost every programmer should know memset!";
-  ft_memset (str,'-',6);
-  puts (str);
-  return 0;
+    char a = 'b';
+    printf("To upper result from %c is : %c ", a, ft_toupper(a));
 }
-*/

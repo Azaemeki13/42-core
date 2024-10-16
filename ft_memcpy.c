@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaemeki13 <azaemeki13@student.42.fr>      +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:41:44 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/09/02 10:59:09 by azaemeki13       ###   ########.fr       */
+/*   Updated: 2024/10/16 11:50:57 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 // #include <string.h>
 // #include <stdio.h>
 
-void * ft_memcpy (void * destination, const void * source, size_t num)
+void *ft_memcpy(void *destination, const void *source, size_t num)
 {
     size_t i;
-    unsigned char * dest;
-    const unsigned char * src;
+    unsigned char *dest;
+    const unsigned char *src;
 
-    dest = (unsigned char *) destination;
-    src = (const unsigned char *) source;
+    dest = (unsigned char *)destination;
+    src = (const unsigned char *)source;
     i = 0;
-    while ( i < num)
+    while (i < num)
     {
         dest[i] = src[i];
         i++;

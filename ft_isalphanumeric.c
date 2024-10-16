@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isalphanumeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 10:00:13 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/10/16 11:52:53 by cauffret         ###   ########.fr       */
+/*   Created: 2024/10/16 12:28:48 by cauffret          #+#    #+#             */
+/*   Updated: 2024/10/16 14:52:17 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 // #include <stdio.h>
 
-void *ft_memset(void *ptr, int value, size_t num)
+int ft_isalphanumeric(int argument1)
 {
-  char *base;
-  int i;
+    char convert;
 
-  i = 0;
-  base = (char *)ptr;
-  while (i < num)
-  {
-    base[i] = (char)value;
-    i++;
-  }
-  return ptr;
+    convert = (char)argument1;
+    if ((convert < 48 || convert > 57) && (convert < 65 || convert > 90) && (convert < 97 || convert > 122))
+        return 0;
+    return 1;
 }
 /*
-int main ()
+int main (void)
 {
-  char str[] = "almost every programmer should know memset!";
-  ft_memset (str,'-',6);
-  puts (str);
-  return 0;
+    printf("The result is %d:" , ft_isalphanumeric('|'));
 }
 */
