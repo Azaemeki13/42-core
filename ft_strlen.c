@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalphanumeric.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 12:28:48 by cauffret          #+#    #+#             */
-/*   Updated: 2024/10/16 14:52:17 by cauffret         ###   ########.fr       */
+/*   Created: 2024/10/21 10:53:49 by cauffret          #+#    #+#             */
+/*   Updated: 2024/10/21 11:20:05 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 // #include <stdio.h>
 
-int ft_isalphanumeric(int argument1)
+size_t ft_strlen(const char *str)
 {
-    char convert;
+    char *nav;
+    size_t i;
 
-    convert = (char)argument1;
-    if ((convert < 48 || convert > 57) && (convert < 65 || convert > 90) && (convert < 97 || convert > 122))
-        return 0;
-    return 1;
+    i = 0;
+    nav = (char *)str;
+    while (nav[i] != 0)
+    {
+        i++;
+    }
+    return i;
 }
 /*
 int main (void)
 {
-    printf("The result is %d:" , ft_isalphanumeric('|'));
+    char test [] = "Hello45544324";
+    printf("The result is : %zu", ft_strlen(test));
+    return 0;
 }
 */

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 15:01:33 by cauffret          #+#    #+#             */
-/*   Updated: 2024/10/21 11:23:07 by cauffret         ###   ########.fr       */
+/*   Created: 2024/10/16 14:40:12 by cauffret          #+#    #+#             */
+/*   Updated: 2024/10/21 10:53:45 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
-
-int ft_tolower(int argument1)
+int ft_isprint(int argument1)
 {
     char convert;
 
     convert = (char)argument1;
-    if (convert > 'A' || convert < 'Z')
-        return convert += 32;
-    return 0;
+
+    if ((convert < 33 || convert > 126))
+        return 0;
+    return 1;
 }
 /*
 int main(void)
 {
-    char a = 'b';
-    printf("To upper result from %c is : %c ", a, ft_toupper(a));
+    int a = 125;
+    printf("The result is: %d", ft_isprintable(a));
+    return 0;
 }
 */

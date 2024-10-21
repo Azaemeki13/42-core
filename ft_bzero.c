@@ -6,12 +6,11 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:27:12 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/10/16 11:50:36 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:33:18 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
 void ft_bzero(void *s, size_t n)
 {
