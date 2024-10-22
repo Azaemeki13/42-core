@@ -11,41 +11,41 @@
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
-#include <stdio.h>
-typedef long long unsigned int size_t;
-#define NULL 0
+# include <stdio.h>
+typedef long unsigned int	size_t;
+# define NULL ((void *)0)
 
-void ft_bzero(void *s, size_t n);
-size_t ft_strlen(const char *str);
+void						ft_bzero(void *s, size_t n);
+size_t						ft_strlen(const char *str);
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-    char *nav;
-    size_t i;
+	char	*nav;
+	size_t	i;
 
-    i = 0;
-    nav = (char *)str;
-    while (nav[i] != 0)
-    {
-        i++;
-    }
-    return i;
+	i = 0;
+	nav = (char *)str;
+	while (nav[i] != 0)
+	{
+		i++;
+	}
+	return (i);
 }
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    char *base;
-    size_t i;
+	char	*base;
+	size_t	i;
 
-    i = 0;
-    base = (char *)s;
-    while (i < n)
-    {
-        base[i] = '\0';
-        i++;
-    }
+	i = 0;
+	base = (char *)s;
+	while (i < n)
+	{
+		base[i] = '\0';
+		i++;
+	}
 }
 
 #endif

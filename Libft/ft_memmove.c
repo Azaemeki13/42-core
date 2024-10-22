@@ -10,41 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
+// #include <stdio.h>
 
-void ft_bzero(void *s, size_t n);
-size_t ft_strlen(const char *str);
-
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    size_t i;
-    char *convert;
-    const char *convert1;
-    char *temp;
+	size_t		i;
+	char		*convert;
+	const char	*convert1;
+	char		temp[n+1];
 
-    convert = (char *)dest;
-    convert1 = (const char *)src;
-    i = ft_strlen(convert1);
-    temp = (char *)src;
-    ft_bzero(temp, i);
-    i = 0;
-    while (i != n)
-    {
-        temp[i] = convert1[i];
+	convert = (char *)dest;
+	convert1 = (const char *)src;
+	i = 0;
+	while (i != n)
+	{
+		temp[i] = convert1[i];
+		i++;
+	}
+	i = 0;
+	while (i != n)
+	{
+		convert[i] = temp[i];
         i++;
-    }
-    i = 0;
-    while (i != n)
-    {
-        convert[i] = temp[i];
-    }
-    convert[i + 1] = 0; // same here
-    return (dest);
+	}
+	convert[i + 1] = 0; // same here
+	return (convert);
 }
-int main(void)
+// TO CHANGE: n+1 for null terminator must be gone, also I need to get rid of VLA, asking if i can malloc ? 
+/*
+int	main(void)
 {
-    char ola[50] = "Hello, World";
-    printf("Initial thing is: %s\nCopied is: %s", ola, (char *)ft_memmove(ola + 5, ola, 13));
-    return 0;
+	char ola[50] = "Hello, World";
+	printf("Initial thing is: %s \n Copied is %s ", ola, (char*) ft_memmove(ola+6,ola,13));
+	return (0);
 }
+*/
