@@ -37,11 +37,13 @@ void *ft_memset(void *ptr, int value, size_t num);
 char *ft_substr(char const *s, unsigned int start, size_t len);
 char *ft_strchr (const char *s, int c);
 char *ft_strdup (const char *src);
+char *ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t n);
 size_t ft_strlcpy(char *dst, const char *src, size_t n);
 size_t ft_strlen(const char *str);
 int ft_strncmp (const char *str1, const char *str2, size_t num);
 char * ft_strnstr(const char *s1, const char *s2, size_t len);
+char *ft_strtrim( const char *s1, const char *set);
 char *ft_strrchr (const char *s, int c);
 int ft_tolower(int argument1);
 int ft_toupper(int argument1);
@@ -326,6 +328,34 @@ char *ft_strdup (const char *src)
         i++;
     }
     return dest;
+}
+
+char *ft_strjoin(char const *s1, char const *s2)
+{
+    size_t total_size;
+    unsigned int i;
+    unsigned int j;
+    char * final;
+
+    i = 0; 
+    j = 0;
+    total_size = ft_strlen(s1) + ft_strlen(s2) + 1;
+    final = malloc(total_size * sizeof(char));
+    while (s1[i] != 0)
+    {
+        final[j] = s1[i];
+        j++;
+        i++;
+    }
+    i = 0;
+    while (s2[i] != 0)
+    {
+        final[j] = s2[i];
+        j++;
+        i++;
+    }
+    final[j] = '\0';
+    return (final);
 }
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
