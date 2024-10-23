@@ -13,7 +13,7 @@
 #include "libft.h"
 // #include <stdio.h>
 
-int findy(const void *s2, int c, size_t n)
+int ft_findy(const void *s2, int c, size_t n)
 {
     unsigned const char *s_two;
     unsigned char baite;

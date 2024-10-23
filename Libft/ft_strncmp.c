@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/23 10:46:30 by marvin            #+#    #+#             */
+/*   Updated: 2024/10/23 10:46:30 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+// #include <stdio.h>
+#include "libft.h"
+
+int ft_strncmp (const char *str1, const char *str2, size_t num)
+{
+    size_t i;
+    int result;
+
+    i = 0;
+    while (i < num && str1[i] && str2[i])
+    {
+        if (str1[i] != str2[i])
+            return str1[i]- str2[i];
+        i++;
+    }
+    if (i < num && str1[i] == 0 ||str2[i] == 0)
+        return (str1[i] - str2[i]);
+    return 0;
+}
+/*
+int	main(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = "aihaho";
+	str2 = "azaia";
+	printf(" Now as thou can see the comparaison be\
+	tween them is like %d", ft_strncmp(str1, str2, 2));
+	return (0);
+}
+*/

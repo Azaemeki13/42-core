@@ -23,15 +23,13 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 	i = 0;
 	while (i < num)
 	{
-		if (pointer1[i] < pointer2[i])
-			return (-1);
-		if (pointer1[i] > pointer2[i])
-			return (1);
+		if (pointer1[i] != pointer2[i])
+			return (pointer1[i] - pointer2[i]);
 		i++;
 	}
 	return (0);
 }
-
+/*
 int	main(void)
 {
 	char str1[] = "Hello";
@@ -66,3 +64,4 @@ int	main(void)
 
 		return (0);
 }
+*/

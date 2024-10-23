@@ -21,9 +21,10 @@ int ft_toupper(int argument1)
         return convert -= 32;
     return 0;
 }
-
+/*
 int main(void)
 {
     char a = 'b';
     printf("To upper result from %c is : %c ", a, ft_toupper(a));
 }
+*/
