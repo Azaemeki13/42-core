@@ -21,6 +21,7 @@ typedef long unsigned int	size_t;
 int ft_atoi(const char *nptr);
 void ft_bzero(void *s, size_t n);
 void *ft_calloc (size_t elementCount, size_t elementSize);
+static size_t ft_count_words(const char *s, char c);
 int ft_isalnum(int argument1);
 int ft_isalpha(int argument1);
 int ft_isascii(int argument1);
@@ -42,7 +43,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n);
 size_t ft_strlcpy(char *dst, const char *src, size_t n);
 size_t ft_strlen(const char *str);
 int ft_strncmp (const char *str1, const char *str2, size_t num);
-char * ft_strnstr(const char *s1, const char *s2, size_t len);
+char *ft_strndup(const char *s, size_t n);
+char *ft_strncpy( char * destination, const char * source, size_t num);
+char *ft_strnstr(const char *s1, const char *s2, size_t len);
 char *ft_strtrim( const char *s1, const char *set);
 char *ft_strrchr (const char *s, int c);
 int ft_tolower(int argument1);
@@ -105,6 +108,28 @@ void *ft_calloc (size_t elementCount, size_t elementSize)
         return NULL;
     ft_memset(final, 0, totalSize);
     return final;
+}
+
+size_t count_words(const char *s, char c)
+{
+    size_t count;
+    int in_word;
+
+    count = 0;
+    in_word = 0;
+
+    while (*s)
+    {
+        if (*s != c && in_word == 0)
+        {
+            in_word = 1;
+            count++;
+        }
+        else if (*s == c)
+            in_word = 0;
+        s++;
+    }
+    return (count);
 }
 
 int ft_isalnum(int argument1)
@@ -414,6 +439,26 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
+char * ft_strncpy ( char * destination, const char * source, size_t num)
+{
+    size_t i;
+
+    i = 0;
+    if (destination == NULL)
+        return NULL;
+    while ( i != num && source[i] != 0)
+    {
+        destination[i] = source[i];
+        i++;
+    }
+    while (i != num)
+    {
+        destination[i] = 0;
+        i++;
+    }
+    return (destination);
+}
+
 int ft_strncmp (const char *str1, const char *str2, size_t num)
 {
     size_t i;
@@ -429,6 +474,18 @@ int ft_strncmp (const char *str1, const char *str2, size_t num)
     if (i < num && str1[i] == 0 ||str2[i] == 0)
         return (str1[i] - str2[i]);
     return 0;
+}
+
+char *ft_strndup(const char *s, size_t n)
+{
+    char *dup;
+
+    dup = (char*)malloc(n + 1);
+    if (!dup)
+        return NULL;
+    ft_strncpy(dup,s,n);
+    dup[n] = '\0';
+    return (dup);
 }
 
 char * ft_strnstr(const char *s1, const char *s2, size_t len)
