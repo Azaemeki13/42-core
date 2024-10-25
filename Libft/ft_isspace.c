@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:09:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/23 12:09:40 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/25 11:24:35 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,4 @@ int ft_isspace(int c)
         return 1;
     return 0;
 }
-// id kwhere to put this 
+// id kwhere to put this

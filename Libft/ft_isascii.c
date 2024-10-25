@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:18:59 by cauffret          #+#    #+#             */
-/*   Updated: 2024/10/16 14:28:16 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/10/25 11:24:25 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int ft_isascii(int argument1)
 {
     char convert;
 
-    convert = (char) argument1;
+    convert = (char)argument1;
     if (convert > 0 || convert < 127)
         return 0;
     return 1;

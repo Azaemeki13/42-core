@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:15:07 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/22 12:15:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/25 11:25:29 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 // #include <stdio.h>
 
-size_t						ft_strlen(const char *str);
+size_t ft_strlen(const char *str);
 
 size_t ft_strlcpy(char *dst, const char *src, size_t n)
 {
@@ -26,12 +26,12 @@ size_t ft_strlcpy(char *dst, const char *src, size_t n)
         return a;
     if (n == 0)
         return a;
-    while (i != n-1)
+    while (i != n - 1)
     {
         dst[i] = src[i];
         i++;
     }
-    dst[i+1] = '\0';
+    dst[i + 1] = '\0';
     return (a);
 }
 /*

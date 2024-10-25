@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:09:10 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/23 15:09:10 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/25 11:28:10 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char * substring;
+    char *substring;
     size_t i;
 
     i = 0;
     substring = calloc(len, sizeof(const char));
     if (substring == NULL)
         return NULL;
-    while (start != len )
+    while (start != len)
     {
         substring[i] = s[start];
         i++;

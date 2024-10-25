@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:36:04 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/24 15:36:04 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/25 11:24:55 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char *ft_dup_word(const char **s, char c)
 {
     const char *start;
     size_t len;
-    
+
     while (**s == c)
         (*s)++;
     start = *s;
@@ -36,16 +36,16 @@ char **ft_split(char const *s, char c)
     num_words = ft_count_words(s, c);
     result = (char **)malloc((num_words + 1) * sizeof(char *));
 
-    while (*s) 
+    while (*s)
     {
-        if (*s != c) 
+        if (*s != c)
         {
             result[i] = ft_dup_word(&s, c);
             i++;
-        } else 
+        }
+        else
             s++;
     }
     result[i] = NULL;
     return result;
 }
-
