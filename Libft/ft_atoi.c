@@ -2,27 +2,23 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:03:23 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/23 12:03:23 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/25 11:24:04 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-
 int	ft_atoi(const char *nptr)
 {
-	int i;
-	int f;
-	int current;
-	int final;
+	int	i;
+	int	f;
+	int	current;
+	int	final;
 
 	final = 0;
 	i = 0;
@@ -53,8 +49,10 @@ int	ft_atoi(const char *nptr)
 /*
 int main (void)
 {
-	char test[] = "qsqsqsqs-++-+-++12345qsqs";
-	int i = ft_atoi(test);
+	char	test[] = "qsqsqsqs-++-+-++12345qsqs";
+	int		i;
+
+	i = ft_atoi(test);
 	printf("The result is: %d ", i);
 }
 */
