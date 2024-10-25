@@ -2,25 +2,30 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024/10/22 12:44:59 by marvin            #+#    #+#             */
 /*   Updated: 2024/10/22 12:44:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+
 // #include <stdio.h>
 
 size_t	ft_strlen(const char *str);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	int		i;
-	size_t	dst_len;
-	size_t	src_len;
-	size_t	remaining;
+	int i;
+	size_t dst_len;
+	size_t src_len;
+	size_t remaining;
 
 	i = 0;
 	dst_len = ft_strlen(dst);

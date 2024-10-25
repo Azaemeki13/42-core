@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024/10/16 12:17:35 by cauffret          #+#    #+#             */
 /*   Updated: 2024/10/16 14:52:07 by cauffret         ###   ########.fr       */
 /*                                                                            */
@@ -12,18 +15,18 @@
 
 // #include "libft.h"
 
-int ft_isdigit(int argument1)
+int	ft_isdigit(int argument1)
 {
-    char compare;
+	char compare;
 
-    compare = (char)argument1;
-    if ((compare < '0' || compare > '9'))
-        return 0;
-    return 1;
+	compare = (char)argument1;
+	if ((compare < '0' || compare > '9'))
+		return (0);
+	return (1);
 }
 /*
-int main(void)
+int	main(void)
 {
-    printf(" Result is : %d\n", ft_isdigit('b'));
+	printf(" Result is : %d\n", ft_isdigit('b'));
 }
 */
