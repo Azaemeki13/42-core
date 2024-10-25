@@ -41,10 +41,12 @@ int ft_pwr(int i, int n);
 char *ft_substr(char const *s, unsigned int start, size_t len);
 char *ft_strchr(const char *s, int c);
 char *ft_strdup(const char *src);
+void fr_striteri(char *s, void (*f)(unsigned int, char*));
 char *ft_strjoin(char const *s1, char const *s2);
 size_t ft_strlcat(char *dst, const char *src, size_t n);
 size_t ft_strlcpy(char *dst, const char *src, size_t n);
 size_t ft_strlen(const char *str);
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int ft_strncmp(const char *str1, const char *str2, size_t num);
 char *ft_strndup(const char *s, size_t n);
 char *ft_strncpy(char *destination, const char *source, size_t num);
@@ -499,6 +501,20 @@ int ft_strncmp(const char *str1, const char *str2, size_t num)
     return 0;
 }
 
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+    unsigned int i;
+    
+    i = 0;
+    if (!s || !f)
+        return;
+    while(s[i] != 0)
+    {
+        f(i,&s[i]);
+        i++;
+    }
+}
+
 char *ft_strndup(const char *s, size_t n)
 {
     char *dup;
@@ -509,6 +525,28 @@ char *ft_strndup(const char *s, size_t n)
     ft_strncpy(dup, s, n);
     dup[n] = '\0';
     return (dup);
+}
+
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+    char *final;
+    unsigned int i;
+    int length;
+
+    if (!s || !f)
+        return NULL;
+    length = ft_strlen(s);
+    i = 0;
+    final = (char *)malloc(sizeof(char) * (length + 1));
+    if (!final)
+        return NULL;
+    while (s[i] != 0)
+    {
+        final[i] = (*f)(i, s[i]);
+        i++;
+    }
+    final[i] = '\0';
+    return (final);
 }
 
 char *ft_strnstr(const char *s1, const char *s2, size_t len)

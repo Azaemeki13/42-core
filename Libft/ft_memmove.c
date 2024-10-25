@@ -15,6 +15,7 @@
 
 #include "libft.h"
 
+
 // #include <stdio.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -42,13 +43,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (convert);
 }
 // TO CHANGE: n+1 for null terminator must be gone,
-	also I need to get rid of VLA, asking if i can malloc ?
-/*
-int	main(void)
-{
-	char ola[50] = "Hello, World";
-	printf("Initial thing is: %s \n Copied is %s ", ola,
+also I need to get rid of VLA,
+	asking if i can malloc ?
+							/*
+							int	main(void)
+							{
+								char ola[50] = "Hello, World";
+								printf("Initial thing is: %s \n Copied is %s ",
+									ola,
 		(char*) ft_memmove(ola+6,ola,13));
-	return (0);
-}
-*/
+								return (0);
+							}
+							*/

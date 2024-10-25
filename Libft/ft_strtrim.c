@@ -81,8 +81,8 @@ int	main(void)
 	if (result)
 	{
 		printf("Trimmed string: '%s'\n", result); // Output: 'Hello, World'
-		free(result);                            
-			// Free the allocated memory after use
+		free(result);
+		// Free the allocated memory after use
 	}
 	return (0);
 }
