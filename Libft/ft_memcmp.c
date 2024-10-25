@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024/09/23 11:04:59 by marvin            #+#    #+#             */
 /*   Updated: 2024/10/25 11:24:44 by cauffret         ###   ########.fr       */
 /*                                                                            */
@@ -12,7 +15,8 @@
 
 #include "libft.h"
 
-int ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
+
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 {
 	const unsigned char *pointer1;
 	const unsigned char *pointer2;
