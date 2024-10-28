@@ -16,10 +16,9 @@
 // #include <stdio.h>
 #include "libft.h"
 
-
 char	*ft_strchr(const char *s, int c)
 {
-	char *result;
+	char	*result;
 
 	result = (char *)s;
 	while (*result != '\0')
@@ -34,7 +33,8 @@ char	*ft_strchr(const char *s, int c)
 /*
 int main (void)
 {
-	const char test[] = "Hello";
+	const char	test[] = "Hello";
+
 	printf("The first occurence of this char e is here: %s",
 		ft_strchr(test,'l'));
 }

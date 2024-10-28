@@ -15,11 +15,10 @@
 
 #include "libft.h"
 
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *substring;
-	size_t i;
+	char	*substring;
+	size_t	i;
 
 	i = 0;
 	substring = calloc(len, sizeof(const char));
@@ -36,9 +35,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*
 int main (void)
 {
-	const char test[] = "That's my house !";
-	char *test1;
-	printf("The result is : %s", ft_substr(test,7,17));
+	const char	test[] = "That's my house !";
+	char		*test1;
 
+	printf("The result is : %s", ft_substr(test,7,17));
 }
 */

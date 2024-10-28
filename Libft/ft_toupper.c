@@ -15,10 +15,9 @@
 
 #include <stdio.h>
 
-
 int	ft_toupper(int argument1)
 {
-	char convert;
+	char	convert;
 
 	convert = (char)argument1;
 	if (convert > 'a' || convert < 'z')
@@ -28,7 +27,9 @@ int	ft_toupper(int argument1)
 /*
 int	main(void)
 {
-	char a = 'b';
+	char	a;
+
+	a = 'b';
 	printf("To upper result from %c is : %c ", a, ft_toupper(a));
 }
 */

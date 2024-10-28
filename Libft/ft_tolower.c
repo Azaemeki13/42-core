@@ -17,7 +17,7 @@
 
 int	ft_tolower(int argument1)
 {
-	char convert;
+	char	convert;
 
 	convert = (char)argument1;
 	if (convert > 'A' || convert < 'Z')
@@ -27,7 +27,9 @@ int	ft_tolower(int argument1)
 /*
 int	main(void)
 {
-	char a = 'b';
+	char	a;
+
+	a = 'b';
 	printf("To upper result from %c is : %c ", a, ft_toupper(a));
 }
 */

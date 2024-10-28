@@ -15,16 +15,15 @@
 
 #include "libft.h"
 
-
 // #include <stdio.h>
 
 size_t	ft_strlen(const char *str);
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
-	size_t i;
-	size_t j;
-	size_t s2_len;
+	size_t	i;
+	size_t	j;
+	size_t	s2_len;
 
 	i = 0;
 	s2_len = ft_strlen(s2);
@@ -44,8 +43,9 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 /*
 int main (void)
 {
-	char test1[] = "Hello this is John.";
-	char test2[] = "John";
+	char	test1[] = "Hello this is John.";
+	char	test2[] = "John";
+
 	printf("Return value is: %s", ft_strnstr(test1,test2,20));
 }
 */

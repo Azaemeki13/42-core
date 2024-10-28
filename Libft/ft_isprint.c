@@ -16,10 +16,9 @@
 // #include <stdio.h>
 int	ft_isprint(int argument1)
 {
-	char convert;
+	char	convert;
 
 	convert = (char)argument1;
-
 	if ((convert < 33 || convert > 126))
 		return (0);
 	return (1);
@@ -27,7 +26,9 @@ int	ft_isprint(int argument1)
 /*
 int	main(void)
 {
-	int a = 125;
+	int	a;
+
+	a = 125;
 	printf("The result is: %d", ft_isprintable(a));
 	return (0);
 }

@@ -17,7 +17,7 @@
 
 int	ft_isascii(int argument1)
 {
-	char convert;
+	char	convert;
 
 	convert = (char)argument1;
 	if (convert > 0 || convert < 127)
@@ -27,7 +27,9 @@ int	ft_isascii(int argument1)
 /*
 int main (void)
 {
-	int a = 130;
+	int	a;
+
+	a = 130;
 	printf(" The result is : %d", ft_isascii(a));
 }
 */

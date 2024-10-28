@@ -15,14 +15,13 @@
 
 #include "libft.h"
 
-
 // #include <stdio.h>
 
 int	ft_findy(const void *s2, int c, size_t n)
 {
-	unsigned const char *s_two;
-	unsigned char baite;
-	size_t i;
+	unsigned const char	*s_two;
+	unsigned char		baite;
+	size_t				i;
 
 	i = 0;
 	baite = (unsigned char)c;
@@ -39,11 +38,10 @@ int	ft_findy(const void *s2, int c, size_t n)
 
 void	*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 {
-	unsigned char baite;
-	unsigned char *s_one;
-	unsigned const char *s_two;
-
-	int i;
+	unsigned char		baite;
+	unsigned char		*s_one;
+	unsigned const char	*s_two;
+	int					i;
 
 	i = 0;
 	s_one = (unsigned char *)s1;
@@ -51,7 +49,6 @@ void	*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 	baite = (unsigned char)c;
 	if (!findy(s2, c, n))
 		return (s_one = NULL);
-
 	while (s_two[i] != baite && n > 0)
 	{
 		*s_one = s_two[i];
@@ -62,11 +59,13 @@ void	*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 	*s_one = 0; // idk if i need to remove that one or not.
 	return (s_one + 1);
 }
+
 /*
 int main (void)
 {
-	unsigned char sone[20];
-	unsigned const char stwo[] = "Hellow";
+	unsigned char		sone[20];
+	unsigned const char	stwo[] = "Hellow";
+
 	printf("Original : %s\n Copied: %s\n", stwo, (char*) ft_memccpy(sone,
 			stwo,'',4));
 	printf("The result is: %s ", sone);

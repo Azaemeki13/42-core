@@ -16,10 +16,9 @@
 // #include <stdio.h>
 #include "libft.h"
 
-
 char	*ft_strrchr(const char *s, int c)
 {
-	char *result;
+	char	*result;
 
 	result = (char *)s;
 	while (*s != '\0')
@@ -35,7 +34,8 @@ char	*ft_strrchr(const char *s, int c)
 /*
 int main (void)
 {
-	const char test[] = "Hello";
+	const char	test[] = "Hello";
+
 	printf("The last occurence of this char e is here: %s",
 		(char*)ft_strrchr(test,'l'));
 }

@@ -15,11 +15,10 @@
 
 #include "libft.h"
 
-
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	const unsigned char *string;
-	size_t i;
+	const unsigned char	*string;
+	size_t				i;
 
 	string = (char *)str;
 	i = 0;
@@ -34,12 +33,16 @@ void	*ft_memchr(const void *str, int c, size_t n)
 /*
 int	main(void)
 {
-	const char *testStr = "Hello, World!";
-	char ch = 'W';
-	size_t n = 13; // Length of the string including null terminator
+	const char	*testStr = "Hello, World!";
+	char		ch;
+	char		*result;
+	char		notFoundCh;
+	const char	*shortStr = "abcde";
 
+	ch = 'W';
+	size_t n = 13; // Length of the string including null terminator
 	// Test 1: Character found
-	char *result = ft_memchr(testStr, ch, n);
+	result = ft_memchr(testStr, ch, n);
 	if (result)
 	{
 		printf("Character '%c' found at position: %ld\n", ch, result
@@ -49,9 +52,8 @@ int	main(void)
 	{
 		printf("Character '%c' not found in the string.\n", ch);
 	}
-
 	// Test 2: Character not found
-	char notFoundCh = 'X';
+	notFoundCh = 'X';
 	result = ft_memchr(testStr, notFoundCh, n);
 	if (result)
 	{
@@ -62,9 +64,7 @@ int	main(void)
 	{
 		printf("Character '%c' not found in the string.\n", notFoundCh);
 	}
-
 	// Test 3: Searching up to a specific number of bytes
-	const char *shortStr = "abcde";
 	result = ft_memchr(shortStr, 'c', 3); // Search within first 3 bytes
 	if (result)
 	{
@@ -75,7 +75,6 @@ int	main(void)
 	{
 		printf("Character 'c' not found within the first 3 bytes.\n");
 	}
-
 	return (0);
 }
 */

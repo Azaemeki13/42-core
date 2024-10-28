@@ -15,7 +15,6 @@
 
 #include "libft.h"
 
-
 /*
 char byone (unsigned int i, char c)
 {
@@ -25,9 +24,9 @@ char byone (unsigned int i, char c)
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *final;
-	unsigned int i;
-	int length;
+	char			*final;
+	unsigned int	i;
+	int				length;
 
 	if (!s || !f)
 		return (NULL);
@@ -47,8 +46,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 /*
 int main (void)
 {
-	char *test = "abcde";
-	char *test1 = ft_strmapi(test,byone);
+	char	*test;
+	char	*test1;
+
+	test = "abcde";
+	test1 = ft_strmapi(test,byone);
 	if (test1)
 	{
 		printf("All went up by one : %s\n", test1);

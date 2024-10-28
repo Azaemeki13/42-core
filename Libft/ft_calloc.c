@@ -15,27 +15,27 @@
 
 #include "libft.h"
 
-
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
-	void *final;
-	size_t totalSize;
+	void	*final;
+	size_t	total_size;
 
-	totalSize = elementCount * elementSize;
-	final = malloc(totalSize);
+	total_size = elementCount * elementSize;
+	final = malloc(total_size);
 	if (final == NULL)
 		return (NULL);
-	ft_memset(final, 0, totalSize);
+	ft_memset(final, 0, total_size);
 	return (final);
 }
 /*
 int	main(void)
 {
-	char *test = (char*)ft_calloc(5, sizeof(char));
+	char	*test;
+
+	test = (char*)ft_calloc(5, sizeof(char));
 	test ="abcd";
 	printf("Test variable contains: %s", test);
 	test = (char*)ft_calloc(5, sizeof(char));
 	printf("Everything is set to 0 !: %s", test);
-
 }
 */

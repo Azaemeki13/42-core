@@ -15,10 +15,9 @@
 
 #include "libft.h"
 
-
 char	*ft_strncpy(char *destination, const char *source, size_t num)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (destination == NULL)

@@ -16,13 +16,12 @@
 #include "libft.h"
 #include <stdio.h>
 
-
 int	ft_atoi(const char *nptr)
 {
-	int i;
-	int f;
-	int current;
-	int final;
+	int	i;
+	int	f;
+	int	current;
+	int	final;
 
 	final = 0;
 	i = 0;

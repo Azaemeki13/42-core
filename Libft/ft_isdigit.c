@@ -17,7 +17,7 @@
 
 int	ft_isdigit(int argument1)
 {
-	char compare;
+	char	compare;
 
 	compare = (char)argument1;
 	if ((compare < '0' || compare > '9'))

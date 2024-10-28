@@ -15,11 +15,10 @@
 
 #include "libft.h"
 
-
 char	*ft_strdup(const char *src)
 {
-	char *dest;
-	int i;
+	char	*dest;
+	int		i;
 
 	dest = malloc(sizeof(src));
 	while (src[i] != '\0')
@@ -32,8 +31,9 @@ char	*ft_strdup(const char *src)
 /*
 int main (void)
 {
-	char test1[] = " Mon p'tit test";
-	char *test2;
+	char	test1[] = " Mon p'tit test";
+	char	*test2;
+
 	test2 = ft_strdup(test1);
 	printf("Vous voyez le résultat de '%s'", test2);
 }

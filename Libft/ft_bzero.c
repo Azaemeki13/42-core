@@ -15,11 +15,10 @@
 
 #include "libft.h"
 
-
 void	ft_bzero(void *s, size_t n)
 {
-	char *base;
-	size_t i;
+	char	*base;
+	size_t	i;
 
 	i = 0;
 	base = (char *)s;

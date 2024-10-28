@@ -15,8 +15,7 @@
 
 #include "libft.h"
 
-
-int	ft_count_digits(int n);
+int		ft_count_digits(int n);
 
 int	ultimate_converter(int n, long int *num, char *dest)
 {
@@ -56,10 +55,10 @@ void	alloc_cases(int n, char **convert, int *length)
 
 char	*ft_itoa(int n)
 {
-	char *convert;
-	int length;
-	long num;
-	int i;
+	char	*convert;
+	int		length;
+	long	num;
+	int		i;
 
 	num = n;
 	alloc_cases(n, &convert, &length);
@@ -80,10 +79,14 @@ char	*ft_itoa(int n)
 	return (convert);
 }
 
+/*
 int	main(void)
 {
-	int testi = -85642;
-	char *dream;
+	int		testi;
+	char	*dream;
+
+	testi = -85642;
 	dream = ft_itoa(testi);
 	printf("Will it work ? :) %s", dream);
 }
+*/

@@ -17,7 +17,7 @@
 
 int	ft_isalnum(int argument1)
 {
-	char convert;
+	char	convert;
 
 	convert = (char)argument1;
 	if ((convert < 48 || convert > 57) && (convert < 65 || convert > 90)

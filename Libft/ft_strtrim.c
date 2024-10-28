@@ -15,10 +15,9 @@
 
 #include "libft.h"
 
-
 char	*ft_strncpy(char *destination, const char *source, size_t num)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (destination == NULL)
@@ -49,10 +48,10 @@ int	ft_isin(char c, const char *set)
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t start;
-	size_t end;
-	size_t len;
-	char *trimmed_str;
+	size_t	start;
+	size_t	end;
+	size_t	len;
+	char	*trimmed_str;
 
 	start = 0;
 	if (!s1 || !set)
@@ -73,11 +72,14 @@ char	*ft_strtrim(const char *s1, const char *set)
 	return (trimmed_str);
 }
 
+/*
 int	main(void)
 {
-	char s1[] = "  !!!Hello, World!!!  ";
-	char set[] = " !";
-	char *result = ft_strtrim(s1, set);
+	char	s1[] = "  !!!Hello, World!!!  ";
+	char	set[] = " !";
+	char	*result;
+
+	result = ft_strtrim(s1, set);
 	if (result)
 	{
 		printf("Trimmed string: '%s'\n", result); // Output: 'Hello, World'
@@ -86,3 +88,4 @@ int	main(void)
 	}
 	return (0);
 }
+*/

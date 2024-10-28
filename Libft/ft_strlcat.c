@@ -15,17 +15,16 @@
 
 #include "libft.h"
 
-
 // #include <stdio.h>
 
 size_t	ft_strlen(const char *str);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	int i;
-	size_t dst_len;
-	size_t src_len;
-	size_t remaining;
+	int		i;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	remaining;
 
 	i = 0;
 	dst_len = ft_strlen(dst);
@@ -44,9 +43,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 /*
 int	main(void)
 {
-	char test1[] = "Hello World";
-	char test2[10] = "abc";
-	size_t result = ft_strlcat(test2, test1, sizeof(test2));
+	char	test1[] = "Hello World";
+	char	test2[10] = "abc";
+	size_t	result;
+
+	result = ft_strlcat(test2, test1, sizeof(test2));
 	printf("My first append: %s\n", test2);
 	printf("Is the result correct ? : %zu\n", result);
 	return (0);
