@@ -15,7 +15,7 @@
 
 #include "libft.h"
 
-static char	*ft_dup_word(const char **s, char c)
+char	*ft_dup_word(const char **s, char c)
 {
 	const char	*start;
 	size_t		len;

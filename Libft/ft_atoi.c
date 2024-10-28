@@ -14,7 +14,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+int	ft_isspace(int c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r')
+		return (1);
+	return (0);
+}
+
+void	ft_right_place(int *i, const char *nptr, int *f)
+{
+	while (ft_isspace(nptr[*i]))
+		(*i)++;
+	if (nptr[*i] == '+' || nptr[*i] == '-')
+	{
+		if (nptr[*i] == '-')
+			*f = -1;
+		(*i)++;
+	}
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -26,36 +45,12 @@ int	ft_atoi(const char *nptr)
 	final = 0;
 	i = 0;
 	f = 1;
-	while (nptr[i] != 0)
+	ft_right_place(&i, nptr, &f);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		while (ft_isspace(nptr[i]))
-			i++;
-		while (nptr[i] == '+' || nptr[i] == '-')
-		{
-			if (nptr[i] == '-')
-				f = -1;
-			i++;
-		}
-		while (nptr[i] >= '0' && nptr[i] <= '9')
-		{
-			current = nptr[i] - '0';
-			final = final * 10 + current;
-			i++;
-		}
-		while (nptr[i] < '0' || nptr[i] > '9')
-			return (final * f);
+		current = nptr[i] - '0';
+		final = final * 10 + current;
+		i++;
 	}
 	return (final * f);
 }
-
-// to encapsulate
-/*
-int main (void)
-{
-	char	test[] = "qsqsqsqs-++-+-++12345qsqs";
-	int		i;
-
-	i = ft_atoi(test);
-	printf("The result is: %d ", i);
-}
-*/

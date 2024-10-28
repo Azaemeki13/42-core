@@ -56,7 +56,7 @@ void	*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 		i++;
 		n--;
 	}
-	*s_one = 0; // idk if i need to remove that one or not.
+	*s_one = 0;
 	return (s_one + 1);
 }
 
