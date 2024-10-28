@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 typedef long unsigned int size_t;
 #define NULL ((void *)0)
 
@@ -37,6 +38,10 @@ int ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 void *ft_memcpy(void *destination, const void *source, size_t num);
 void *ft_memmove(void *dest, const void *src, size_t n);
 void *ft_memset(void *ptr, int value, size_t num);
+void ft_putchar_fd(char c, int fd);
+void ft_putendl_fd(char *s, int fd);
+void ft_putnbr_fd(int n, int fd);
+void ft_putstr_fd(char *s, int fd);
 int ft_pwr(int i, int n);
 char *ft_substr(char const *s, unsigned int start, size_t len);
 char *ft_strchr(const char *s, int c);
@@ -336,6 +341,33 @@ void *ft_memset(void *ptr, int value, size_t num)
         i++;
     }
     return ptr;
+}
+
+void ft_putchar_fd(char c, int fd)
+{
+    write (fd,&c,1);
+}
+
+void ft_putendl_fd(char *s, int fd)
+{
+    ft_putstr_fd(s,fd);
+    ft_putchar_fd('\n',fd);
+}
+
+void ft_putstr_fd(char *s, int fd)
+{
+    while (*s)
+    {
+        ft_putchar_fd(*s,fd);
+        s++;
+    }
+}
+
+void ft_putnbr_fd(int n, int fd)
+{
+    char *convert;
+    convert = ft_itoa(n);
+    ft_putstr_fd(convert, fd);
 }
 
 int ft_pwr(int i, int n)

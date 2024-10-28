@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+      
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2024/09/23 11:04:59 by marvin            #+#    #+#             */
 /*   Updated: 2024/10/25 11:24:44 by cauffret         ###   ########.fr       */

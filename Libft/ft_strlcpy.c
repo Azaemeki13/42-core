@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+      
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2024/10/22 12:15:07 by marvin            #+#    #+#             */
 /*   Updated: 2024/10/25 11:25:29 by cauffret         ###   ########.fr       */

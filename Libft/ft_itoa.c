@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+      
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2024/10/25 11:34:02 by cauffret          #+#    #+#             */
 /*   Updated: 2024/10/25 14:46:01 by cauffret         ###   ########.fr       */

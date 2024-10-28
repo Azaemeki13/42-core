@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+      
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2024/10/23 18:19:34 by marvin            #+#    #+#             */
 /*   Updated: 2024/10/25 11:27:57 by cauffret         ###   ########.fr       */
