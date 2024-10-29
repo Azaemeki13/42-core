@@ -16,9 +16,10 @@
 // #include <stdio.h>
 #include "libft.h"
 
+
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*result;
+	char *result;
 
 	result = (char *)s;
 	while (*s != '\0')

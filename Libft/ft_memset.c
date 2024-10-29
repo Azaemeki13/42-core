@@ -15,12 +15,13 @@
 
 #include "libft.h"
 
+
 // #include <stdio.h>
 
 void	*ft_memset(void *ptr, int value, size_t num)
 {
-	char	*base;
-	int		i;
+	char *base;
+	size_t i;
 
 	i = 0;
 	base = (char *)ptr;

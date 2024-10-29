@@ -16,7 +16,7 @@
 // #include <stdio.h>
 int	ft_isprint(int argument1)
 {
-	char	convert;
+	char convert;
 
 	convert = (char)argument1;
 	if ((convert < 33 || convert > 126))

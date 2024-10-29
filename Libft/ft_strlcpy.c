@@ -15,14 +15,15 @@
 
 #include "libft.h"
 
+
 // #include <stdio.h>
 
 size_t	ft_strlen(const char *str);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 {
-	size_t	i;
-	size_t	a;
+	size_t i;
+	size_t a;
 
 	i = 0;
 	a = ft_strlen(src);

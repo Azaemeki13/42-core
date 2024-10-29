@@ -15,27 +15,8 @@
 
 #include "libft.h"
 
-char	*ft_strncpy(char *destination, const char *source, size_t num)
-{
-	size_t	i;
 
-	i = 0;
-	if (destination == NULL)
-		return (NULL);
-	while (i != num && source[i] != 0)
-	{
-		destination[i] = source[i];
-		i++;
-	}
-	while (i != num)
-	{
-		destination[i] = 0;
-		i++;
-	}
-	return (destination);
-}
-
-int	ft_isin(char c, const char *set)
+static int	ft_isin(char c, const char *set)
 {
 	while (*set)
 	{
@@ -48,10 +29,10 @@ int	ft_isin(char c, const char *set)
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t	start;
-	size_t	end;
-	size_t	len;
-	char	*trimmed_str;
+	size_t start;
+	size_t end;
+	size_t len;
+	char *trimmed_str;
 
 	start = 0;
 	if (!s1 || !set)

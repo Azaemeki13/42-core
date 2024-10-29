@@ -15,6 +15,7 @@
 
 #include "libft.h"
 
+
 /*
 char byone (unsigned int i, char c)
 {
@@ -24,9 +25,9 @@ char byone (unsigned int i, char c)
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*final;
-	unsigned int	i;
-	int				length;
+	char *final;
+	unsigned int i;
+	int length;
 
 	if (!s || !f)
 		return (NULL);

@@ -15,10 +15,11 @@
 
 #include "libft.h"
 
+
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
-	void	*final;
-	size_t	total_size;
+	void *final;
+	size_t total_size;
 
 	total_size = elementCount * elementSize;
 	final = malloc(total_size);

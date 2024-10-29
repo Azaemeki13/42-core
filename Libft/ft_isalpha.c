@@ -17,7 +17,7 @@
 
 int	ft_isalpha(int argument1)
 {
-	char	convert;
+	char convert;
 
 	convert = (char)argument1;
 	if ((convert < 'A' || argument1 > 'Z') && (argument1 < 'a'

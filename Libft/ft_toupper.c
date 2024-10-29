@@ -15,9 +15,10 @@
 
 #include <stdio.h>
 
+
 int	ft_toupper(int argument1)
 {
-	char	convert;
+	char convert;
 
 	convert = (char)argument1;
 	if (convert > 'a' || convert < 'z')

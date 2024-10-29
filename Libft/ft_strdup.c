@@ -15,11 +15,13 @@
 
 #include "libft.h"
 
+
 char	*ft_strdup(const char *src)
 {
-	char	*dest;
-	int		i;
+	char *dest;
+	int i;
 
+	i = 0;
 	dest = malloc(sizeof(src));
 	while (src[i] != '\0')
 	{

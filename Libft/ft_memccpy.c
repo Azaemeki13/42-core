@@ -15,16 +15,15 @@
 
 #include "libft.h"
 
+
 // #include <stdio.h>
 
 int	ft_findy(const void *s2, int c, size_t n)
 {
-	unsigned const char	*s_two;
-	unsigned char		baite;
-	size_t				i;
+	unsigned const char *s_two;
+	size_t i;
 
 	i = 0;
-	baite = (unsigned char)c;
 	s_two = (unsigned const char *)s2;
 	while (n != 0)
 	{
@@ -38,16 +37,16 @@ int	ft_findy(const void *s2, int c, size_t n)
 
 void	*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 {
-	unsigned char		baite;
-	unsigned char		*s_one;
-	unsigned const char	*s_two;
-	int					i;
+	unsigned char baite;
+	unsigned char *s_one;
+	unsigned const char *s_two;
+	int i;
 
 	i = 0;
 	s_one = (unsigned char *)s1;
 	s_two = (unsigned const char *)s2;
 	baite = (unsigned char)c;
-	if (!findy(s2, c, n))
+	if (!ft_findy(s2, c, n))
 		return (s_one = NULL);
 	while (s_two[i] != baite && n > 0)
 	{

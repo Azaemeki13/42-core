@@ -15,12 +15,13 @@
 
 #include "libft.h"
 
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			total_size;
-	unsigned int	i;
-	unsigned int	j;
-	char			*final;
+	size_t total_size;
+	unsigned int i;
+	unsigned int j;
+	char *final;
 
 	i = 0;
 	j = 0;

@@ -15,12 +15,13 @@
 
 #include "libft.h"
 
+
 // #include <stdio.h>
 
 size_t	ft_strlen(const char *str)
 {
-	char	*nav;
-	size_t	i;
+	char *nav;
+	size_t i;
 
 	i = 0;
 	nav = (char *)str;
