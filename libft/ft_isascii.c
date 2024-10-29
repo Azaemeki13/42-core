@@ -17,12 +17,9 @@
 
 int	ft_isascii(int argument1)
 {
-	char convert;
-
-	convert = (char)argument1;
-	if (convert > 0 || convert < 127)
-		return (0);
-	return (1);
+	if (argument1 >= 0 && argument1 <= 127)
+		return (1);
+	return (0);
 }
 /*
 int main (void)

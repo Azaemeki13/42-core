@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:00:06 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/10/29 10:42:05 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/29 15:19:39 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stddef.h>
+# include <stdint.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t elementCount, size_t elementSize);
-int		ft_count_digits(int n);
-size_t	ft_count_words(const char *s, char c);
-char	*ft_dup_word(const char **s, char c);
 int		ft_isalnum(int argument1);
 int		ft_isalpha(int argument1);
 int		ft_isascii(int argument1);
 int		ft_isdigit(int argument1);
 int		ft_isprint(int argument1);
 char	*ft_itoa(int n);
-int		ft_findy(const void *s2, int c, size_t n);
 void	*ft_memccpy(void *s1, const void *s2, int c, size_t n);
 void	*ft_memchr(const void *str, int c, size_t n);
 int		ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
@@ -40,8 +39,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-int		ft_pwr(int i, int n);
-void	ft_right_place(int *i, const char *nptr, int *f);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strcpy(char *dest, const char *src);

@@ -15,10 +15,9 @@
 
 #include "libft.h"
 
-
 char	*ft_strndup(const char *s, size_t n)
 {
-	char *dup;
+	char	*dup;
 
 	dup = (char *)malloc(n + 1);
 	if (!dup)

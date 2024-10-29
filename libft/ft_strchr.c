@@ -16,10 +16,9 @@
 // #include <stdio.h>
 #include "libft.h"
 
-
 char	*ft_strchr(const char *s, int c)
 {
-	char *result;
+	char	*result;
 
 	result = (char *)s;
 	while (*result != '\0')
@@ -29,7 +28,7 @@ char	*ft_strchr(const char *s, int c)
 		result++;
 	}
 	if (c == '\0')
-		return ((char *)s);
+		return (result);
 	return (NULL);
 }
 /*

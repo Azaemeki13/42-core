@@ -15,10 +15,9 @@
 
 #include "libft.h"
 
-
 void	ft_putnbr_fd(int n, int fd)
 {
-	char *convert;
+	char	*convert;
 
 	convert = ft_itoa(n);
 	ft_putstr_fd(convert, fd);

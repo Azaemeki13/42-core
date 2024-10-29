@@ -15,7 +15,6 @@
 
 #include "libft.h"
 
-
 /*
 void	uptoone(unsigned int i, char* c)
 {
@@ -25,7 +24,7 @@ void	uptoone(unsigned int i, char* c)
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	if (!s || !f)

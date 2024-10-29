@@ -1,30 +1,30 @@
 # Variables
-NAME = libft.a              # Static library name
-SO_NAME = libft.so          # Dynamic library name
-CC = gcc                    # Compiler
-CFLAGS = -Wall -Wextra -Werror -fPIC   # Compiler flags
-SRCS = $(wildcard *.c)      # Automatically find all .c files in the current directory
-OBJS = $(SRCS:.c=.o)        # Corresponding .o files
-INCLUDES = -I./             # Include path
+NAME = libft.a                  # Static library name
+SO_NAME = libft.so              # Dynamic library name
+LIBFT = libft
+CC = gcc                        # Compiler
+CFLAGS = -Wall -Wextra -Werror -fPIC  # Compiler flags
+SRC = $(wildcard *.c)           # Automatically find all .c files in the current directory
+OBJ = $(SRC:.c=.o)              # Corresponding object files derived from .c files
 
-# Default target to build both libraries
+# Default target
 all: $(NAME) $(SO_NAME)
 
 # Rule to build the static library
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 # Rule to build the dynamic library
-$(SO_NAME): $(OBJS)
-	$(CC) $(CFLAGS) -nostartfiles -shared -o $(SO_NAME) $(OBJS)
+$(SO_NAME): $(OBJ)
+	$(CC) -shared -o $(SO_NAME) $(OBJ) -nostartfiles
 
 # Rule to build object files
 %.o: %.c libft.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean up object files
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 
 # Clean up all build files (object files and libraries)
 fclean: clean

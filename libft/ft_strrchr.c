@@ -16,21 +16,20 @@
 // #include <stdio.h>
 #include "libft.h"
 
-
 char	*ft_strrchr(const char *s, int c)
 {
-	char *result;
+	const char	*result;
 
-	result = (char *)s;
-	while (*s != '\0')
+	result = NULL;
+	while (*s)
 	{
 		if (*s == (char)c)
-			result = (char *)s;
+			result = s;
 		s++;
 	}
 	if (c == '\0')
 		return ((char *)s);
-	return (result);
+	return ((char *)result);
 }
 /*
 int main (void)

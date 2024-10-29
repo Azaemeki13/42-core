@@ -15,11 +15,31 @@
 
 #include "libft.h"
 
-
-char	*ft_dup_word(const char **s, char c)
+static size_t	ft_count_words(const char *s, char c)
 {
-	const char *start;
-	size_t len;
+	size_t	count;
+	int		in_word;
+
+	count = 0;
+	in_word = 0;
+	while (*s)
+	{
+		if (*s != c && in_word == 0)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
+	}
+	return (count);
+}
+
+static char	*ft_dup_word(const char **s, char c)
+{
+	const char	*start;
+	size_t		len;
 
 	while (**s == c)
 		(*s)++;
@@ -32,9 +52,9 @@ char	*ft_dup_word(const char **s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t num_words;
-	size_t i;
-	char **result;
+	size_t	num_words;
+	size_t	i;
+	char	**result;
 
 	num_words = 0;
 	i = 0;

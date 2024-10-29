@@ -15,7 +15,6 @@
 
 #include "libft.h"
 
-
 static int	ft_isin(char c, const char *set)
 {
 	while (*set)
@@ -29,10 +28,10 @@ static int	ft_isin(char c, const char *set)
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t start;
-	size_t end;
-	size_t len;
-	char *trimmed_str;
+	size_t	start;
+	size_t	end;
+	size_t	len;
+	char	*trimmed_str;
 
 	start = 0;
 	if (!s1 || !set)

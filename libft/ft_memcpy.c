@@ -15,16 +15,17 @@
 
 #include "libft.h"
 
-
 // #include <string.h>
 // #include <stdio.h>
 
 void	*ft_memcpy(void *destination, const void *source, size_t num)
 {
-	size_t i;
-	unsigned char *dest;
-	const unsigned char *src;
+	size_t				i;
+	unsigned char		*dest;
+	const unsigned char	*src;
 
+	if (destination == NULL || source == NULL || num == 0)
+		return (destination);
 	dest = (unsigned char *)destination;
 	src = (const unsigned char *)source;
 	i = 0;

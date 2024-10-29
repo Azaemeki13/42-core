@@ -15,8 +15,24 @@
 
 #include "libft.h"
 
+static int	ft_count_digits(int n)
+{
+	int	count;
 
-int	ft_count_digits(int n);
+	count = 0;
+	if (n == INT_MIN)
+		return (10);
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = (-n);
+	while (n > 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
 
 int	ultimate_converter(int n, long int *num, char *dest)
 {
@@ -56,10 +72,10 @@ void	alloc_cases(int n, char **convert, int *length)
 
 char	*ft_itoa(int n)
 {
-	char *convert;
-	int length;
-	long num;
-	int i;
+	char	*convert;
+	int		length;
+	long	num;
+	int		i;
 
 	num = n;
 	alloc_cases(n, &convert, &length);

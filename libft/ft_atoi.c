@@ -15,7 +15,6 @@
 
 #include "libft.h"
 
-
 static int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
@@ -24,7 +23,7 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-void	ft_right_place(int *i, const char *nptr, int *f)
+static void	ft_right_place(int *i, const char *nptr, int *f)
 {
 	while (ft_isspace(nptr[*i]))
 		(*i)++;
@@ -38,10 +37,10 @@ void	ft_right_place(int *i, const char *nptr, int *f)
 
 int	ft_atoi(const char *nptr)
 {
-	int i;
-	int f;
-	int current;
-	int final;
+	int	i;
+	int	f;
+	int	current;
+	int	final;
 
 	final = 0;
 	i = 0;

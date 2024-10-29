@@ -17,12 +17,9 @@
 
 int	ft_tolower(int argument1)
 {
-	char convert;
-
-	convert = (char)argument1;
-	if (convert > 'A' || convert < 'Z')
-		return (convert += 32);
-	return (0);
+	if (argument1 >= 'A' && argument1 <= 'Z')
+		return (argument1 += 32);
+	return (argument1);
 }
 /*
 int	main(void)
