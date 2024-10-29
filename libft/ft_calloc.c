@@ -21,6 +21,8 @@ void	*ft_calloc(size_t elementCount, size_t elementSize)
 	size_t	total_size;
 
 	total_size = elementCount * elementSize;
+	if (elementCount != 0 && SIZE_MAX / elementCount < elementSize)
+		return (NULL);
 	final = malloc(total_size);
 	if (final == NULL)
 		return (NULL);
