@@ -34,7 +34,7 @@ static int	ft_count_digits(int n)
 	return (count);
 }
 
-int	ultimate_converter(int n, long int *num, char *dest)
+static int	ultimate_converter(int n, long int *num, char *dest)
 {
 	if (n == 0)
 	{
@@ -51,7 +51,7 @@ int	ultimate_converter(int n, long int *num, char *dest)
 	return (0);
 }
 
-void	alloc_cases(int n, char **convert, int *length)
+static void	alloc_cases(int n, char **convert, int *length)
 {
 	if (n < 0)
 	{
