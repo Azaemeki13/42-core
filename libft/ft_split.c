@@ -15,6 +15,38 @@
 
 #include "libft.h"
 
+static char	*ft_strncpy(char *destination, const char *source, size_t num)
+{
+	size_t	i;
+
+	i = 0;
+	if (destination == NULL)
+		return (NULL);
+	while (i != num && source[i] != 0)
+	{
+		destination[i] = source[i];
+		i++;
+	}
+	while (i != num)
+	{
+		destination[i] = 0;
+		i++;
+	}
+	return (destination);
+}
+
+static char	*ft_strndup(const char *s, size_t n)
+{
+	char	*dup;
+
+	dup = (char *)malloc(n + 1);
+	if (!dup)
+		return (NULL);
+	ft_strncpy(dup, s, n);
+	dup[n] = '\0';
+	return (dup);
+}
+
 static size_t	ft_count_words(const char *s, char c)
 {
 	size_t	count;

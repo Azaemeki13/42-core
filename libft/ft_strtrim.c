@@ -15,6 +15,26 @@
 
 #include "libft.h"
 
+static char	*ft_strncpy(char *destination, const char *source, size_t num)
+{
+	size_t	i;
+
+	i = 0;
+	if (destination == NULL)
+		return (NULL);
+	while (i != num && source[i] != 0)
+	{
+		destination[i] = source[i];
+		i++;
+	}
+	while (i != num)
+	{
+		destination[i] = 0;
+		i++;
+	}
+	return (destination);
+}
+
 static int	ft_isin(char c, const char *set)
 {
 	while (*set)
