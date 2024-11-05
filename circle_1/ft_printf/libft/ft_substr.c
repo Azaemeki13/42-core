@@ -18,33 +18,20 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substring;
-	size_t	i;
-	size_t s_len;
+	size_t	s_len;
 
-	i = 0;
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-	{
-		substring = malloc(sizeof(char) * 1);
-		if(substring)
-		{
-			substring[i] = '\0';
-		}
-		return (substring);
-	}
-	if (start + len  > s_len)
+		return (ft_strdup(""));
+	if (start + len > s_len)
 		len = s_len - start;
-	substring =(char *) malloc(len + 1);
-	if (substring == NULL)
+	substring = (char *)malloc(len + 1);
+	if (!substring)
 		return (NULL);
-	while (i < len)
-	{
-		substring[i] = s[start + i];
-		i++;
-	}
-	substring[i] = '\0';
+	ft_memcpy(substring, s + start, len);
+	substring[len] = '\0';
 	return (substring);
 }
 /*

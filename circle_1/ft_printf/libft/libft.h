@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:00:06 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/10/29 15:19:39 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/05 14:33:56 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <stddef.h>
 # include <stdint.h>
+# include <stdarg.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
@@ -29,7 +30,6 @@ int		ft_isascii(int argument1);
 int		ft_isdigit(int argument1);
 int		ft_isprint(int argument1);
 char	*ft_itoa(int n);
-void	*ft_memccpy(void *s1, const void *s2, int c, size_t n);
 void	*ft_memchr(const void *str, int c, size_t n);
 int		ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 void	*ft_memcpy(void *destination, const void *source, size_t num);
@@ -51,8 +51,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n);
 size_t	ft_strlen(const char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *str1, const char *str2, size_t num);
-char	*ft_strndup(const char *s, size_t n);
-char	*ft_strncpy(char *destination, const char *source, size_t num);
 char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_strrchr(const char *s, int c);

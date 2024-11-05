@@ -2,112 +2,58 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2024/10/25 11:34:02 by cauffret          #+#    #+#             */
-/*   Updated: 2024/10/25 14:46:01 by cauffret         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/30 22:10:59 by cauffret          #+#    #+#             */
+/*   Updated: 2024/10/31 01:57:01 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_digits(int n)
+static int	ft_lengthy(int n)
 {
-	int	count;
+	int	i;
 
-	count = 0;
+	i = 0;
 	if (n == INT_MIN)
 		return (10);
 	if (n == 0)
 		return (1);
 	if (n < 0)
-		n = (-n);
+		n = -n;
 	while (n > 0)
 	{
-		n /= 10;
-		count++;
+		n = n / 10;
+		i++;
 	}
-	return (count);
-}
-
-static int	ultimate_converter(int n, long int *num, char *dest)
-{
-	if (n == 0)
-	{
-		dest[0] = '0';
-		dest[1] = '\0';
-		return (1);
-	}
-	if (n < 0)
-	{
-		dest[0] = '-';
-		if (n < 0) 
-		{
-    		num = -num;
-		}
-		*num = -(*num);
-		return (0);
-	}
-	return (0);
-}
-
-static void	alloc_cases(int n, char **convert, int *length)
-{
-	if (n < 0)
-	{
-		*length = ft_count_digits(n) + 1;
-		*convert = (char *)malloc((*length + 1) * sizeof(char));
-	}
-	else if (n > 0)
-	{
-		*length = ft_count_digits(n);
-		*convert = (char *)malloc((*length + 1) * sizeof(char));
-	}
-	else
-	{
-		*length = 1;
-		*convert = (char *)malloc((*length + 1) * sizeof(char));
-	}
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*convert;
-	int		length;
-	long	num;
-	int		i;
+	int		size;
+	long	nb;
+	char	*dest;
 
-	num = n;
-	alloc_cases(n, &convert, &length);
-	i = length - 1;
-	if (!convert)
-		return (convert = NULL);
-	if (ultimate_converter(n, &num, convert))
-		return (convert);
-	convert[length] = '\0';
-	while (i >= 0 && num > 0)
+	nb = n;
+	size = (ft_lengthy(n) + (n < 0));
+	dest = (char *)malloc(sizeof(char) * (size + 1));
+	if (dest == NULL)
+		return (NULL);
+	if (n < 0)
 	{
-		if (convert[i] == '-')
-			break ;
-		convert[i] = (num % 10) + '0';
-		num /= 10;
-		i--;
+		dest[0] = '-';
+		nb = -nb;
 	}
-	return (convert);
+	dest[size] = '\0';
+	size--;
+	while (size >= (n < 0))
+	{
+		dest[size] = (nb % 10) + 48;
+		nb = nb / 10;
+		size--;
+	}
+	return (dest);
 }
-
-/*
-int	main(void)
-{
-	int		testi;
-	char	*dream;
-
-	testi = -85642;
-	dream = ft_itoa(testi);
-	printf("Will it work ? :) %s", dream);
-}
-*/
