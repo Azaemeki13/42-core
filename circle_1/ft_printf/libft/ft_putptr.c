@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_parser.c                                 :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 11:39:42 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 11:56:36 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/06 14:19:01 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/06 14:35:18 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf_parser( char format, va_list args)
+void ft_putptr_fd(uintptr_t ptr, int fd)
 {
-	int	d;
-
-	d = 0;
-	if (format == 'd' || format == 'i')
-		d += ft_printf_d(args);
-    if (format == 'c')
-        d += ft_printf_char(args);
-    if (format == 's')
+    if (ptr >= 16)
     {
-        d += ft_printf_s(args);
+        ft_putptr_fd((ptr / 16), fd);
+        ft_putchar_fd("0123456789abcdef"[ptr % 16], 1);
     }
-	return (d);
+}
+
+int main(void)
+{
+    uintptr_t p;
+    ft_putptr_fd(p, 1);
 }

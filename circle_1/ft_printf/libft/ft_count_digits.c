@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_parser.c                                 :+:      :+:    :+:   */
+/*   ft_count_digits.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 11:39:42 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 11:56:36 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/06 11:00:53 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/06 14:30:00 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf_parser( char format, va_list args)
+int	ft_count_digits(int n)
 {
-	int	d;
+	int	i;
 
-	d = 0;
-	if (format == 'd' || format == 'i')
-		d += ft_printf_d(args);
-    if (format == 'c')
-        d += ft_printf_char(args);
-    if (format == 's')
-    {
-        d += ft_printf_s(args);
-    }
-	return (d);
+	i = 0;
+	if (n == INT_MIN)
+		return (10);
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = -n;
+	while (n > 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
 }
+

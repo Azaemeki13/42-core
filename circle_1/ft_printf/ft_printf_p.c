@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_parser.c                                 :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 11:39:42 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 11:56:36 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/06 12:30:44 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/06 14:34:25 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf_parser( char format, va_list args)
+int ft_printf_p(va_list args)
 {
-	int	d;
-
-	d = 0;
-	if (format == 'd' || format == 'i')
-		d += ft_printf_d(args);
-    if (format == 'c')
-        d += ft_printf_char(args);
-    if (format == 's')
-    {
-        d += ft_printf_s(args);
-    }
-	return (d);
+    uintptr_t p;
+    
+    p = (va_arg (args, void *));
+    ft_putptr_fd(p, 1);
 }
