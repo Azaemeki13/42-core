@@ -2,7 +2,15 @@
 NAME = ft_printf
 
 # Source files for ft_printf, parser, and related functions
-SRCS = ft_printf.c ft_printf_parser.c ft_printf_d.c ft_printf_char.c ft_printf_s.c
+# BEGIN SRC
+SRC = \
+    ft_printf.c \
+    ft_printf_char.c \
+    ft_printf_d.c \
+    ft_printf_p.c \
+    ft_printf_parser.c \
+    ft_printf_s.c
+# END SRC (line number: 8)
 
 # Object files generated from source files
 OBJS = $(SRCS:.c=.o)
