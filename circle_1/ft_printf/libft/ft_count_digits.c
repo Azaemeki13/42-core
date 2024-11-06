@@ -30,4 +30,3 @@ int	ft_count_digits(int n)
 	}
 	return (i);
 }
-

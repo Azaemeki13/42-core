@@ -8,8 +8,8 @@ automakefile allows you to automatically add and format the .c file on your make
 SRC = \
 # END SRC (line number: )
 
-format.sh allows you to automatically format using c_formatter_42 given that you installed it correctly. 
+autonormy allows you to automatically format using c_formatter_42 given that you installed it correctly. 
 
-For both of them, you can just type nameofthescript.sh .                (. if you want whole folder , classic command) 
+For both of them, you can just type nameofthescript.sh or autonormy  .                (. if you want whole folder , classic command, otherwise for autonormy , if you just wnt one file, autonormy nameofthefile.filxtension) 
 Cheers
 

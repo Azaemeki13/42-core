@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int ft_printf_p(va_list args)
+int	ft_printf_p(va_list args)
 {
-    int d;
-    d = 0;
-    uintptr_t p;
-    
-    p = (va_arg (args, void *));
-    d = ft_putptr_fd(p, 1);
+	int d;
+	d = 0;
+	uintptr_t p;
+
+	p = (va_arg(args, void *));
+	d = ft_putptr_fd(p, 1);
 }

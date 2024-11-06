@@ -6,25 +6,25 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:00:06 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/11/06 15:13:31 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/06 15:32:56 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
+# include <stdarg.h>
+# include <stddef.h>
+# include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
-# include <stddef.h>
-# include <stdint.h>
-# include <stdarg.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t elementCount, size_t elementSize);
-int	ft_count_digits(int n);
+int		ft_count_digits(int n);
 int		ft_isalnum(int argument1);
 int		ft_isalpha(int argument1);
 int		ft_isascii(int argument1);
@@ -39,14 +39,14 @@ void	*ft_memset(void *ptr, int value, size_t num);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int ft_putptr_fd(uintptr_t ptr, int fd);
+int		ft_putptr_fd(uintptr_t ptr, int fd);
 void	ft_putstr_fd(char *s, int fd);
-int ft_printf( const char *format, ...);
-int	ft_printf_char (va_list args);
-int	ft_printf_d(va_list args);
-int ft_printf_p(va_list args);
-int	ft_printf_parser( char format, va_list args);
-int	ft_printf_s (va_list args);
+int		ft_printf(const char *format, ...);
+int		ft_printf_char(va_list args);
+int		ft_printf_d(va_list args);
+int		ft_printf_p(va_list args);
+int		ft_printf_parser(char format, va_list args);
+int		ft_printf_s(va_list args);
 
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

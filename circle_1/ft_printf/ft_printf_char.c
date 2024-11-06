@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-int	ft_printf_char (va_list args)
+int	ft_printf_char(va_list args)
 {
-    char c;
+	char	c;
 
-    c = va_arg (args, int);
-    ft_putchar_fd(c, 1);
-    return(1);
+	c = va_arg(args, int);
+	ft_putchar_fd(c, 1);
+	return (1);
 }

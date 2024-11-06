@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-int	ft_printf_s (va_list args)
+int	ft_printf_s(va_list args)
 {
-    char *str;
+	char *str;
 
-    str = va_arg(args,char*);
-    if (str == NULL)
-        str ="(null)";
-    ft_putstr_fd(str, 1);
-    return(ft_strlen(str));
+	str = va_arg(args, char *);
+	if (str == NULL)
+		str = "(null)";
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }
