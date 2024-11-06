@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_puthexl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 14:19:01 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 15:53:40 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/06 16:01:38 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/06 16:34:00 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putptr_fd(uintptr_t ptr, int fd)
+int	ft_puthexl_fd(int nbr, int fd)
 {
 	int	count;
 
 	count = 0;
-	if (ptr >= 16)
+	if (nbr >= 16)
 	{
-		count++;
-		ft_putptr_fd((ptr / 16), fd);
-		ft_putchar_fd("0123456789abcdef"[ptr % 16], 1);
+		count += ft_puthexl_fd((nbr / 16), fd);
 	}
+	ft_putchar_fd("0123456789abcdef"[nbr % 16], fd);
+	count++;
 	return (count);
 }

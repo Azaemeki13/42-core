@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:26:42 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 11:45:32 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/06 15:38:07 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_printf_s(va_list args)
 {
-	char *str;
+	char	*str;
 
 	str = va_arg(args, char *);
 	if (str == NULL)

@@ -1,6 +1,7 @@
 NAME = libft.a                  # Static library name
 CC = gcc                        # Compiler
 CFLAGS = -Wall -Wextra -Werror  # Compiler flags
+
 # BEGIN SRC
 SRC = \
     ft_atoi.c \
@@ -20,6 +21,8 @@ SRC = \
     ft_memset.c \
     ft_putchar_fd.c \
     ft_putendl_fd.c \
+    ft_puthexl_fd.c \
+    ft_puthexu_fd.c \
     ft_putnbr_fd.c \
     ft_putptr.c \
     ft_putstr_fd.c \
@@ -39,8 +42,8 @@ SRC = \
     ft_substr.c \
     ft_tolower.c \
     ft_toupper.c
-# END SRC (line number: 38)
-OBJ = $(SRC:.c=.o)              # Corresponding object files derived from .c files
+# END SRC (line number: 40)
+OBJ = $(SRC:.c=.o)
 
 # Rule to build the static library
 $(NAME): $(OBJ)

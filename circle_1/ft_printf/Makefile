@@ -1,27 +1,26 @@
 # Name of the final executable
 NAME = ft_printf
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I ./ -I $(LIBFT_DIR)
 
-# Source files for ft_printf, parser, and related functions
 # BEGIN SRC
 SRC = \
     ft_printf.c \
+    ft_printf_X.c \
     ft_printf_char.c \
     ft_printf_d.c \
     ft_printf_p.c \
     ft_printf_parser.c \
-    ft_printf_s.c
-# END SRC (line number: 8)
+    ft_printf_s.c \
+    ft_printf_x.c
+# END SRC (line number: 10)
 
 # Object files generated from source files
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRC:.c=.o)
 
 # Directory for libft
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
-
-# Compiler and compilation flags
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I ./ -I $(LIBFT_DIR)
 
 # Default rule to build everything
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:39:42 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 15:14:00 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/06 16:35:37 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,15 @@ int	ft_printf_parser(char format, va_list args)
 	if (format == 'p')
 		d += ft_printf_p(args);
 	if (format == 's')
-	{
 		d += ft_printf_s(args);
+	if (format == 'x')
+		d += ft_printf_x(args);
+	if (format == 'X')
+		d += ft_printf_xu(args);
+	if (format == '%')
+	{
+		d++;
+		ft_putchar_fd('%', 1);
 	}
 	return (d);
 }

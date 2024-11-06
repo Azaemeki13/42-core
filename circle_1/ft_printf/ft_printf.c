@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:24:41 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 15:15:45 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/06 16:19:24 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	char *c = "hello there";
-	int b;
-	b = ft_printf(" Memory Adress :%p \n Normal message; %s \n ", c, c);
-	ft_printf(" and this is my count : %i \n ", b);
+	int	a;
+	int	b;
+
+	a = 48879;
+	b = 0;
+	b = ft_printf("Memory Adress :%x \n Normal message; %X \n ", a, a);
+	ft_printf("and this is my count : %i \n ", b);
 }

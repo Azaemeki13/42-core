@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:00:06 by azaemeki13        #+#    #+#             */
-/*   Updated: 2024/11/06 15:32:56 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/06 16:35:12 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *ptr, int value, size_t num);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
+int		ft_puthexl_fd(int nbr, int fd);
+int		ft_puthexu_fd(int nbr, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_putptr_fd(uintptr_t ptr, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -47,7 +49,8 @@ int		ft_printf_d(va_list args);
 int		ft_printf_p(va_list args);
 int		ft_printf_parser(char format, va_list args);
 int		ft_printf_s(va_list args);
-
+int		ft_printf_x(va_list args);
+int		ft_printf_xu(va_list args);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
