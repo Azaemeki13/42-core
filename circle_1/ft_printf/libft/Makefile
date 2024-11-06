@@ -38,9 +38,8 @@ SRC = \
     ft_strtrim.c \
     ft_substr.c \
     ft_tolower.c \
-    ft_toupper.c \
-    ft_zzzzzzzzx.c
-# END SRC (line number: 39)
+    ft_toupper.c
+# END SRC (line number: 38)
 OBJ = $(SRC:.c=.o)              # Corresponding object files derived from .c files
 
 # Rule to build the static library
