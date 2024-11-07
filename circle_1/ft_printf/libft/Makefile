@@ -8,6 +8,7 @@ SRC = \
     ft_bzero.c \
     ft_calloc.c \
     ft_count_digits.c \
+    ft_count_digitsu.c \
     ft_isalnum.c \
     ft_isalpha.c \
     ft_isascii.c \
@@ -21,10 +22,8 @@ SRC = \
     ft_memset.c \
     ft_putchar_fd.c \
     ft_putendl_fd.c \
-    ft_puthexl_fd.c \
-    ft_puthexu_fd.c \
     ft_putnbr_fd.c \
-    ft_putptr.c \
+    ft_putnbr_unsigned_fd.c \
     ft_putstr_fd.c \
     ft_split.c \
     ft_strchr.c \
@@ -42,7 +41,7 @@ SRC = \
     ft_substr.c \
     ft_tolower.c \
     ft_toupper.c
-# END SRC (line number: 40)
+# END SRC (line number: 39)
 OBJ = $(SRC:.c=.o)
 
 # Rule to build the static library

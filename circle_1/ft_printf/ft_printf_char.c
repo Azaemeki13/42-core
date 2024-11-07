@@ -6,10 +6,11 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:18:03 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 12:00:56 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:14:20 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
 int	ft_printf_char(va_list args)

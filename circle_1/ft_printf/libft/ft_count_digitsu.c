@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_count_digitsu.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 14:19:01 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 15:53:40 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/07 11:36:35 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/07 12:21:16 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putptr_fd(uintptr_t ptr, int fd)
+unsigned int	ft_count_digitsu(unsigned int n)
 {
-	int	count;
+	unsigned int	i;
 
-	count = 0;
-	if (ptr >= 16)
+	i = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
 	{
-		count++;
-		ft_putptr_fd((ptr / 16), fd);
-		ft_putchar_fd("0123456789abcdef"[ptr % 16], 1);
+		n /= 10;
+		i++;
 	}
-	return (count);
+	return (i);
 }

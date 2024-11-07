@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_X.c                                      :+:      :+:    :+:   */
+/*   ft_printf_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 16:16:33 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/07 12:08:46 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/07 11:37:22 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/07 12:26:27 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	ft_printf_xu(va_list args)
+unsigned int	ft_printf_u(va_list args)
 {
-	int	count;
+	unsigned int	n;
 
-	count = ft_puthexu_fd(va_arg(args, unsigned int), 1);
-	return (count);
+	n = va_arg(args, unsigned int);
+	ft_putnbr_unsigned_fd(n, 1);
+	return (ft_count_digitsu(n));
 }

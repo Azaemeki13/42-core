@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexu_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned_fd.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 16:07:37 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 16:33:58 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/07 12:24:19 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/07 12:25:35 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_puthexu_fd(int nbr, int fd)
+void	ft_putnbr_unsigned_fd(unsigned int nb, int fd)
 {
-	int	count;
-
-	count = 0;
-	if (nbr >= 16)
+	if (nb > 9)
 	{
-		count += ft_puthexu_fd((nbr / 16), fd);
+		ft_putnbr_unsigned_fd((nb / 10), fd);
 	}
-	ft_putchar_fd("0123456789ABCDEF"[nbr % 16], 1);
-	count++;
-	return (count);
+	ft_putchar_fd((nb % 10 + '0'), fd);
 }

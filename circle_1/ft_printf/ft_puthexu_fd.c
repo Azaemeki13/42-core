@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_puthexu_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 16:01:38 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/06 16:34:00 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/06 16:07:37 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/07 12:12:06 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_puthexl_fd(int nbr, int fd)
+int	ft_puthexu_fd(unsigned int nbr, int fd)
 {
-	int	count;
+	unsigned int	count;
 
 	count = 0;
 	if (nbr >= 16)
 	{
-		count += ft_puthexl_fd((nbr / 16), fd);
+		count += ft_puthexu_fd((nbr / 16), fd);
 	}
-	ft_putchar_fd("0123456789abcdef"[nbr % 16], fd);
+	ft_putchar_fd("0123456789ABCDEF"[nbr % 16], 1);
 	count++;
 	return (count);
 }

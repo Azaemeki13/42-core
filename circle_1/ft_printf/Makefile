@@ -1,7 +1,9 @@
-# Name of the final executable
-NAME = ft_printf
+# Name of the final static library
+NAME = libftprintf.a
+
+# Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I ./ -I $(LIBFT_DIR)
+CFLAGS = -Wall -Wextra -Werror
 
 # BEGIN SRC
 SRC = \
@@ -12,40 +14,50 @@ SRC = \
     ft_printf_p.c \
     ft_printf_parser.c \
     ft_printf_s.c \
-    ft_printf_x.c
-# END SRC (line number: 10)
+    ft_printf_u.c \
+    ft_printf_x.c \
+    ft_puthexl_fd.c \
+    ft_puthexu_fd.c \
+    ft_putptr_fd.c
+# END SRC (line number: 14)
 
-# Object files generated from source files
-OBJS = $(SRC:.c=.o)
+# Object files generated from ft_printf source files
+FT_PRINTF_OBJS = $(SRC:.c=.o)
 
 # Directory for libft
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# Default rule to build everything
+# Include directory for ft_printf and libft
+INCLUDES = -I ./ -I $(LIBFT_DIR)
+
+# Default rule to build everything (static library)
 all: $(NAME)
 
-# Build the final executable
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) -L $(LIBFT_DIR) -lft -o $(NAME)
+# Build the final static library
+$(NAME): $(FT_PRINTF_OBJS) $(LIBFT)
+	cp $(LIBFT) $(NAME)           # Copy libft.a to libftprintf.a
+	ar rcs $(NAME) $(FT_PRINTF_OBJS) # Add ft_printf object files to libftprintf.a
 
 # Build the libft library
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-# Rule to compile object files
+# Rule to compile ft_printf object files
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 # Clean up object files
 clean:
-	rm -f $(OBJS)
+	rm -f $(FT_PRINTF_OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
-# Clean everything, including the final executable
+# Clean everything, including the final static library
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 # Rebuild everything from scratch
 re: fclean all
+
+.PHONY: all clean fclean re
