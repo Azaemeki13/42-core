@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 13:37:17 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/10 13:41:39 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/10 15:09:05 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+#define BUFFER_SIZE 1024
 char *get_next_line(int fd);
 
 #endif
