@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 13:37:17 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/10 15:09:05 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/11/13 12:05:51 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,14 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h> 
+# include <stdio.h>
+# include <string.h>
 
-#define BUFFER_SIZE 1024
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 char *get_next_line(int fd);
+char* big_storage(char *buffer, int *i);
 
 #endif
