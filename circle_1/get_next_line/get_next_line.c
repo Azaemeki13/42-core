@@ -5,87 +5,105 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 13:44:39 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/13 12:11:25 by ituriel          ###   ########.fr       */
+/*   Created: 2024/11/21 11:44:22 by ituriel           #+#    #+#             */
+/*   Updated: 2024/11/21 14:40:17 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *get_next_line(int fd)
+void buffer_to_stash(t_list **head, int fd)
 {
-    static char *buffer = NULL;
-    static int i = 0;
-    static int initialized = 0;
-    char *input_buffer;
-    ssize_t bytes_read;
-    int j = 0;
-
-    // Initialize buffer on first call
-    if (!initialized) {
-        buffer = malloc(BUFFER_SIZE * sizeof(char));
+    int bytes_read;
+    char *buffer;
+    
+    while(!newline_found(*head))
+    {
+        buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
         if (!buffer)
-            return NULL;
-        initialized = 1;
+            return;
+        bytes_read = read(fd, buffer, BUFFER_SIZE);
+        if (!bytes_read)
+        {
+            free(buffer);
+            return;
+        }
+        buffer[bytes_read] = '\0';
+        append_node(head,buffer);
     }
+}
 
-    // Allocate input_buffer to hold up to BUFFER_SIZE characters + null terminator
-    input_buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
-    if (!input_buffer)
-        return NULL;
+void	append_node(t_list **head, char *buffer)
+{
+	t_list	*new_node;
+    t_list *head_node;
+    
+    head_node = head_pos(*head);
+    new_node = malloc(sizeof(t_list));
+    if (!new_node)
+        return;
+    if (head_node == NULL)
+        *head = new_node;
+    else
+    {
+        head_node->next = new_node;
+    }
+    new_node->str_buf = buffer;
+    new_node->next = NULL;
+}
 
-    while (1) {
-        if (i == 0 || i >= BUFFER_SIZE) {
-            // Read new data if buffer is empty or all data has been processed
-            bytes_read = read(fd, buffer, BUFFER_SIZE);
-            if (bytes_read <= 0) {
-                free(input_buffer);
-                free(buffer);
-                buffer = NULL;
-                initialized = 0;
-                return NULL;  // End of file or error
+char *rl_creator(t_list *head)
+{
+    int total_length;
+    char *return_line;
+
+    if (head == NULL)
+        return (NULL);
+    total_length = length_to_nl(head);
+    return_line = malloc(sizeof(char) * total_length + 1);
+    if (!return_line)
+        return (NULL);
+    stash_to_line(head,return_line);
+    return (return_line);
+}
+
+void stash_to_line(t_list *head,char *return_line)
+{
+    int i;
+    int j;
+    
+    i = 0;
+    if (head == NULL)
+        return;
+    while (head)
+    {
+        j = 0;
+        while (head->str_buf[j])
+        {
+            if (head->str_buf[j] == '\n')
+            {
+                return_line[i++] = '\n';
+                return_line[i] = '\0';
+                return;
             }
-            i = 0;  // Reset `i` to start of buffer
+            return_line[i++] = head->str_buf[j++];
         }
-
-        // Copy data from buffer to input_buffer until newline or end of buffer
-        while (i < bytes_read && buffer[i] != '\n' && j < BUFFER_SIZE) {
-            input_buffer[j++] = buffer[i++];
-        }
-
-        // Stop if a newline is found or BUFFER_SIZE limit is reached
-        if (i < bytes_read && buffer[i] == '\n' && j < BUFFER_SIZE) {
-            input_buffer[j++] = buffer[i++];  // Add newline to input_buffer
-            break;
-        }
-        
-        if (j == BUFFER_SIZE)  // Stop once BUFFER_SIZE characters are read
-            break;
+        head = head->next;
     }
-
-    input_buffer[j] = '\0';  // Null-terminate the input_buffer
-    return input_buffer;
+    return_line[i] = '\0';
 }
 
-
-
-/*
-
-int main() {
-    int fd = open("test.txt", O_RDONLY); // Open the test file in read-only mode
-    if (fd < 0) {
-        perror("Failed to open file");
-        return 1;
-    }
-
-    char *line;
-    while ((line = get_next_line(fd)) != NULL) {
-        printf("Line: %s", line);  // Print each line
-        free(line);                // Free the line after printing
-    }
-
-    close(fd); // Close the file when done
-    return 0;
+char *get_next_line (int fd)
+{
+    static t_list   *head = NULL;
+    char    *return_line;
+    
+    if (fd < 0 || BUFFER_SIZE <= 0 ||read(fd, &return_line, 0) < 0)
+		return (NULL);
+    buffer_to_stash(&head, fd);
+    if (head == NULL)
+        return (NULL);
+    return_line = rl_creator(head);
+    refresh_list(&head);
+    return (return_line);
 }
-
-*/
