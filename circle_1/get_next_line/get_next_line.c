@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:44:22 by ituriel           #+#    #+#             */
-/*   Updated: 2024/12/12 12:16:05 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/12/12 13:26:02 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	buffer_to_stash(t_list **head, int fd)
 		if (!buffer)
 			return ;
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (!bytes_read)
+		if (bytes_read == 0 || bytes_read == -1)
 		{
 			free(buffer);
 			return ;
@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 	static t_list	*head = NULL;
 	char			*return_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &return_line, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer_to_stash(&head, fd);
 	if (head == NULL)

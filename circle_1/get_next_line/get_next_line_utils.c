@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:44:19 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/21 15:23:14 by ituriel          ###   ########.fr       */
+/*   Updated: 2024/12/12 13:14:48 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int	newline_found(t_list *head)
 {
 	int	i;
 
+	i = 1;
 	if (head == NULL)
 	{
 		return (0);
