@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:44:22 by ituriel           #+#    #+#             */
-/*   Updated: 2024/11/22 12:59:07 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/12 12:16:05 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	buffer_to_stash(t_list **head, int fd)
 	int		bytes_read;
 	char	*buffer;
 
+	bytes_read = 0;
+	buffer = NULL;
 	while (!newline_found(*head))
 	{
 		buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
