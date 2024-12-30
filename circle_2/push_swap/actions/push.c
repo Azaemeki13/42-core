@@ -6,7 +6,13 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/13 16:59:40 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:59:46 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../ft_push_swap.h"
+
+void push_b(t_list *head_a, t_list *head_b)
+{
+    
+}

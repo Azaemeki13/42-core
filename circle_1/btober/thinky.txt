@@ -1,0 +1,99 @@
+/***********************************************************
+1 - How does a VMachine works ?
+    A VM is a reproduction of a computer's given hardware using
+    a technology called virtualisation. In this process there
+    are two parties. The host and the guest , host is physical 
+    , guest is virtual.
+    A software called Hypervisor is responsible for allocating
+    ressources from the host to guest. 
+
+2 - Why Debian ?
+    Debian is a Linux distribution, meaning I also have Linux 
+    Kernel advantages (portative, open source, security etc..)
+    It's also easy to take in hand when new to admin software.
+    Concerning hardware, it supports lots of CPU architectures.
+    That's important as if you have an OS that only supports
+    one type of instruction, it makes you dependant of one fur-
+    nisher.
+
+3 - What's the difference between Rocky and Debian ? 
+    Debian has good documentation, easier to take in hand
+    Rocky on other hand has extra security and is designed
+    to work 100% bug free with cloud solution RedHat.
+
+4 - What's the difference between Aptitude and APT ? 
+    Aptitude is a higher level package manager, includes
+    fancy functionalities like GUI, resolution proposals
+    displayal of changelogs. 
+    That's because aptitude isn't native to Debian, and 
+    needs to be installed with APT, while APT comes from 
+    the default package.
+
+5 - What's AppArmor ? 
+    It's a kernel security module that is used to protect
+    the system. Using profiles, it can control the res-
+    sources used by apps using different profiles that are 
+    restricted with Mandatory Access Control. 
+    That means each user has clearance level that allows
+    the latter to have mroe or less ressources.
+
+6 - A / D of a strong password policy ? 
+    D : - You can forget it, people may not remember them
+    or be tempted to switch to simpler ones.
+    A : - We're avoiding easy password, making it hard to 
+    bruteforce the way in. Plus 30 days policy, no PW like
+    the previous one makes it easier to prevent social 
+    engineering breaches.
+
+7 - What can you say about implementation ? 
+    To verify this, we can look for pam.d password quality 
+    it should be located in /etc/pam.d it's quite easy to 
+    implement actually, just arguments.
+
+8 - What's a Partition ? How does LVM works ? 
+    You could call a partition when a part of a hard drive
+    is formatted to welcome data in an ordered way.
+    Partition usually have names C: D: on Windows , sda 
+    on Linux. 
+    LVM is a software to install on Linux systems that allows
+    users to easily format and create partitions.
+    In it you can split a physical volume (hard drive)
+    into volume groups that are composed of logical 
+    volumes. 
+    It helps working on different disks having different 
+    physical sources.
+
+9 - What's sudo ? 
+    Remember before when we talked about MAC ? 
+    Sudo uses the same princip. 
+    It's a user with elevated privileges. Requires a sudo
+    password, or a user that's put in sudoers group.
+    Sudo is like an admin on windows, it can install delete
+    and access system files. You can have it temporarly 
+    or permanently on a shell. 
+    You can find the list of sudo-ers in /etc/sudoers.
+    You can also find more in sudo.conf.
+
+10 - What's UFW ? 
+    UFW, UncomplicatedFireWall is a software that help a 
+    user in managing its firewell. A firewall is a manager
+    that is responsible for allowing who can connect where.
+    That is very usefull as it can control who accesses which
+    part of the server. 
+
+11 - What's an SSH ? 
+    SSH or Secure Shell, is a communication protocol. 
+    It encrypts an information that is shared between two
+    parties.
+    Both parties (server and client) exchanges public keys
+    and use private keys to decipher the message. This way
+    unless having both keys, it is almost impossible to read 
+    the sent message. 
+
+12 - What is cron ? 
+    Cron, derivated from Chronos greek titan of the time, is 
+    an automation software that can perform tasks automatically
+    on your computer given time and action arguments.
+    It is for instance used here to launch a script every
+    10 minutes.
+*/**********************************************************

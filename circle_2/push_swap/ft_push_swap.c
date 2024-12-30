@@ -6,21 +6,12 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 16:44:54 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:02:43 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-/*t_list *sort_index(t_list *head)
-{
-    if (head == NULL)
-        return ;
-    while(head->index != 1)
-        head->next;
-    return (head);
-}
-*/
 void  create_node (t_list **head, char *argv)
 {
     /* NOTE : here actually we always go from start of list, may want to be optimised.*/
@@ -45,28 +36,10 @@ void  create_node (t_list **head, char *argv)
     }
 } 
 
-void swap_a (t_list *head)
-{
-    t_list *current_node= NULL;
-    int temp_data;
-
-    if (!head || !head->next)
-        return;
-    temp_data = 0; 
-    current_node = head->next;
-    temp_data = current_node->data;
-    //ft_printf("First pass : Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
-    current_node->data = head->data;
-    //ft_printf("Second pass :Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
-    head->data = temp_data;
-    //ft_printf("Third pass : Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
-    ft_printf("sa\n");
-}
-
 int main (int argc, char **argv)
 {
     static t_list   *stack_a = NULL;
-    t_list          *test;
+//  t_list          *test;
     signed int i;
 
     i = 1;

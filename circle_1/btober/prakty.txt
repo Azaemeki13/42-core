@@ -1,0 +1,75 @@
+/***************************************************************************
+
+0 - To get vdi : 
+    cd sgoinfre/student/repo_name/file of vbox
+    type shasum VirtualBox.vdi
+
+1 - To create a new user :
+    sudo adduser username
+    sudo chage -l username (to see policy)
+    sudo adduser username sudo (add to sudo group)
+    sudo adduser username user42 (add to group 42)
+
+1a - To create new group : 
+    sudo grouppadd groupname
+    sudo usermod -aG groupname username
+
+1b - To change hostname : 
+    hostnamectl set-hostname new_hostname
+    also change in file sudo nano /etc/hosts
+    restart.
+    
+2 - lsblk 
+    to check partitions.
+
+3 - sudo aa-status
+    to check apparmor status.
+
+4 - getent group (sudo // user 42)
+    to check which user is part of n group.
+
+5 - sudo service ssh status
+    to check .. ssh status ;D 
+
+6 - sudo ufw status 
+    to check ufw status.
+
+7 - ssh username@ipadress -p 4242 (TBD)
+    connection to VM from host.
+
+8 - nano /etc/sudoers.c/ .. (need to ls inside )
+    to config sudo and show 
+
+9 - nano /etc/login.defs
+    thats where there is expiration, warning etc..
+
+10 - nano /etc/pam.d/common-password 
+    this is where there is password policy.
+
+11 - sudo crontab -l (TS)
+    to show cron schedule 
+
+12 - sudo nano /etc/hostname (TS)
+    to change hostname.
+
+13 - Where are sudo logs at ? 
+    cd /var/log/sudo/00/00 && ls 
+    to trigger new directory , do sudo apt update
+    go to new directory 
+    cat log -> input log 
+    cat ttyout -> output log 
+
+14 - Add port 8080 ? 
+    sudo ufw allow 8080
+    sudo ufw status
+    sudo udw deny 8080
+
+15 - Run script every 30 secs: 
+    sudo crontab -e 
+    remove cron schedule and then add : 
+    */1 * * * * ~/monitoring.sh 
+    */1 * * * * sleep 30 sec && ~/monitoring.sh
+
+16 - To remove cron at reboot (TBD)
+    TBDTBD
+*/**************************************************************************

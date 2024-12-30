@@ -9,36 +9,54 @@ CFLAGS = -Wall -Wextra -Werror
 PUSH_SWAP_DIR = .
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./libft/ft_printf
+ACTIONS_DIR = ./actions
 
 # Library files
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-# Source files for push_swap
-SRCS = $(PUSH_SWAP_DIR)/ft_push_swap.c
+# Manually listed source files for actions
+ACTIONS_SRCS = $(ACTIONS_DIR)/push.c \
+               $(ACTIONS_DIR)/reverse_rotate.c \
+               $(ACTIONS_DIR)/rotate.c \
+			   $(ACTIONS_DIR)/swap.c 
+
+# Source files for push_swap and actions
+PUSH_SWAP_SRCS = $(PUSH_SWAP_DIR)/ft_push_swap.c
+SRCS = $(PUSH_SWAP_SRCS) $(ACTIONS_SRCS)
+
+# Object files
 OBJS = $(SRCS:.c=.o)
 
 # Rules
 all: $(LIBFT) $(PRINTF) $(NAME)
 
 $(LIBFT):
+	@echo "Building libft..."
 	@$(MAKE) -C $(LIBFT_DIR)
 
 $(PRINTF):
+	@echo "Building ft_printf..."
 	@$(MAKE) -C $(PRINTF_DIR)
 
 $(NAME): $(OBJS)
+	@echo "Building $(NAME)..."
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(PRINTF)
 
+%.o: %.c
+	@echo "Compiling $<..."
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(ACTIONS_DIR) -c $< -o $@
+
 clean:
-	@$(MAKE) clean -C $(LIBFT_DIR)
-	@$(MAKE) clean -C $(PRINTF_DIR)
+	@echo "Cleaning object files..."
 	rm -f $(OBJS)
+	@$(MAKE) clean -C $(LIBFT_DIR)
 
 fclean: clean
+	@echo "Removing libraries and executable..."
+	rm -f $(NAME)
 	@$(MAKE) fclean -C $(LIBFT_DIR)
 	@$(MAKE) fclean -C $(PRINTF_DIR)
-	rm -f $(NAME)
 
 re: fclean all
 
