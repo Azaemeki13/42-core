@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 18:37:47 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:06:53 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void push_b(t_list **head_a, t_list **head_b)
 {
     t_list *new_node = NULL;
-    t_list *current_node = NULL;
     
-    if (!head_a)
+    if (!*head_a)
         return;
     new_node = *head_a;
     *head_a = (*head_a)->next;
@@ -33,23 +32,20 @@ void push_b(t_list **head_a, t_list **head_b)
         new_node->next = *head_b;
         *head_b = new_node;        
     }
-    current_node = *head_b;
     (*head_b)->index = 0;
-    while (current_node)
-    {
-        current_node->index++;
-        current_node = current_node->next;
-    }
+    index_refresher(head_b);
     ft_printf("sb\n");
 }
 
 void push_a(t_list **head_a, t_list **head_b)
 {
     t_list *new_node = NULL;
-    t_list *current_node = NULL;
     
-    if (!head_b)
+    if (!*head_b)
+    {
+        ft_printf("Error, returning...");
         return;
+    }
     new_node = *head_b;
     *head_b = (*head_b)->next;
     ft_printf("New node at address %p has data %d.\n", (void*) new_node, new_node->data);
@@ -64,12 +60,6 @@ void push_a(t_list **head_a, t_list **head_b)
         new_node->next = *head_a;
         *head_a = new_node;        
     }
-    current_node = *head_a;
-    (*head_a)->index = 0;
-    while (current_node)
-    {
-        current_node->index++;
-        current_node = current_node->next;
-    }
+    index_refresher(head_a);
     ft_printf("sa\n");
 }

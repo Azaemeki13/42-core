@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 18:05:53 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:12:36 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@ int main (int argc, char **argv)
 {
     static t_list   *stack_a = NULL;
     t_list *stack_b = NULL;
-//  t_list          *test;
+    t_list          *testa;
+    t_list          *testb;
     signed int i;
 
     i = 1;
+    testa = stack_a;
+    testb = stack_b;
     if (argc < 2)
         return (ft_printf("Error, please retry"));
     else 
@@ -64,16 +67,29 @@ int main (int argc, char **argv)
 */
     // swap_a(stack_a); HERE IS A SWAP TEST
     push_b(&stack_a, &stack_b);
-    while(stack_b != NULL)
+
+    while(testb != NULL)
     {
-        ft_printf("Stack b at index : %d, address %p, with value %d\n", stack_b->index, (void *) stack_b, stack_b->data);
+        ft_printf("Stack b at index : %d, address %p, with value %d\n", testb->index, (void *) testb, testb->data);
         stack_b = stack_b->next;
     }
-    while(stack_a != NULL)
+    while(testa != NULL)
     {
-        ft_printf("Stack a at index : %d, address %p, with value %d\n", stack_a->index, (void *) stack_a, stack_a->data);
-        stack_a = stack_a->next;
-
+        ft_printf("Stack a at index : %d, address %p, with value %d\n\n", testa->index, (void *) testa, testa->data);
+        testa = testa->next;
+    }
+    push_a(&stack_a, &stack_b);
+    testa = stack_a;
+    testb = stack_b;
+    while(testb != NULL)
+    {
+        ft_printf("Stack b at index : %d, address %p, with value %d\n", testb->index, (void *) testb, testb->data);
+        testb = testb->next;
+    }
+    while(testa != NULL)
+    {
+        ft_printf("Stack a at index : %d, address %p, with value %d\n\n", testa->index, (void *) testa, testa->data);
+        testa = testa->next;
     }
     free_stack(stack_a);
     free_stack(stack_b);
