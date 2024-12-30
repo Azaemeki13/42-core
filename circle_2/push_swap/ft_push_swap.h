@@ -6,16 +6,21 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/13 17:11:27 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 12:20:57 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
 typedef struct s_list
 {
-	int			*data;
-    int         *index;
+	int			data;
+    int         index;
 	struct s_list	*next;
 }					t_list;
 
