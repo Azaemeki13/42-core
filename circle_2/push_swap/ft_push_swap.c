@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 19:12:36 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:30:47 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ int main (int argc, char **argv)
 {
     static t_list   *stack_a = NULL;
     t_list *stack_b = NULL;
-    t_list          *testa;
-    t_list          *testb;
+    //t_list          *testa;
+    //t_list          *testb;
     signed int i;
 
     i = 1;
-    testa = stack_a;
-    testb = stack_b;
+    //testa = stack_a;
+    //testb = stack_b;
     if (argc < 2)
         return (ft_printf("Error, please retry"));
     else 
@@ -56,41 +56,7 @@ int main (int argc, char **argv)
                 create_node(&stack_a, argv[i++]); // using i++ here and not before because otherwise OOB access .
             }
         }
-// Here I want to initilise test after I perform operations on stack a, otherwise
-// it's not returning anything :) 
- //   test = stack_a; HERE IS A READ TEST
-/*    while (test != NULL)
-    {
-        printf("Stack value at address : %p is the following : %d\n", (void *)test, test->data);
-        test = test->next;
-    }
-*/
-    // swap_a(stack_a); HERE IS A SWAP TEST
-    push_b(&stack_a, &stack_b);
-
-    while(testb != NULL)
-    {
-        ft_printf("Stack b at index : %d, address %p, with value %d\n", testb->index, (void *) testb, testb->data);
-        stack_b = stack_b->next;
-    }
-    while(testa != NULL)
-    {
-        ft_printf("Stack a at index : %d, address %p, with value %d\n\n", testa->index, (void *) testa, testa->data);
-        testa = testa->next;
-    }
-    push_a(&stack_a, &stack_b);
-    testa = stack_a;
-    testb = stack_b;
-    while(testb != NULL)
-    {
-        ft_printf("Stack b at index : %d, address %p, with value %d\n", testb->index, (void *) testb, testb->data);
-        testb = testb->next;
-    }
-    while(testa != NULL)
-    {
-        ft_printf("Stack a at index : %d, address %p, with value %d\n\n", testa->index, (void *) testa, testa->data);
-        testa = testa->next;
-    }
+    rotate_a(&stack_a);
     free_stack(stack_a);
     free_stack(stack_b);
     return 0;

@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 19:00:21 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:20:34 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void free_stack(t_list *head);
 void index_refresher(t_list **head);
 void push_a(t_list **head_a, t_list **head_b);
 void push_b(t_list **head_a, t_list **head_b);
+void rotate_a(t_list **head_a);
 void swap_a (t_list *head);
 void swap_b (t_list *head);
 
