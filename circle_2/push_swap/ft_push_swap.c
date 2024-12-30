@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 17:02:43 by cauffret         ###   ########.fr       */
+/*   Updated: 2024/12/30 18:05:53 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void  create_node (t_list **head, char *argv)
 int main (int argc, char **argv)
 {
     static t_list   *stack_a = NULL;
+    t_list *stack_b = NULL;
 //  t_list          *test;
     signed int i;
 
@@ -54,19 +55,27 @@ int main (int argc, char **argv)
         }
 // Here I want to initilise test after I perform operations on stack a, otherwise
 // it's not returning anything :) 
- //   test = stack_a;
+ //   test = stack_a; HERE IS A READ TEST
 /*    while (test != NULL)
     {
         printf("Stack value at address : %p is the following : %d\n", (void *)test, test->data);
         test = test->next;
     }
 */
-    swap_a(stack_a);
-    while (stack_a)
+    // swap_a(stack_a); HERE IS A SWAP TEST
+    push_b(&stack_a, &stack_b);
+    while(stack_b != NULL)
     {
-        t_list *tmp_stack = stack_a;
-        stack_a = stack_a->next;
-        free(tmp_stack);
+        ft_printf("Stack b at index : %d, address %p, with value %d\n", stack_b->index, (void *) stack_b, stack_b->data);
+        stack_b = stack_b->next;
     }
+    while(stack_a != NULL)
+    {
+        ft_printf("Stack a at index : %d, address %p, with value %d\n", stack_a->index, (void *) stack_a, stack_a->data);
+        stack_a = stack_a->next;
+
+    }
+    free_stack(stack_a);
+    free_stack(stack_b);
     return 0;
 }

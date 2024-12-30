@@ -10,6 +10,7 @@ PUSH_SWAP_DIR = .
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./libft/ft_printf
 ACTIONS_DIR = ./actions
+UTILS_DIR = ./utils
 
 # Library files
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -21,9 +22,12 @@ ACTIONS_SRCS = $(ACTIONS_DIR)/push.c \
                $(ACTIONS_DIR)/rotate.c \
 			   $(ACTIONS_DIR)/swap.c 
 
+# Manually listed source files for actions
+UTILS_SRCS = $(UTILS_DIR)/free_stack.c
+
 # Source files for push_swap and actions
 PUSH_SWAP_SRCS = $(PUSH_SWAP_DIR)/ft_push_swap.c
-SRCS = $(PUSH_SWAP_SRCS) $(ACTIONS_SRCS)
+SRCS = $(PUSH_SWAP_SRCS) $(ACTIONS_SRCS) $(UTILS_SRCS)
 
 # Object files
 OBJS = $(SRCS:.c=.o)
