@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 13:12:49 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/06 15:30:47 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct s_list
     int         index;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_rand_list
+{
+	int	number;
+	struct s_rand_list	*next;
+}					t_rand_list;
 
 void  create_node (t_list **head, char *argv);
 void free_push(t_list *head);
