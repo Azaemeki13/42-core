@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 15:30:47 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/06 15:35:33 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void  create_node (t_list **head, char *argv);
 void free_push(t_list *head);
 void free_stack(t_list *head);
 void index_refresher(t_list **head);
+void list_generator (t_rand_list **head, int max_number);
+t_rand_list *rand_list(int number_a);
 void push_a(t_list **head_a, t_list **head_b);
 void push_b(t_list **head_a, t_list **head_b);
 void reverse_rotate_a(t_list **head_a);
