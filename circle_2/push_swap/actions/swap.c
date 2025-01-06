@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:35 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 14:57:18 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/06 16:52:10 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void swap_all (t_list *head_a, t_list *head_b)
 {
     swap_a(head_a);
     swap_b(head_b);
-    ft_printf("ss");
+    ft_printf("ss\n");
 }

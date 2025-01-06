@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 13:17:36 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/06 16:51:49 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ temp_a = current_node;
 before_last->next = NULL;
 temp_a->next = (*head_a);
 (*head_a)= temp_a;
-index_refresher(head_a);
-ft_printf("rra");
+ft_printf("rra\n");
 }
 
 void reverse_rotate_b(t_list **head_b)
@@ -52,13 +51,12 @@ temp_b = current_node;
 before_last->next = NULL;
 temp_b->next = (*head_b);
 (*head_b)= temp_b;
-index_refresher(head_b);
-ft_printf("rrb");
+ft_printf("rrb\n");
 }
 
-void reverse_rotate_b(t_list **head_a, t_list **head_b)
+void reverse_rotate_all(t_list **head_a, t_list **head_b)
 {
     reverse_rotate_a(head_a);
-    reverse_rotate(head_b);
-    ft_printf("rrr");
+    reverse_rotate_b(head_b);
+    ft_printf("rrr\n");
 }

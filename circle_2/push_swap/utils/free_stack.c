@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:09:23 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 17:23:03 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:29:16 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void free_stack(t_list *head)
 void free_push(t_list *head)
 {
     t_list *tmp_stack;
-    while (head->index < 1)
+    while (head->next)
     {
         tmp_stack = head->next;
         free(head);

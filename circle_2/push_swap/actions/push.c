@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 13:08:25 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/06 16:31:19 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ void push_b(t_list **head_a, t_list **head_b)
         new_node->next = *head_b;
         *head_b = new_node;        
     }
-    (*head_b)->index = 0;
-    index_refresher(head_b);
     ft_printf("pb\n");
 }
 
@@ -60,6 +58,5 @@ void push_a(t_list **head_a, t_list **head_b)
         new_node->next = *head_a;
         *head_a = new_node;        
     }
-    index_refresher(head_a);
     ft_printf("pa\n");
 }
