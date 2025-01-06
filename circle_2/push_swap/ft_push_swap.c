@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 19:30:47 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/06 11:34:45 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void  create_node (t_list **head, char *argv)
 int main (int argc, char **argv)
 {
     static t_list   *stack_a = NULL;
-    t_list *stack_b = NULL;
+    //t_list *stack_b = NULL;
     //t_list          *testa;
     //t_list          *testb;
     signed int i;
@@ -58,6 +58,5 @@ int main (int argc, char **argv)
         }
     rotate_a(&stack_a);
     free_stack(stack_a);
-    free_stack(stack_b);
     return 0;
 }

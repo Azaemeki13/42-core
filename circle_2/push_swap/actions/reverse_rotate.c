@@ -3,10 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:28 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/13 16:59:39 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/06 12:28:40 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include ""../ft_push_swap.h"
+
+void reverse_rotate_a(t_list ** head_a)
+{
+
+}

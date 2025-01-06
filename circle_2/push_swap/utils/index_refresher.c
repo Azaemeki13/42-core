@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index_refresher.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:58:29 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 19:03:53 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/06 12:11:41 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 void index_refresher(t_list **head)
 {
     t_list *current_node;
-    
+    int index;
+
+    index = 0;
     current_node =(*head);
-    (*head)->index = 0;
-    while (current_node)
+    while (current_node && current_node->next)
     {
-        current_node->index++;
+        current_node->index = index++;
+        //ft_printf("Index : %d , Value : %d, Adress: %p\n", current_node->index, current_node->data, (void *) current_node);
         current_node = current_node->next;
     }
+        current_node->index = index++;
+    //ft_printf("Index : %d , Value : %d, Adress: %p\n", current_node->index, current_node->data, (void *) current_node);
 }
