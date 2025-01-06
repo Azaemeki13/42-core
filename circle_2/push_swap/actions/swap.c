@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:35 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 16:55:17 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/06 13:12:19 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,8 @@ void swap_a (t_list *head)
     temp_data = 0; 
     current_node = head->next;
     temp_data = current_node->data;
-    //ft_printf("First pass : Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
     current_node->data = head->data;
-    //ft_printf("Second pass :Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
     head->data = temp_data;
-    //ft_printf("Third pass : Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
     ft_printf("sa\n");
 }
 
@@ -40,10 +37,14 @@ void swap_b (t_list *head)
     temp_data = 0; 
     current_node = head->next;
     temp_data = current_node->data;
-    //ft_printf("First pass : Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
     current_node->data = head->data;
-    //ft_printf("Second pass :Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
     head->data = temp_data;
-    //ft_printf("Third pass : Temp data : %d, Current data : %d, head data : %d\n", temp_data, current_node->data, head->data);
     ft_printf("sb\n");
+}
+
+void swap_all (t_list *head_a, t_list *head_b)
+{
+    swap_a(head_a);
+    swap_b(head_b);
+    ft_printf("ss");
 }

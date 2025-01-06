@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 11:34:45 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/06 12:33:13 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int main (int argc, char **argv)
                 create_node(&stack_a, argv[i++]); // using i++ here and not before because otherwise OOB access .
             }
         }
-    rotate_a(&stack_a);
+    reverse_rotate_a(&stack_a);
     free_stack(stack_a);
     return 0;
 }

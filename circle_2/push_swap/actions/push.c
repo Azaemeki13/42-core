@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2024/12/30 19:06:53 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/06 13:08:25 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void push_b(t_list **head_a, t_list **head_b)
     }
     (*head_b)->index = 0;
     index_refresher(head_b);
-    ft_printf("sb\n");
+    ft_printf("pb\n");
 }
 
 void push_a(t_list **head_a, t_list **head_b)
@@ -61,5 +61,5 @@ void push_a(t_list **head_a, t_list **head_b)
         *head_a = new_node;        
     }
     index_refresher(head_a);
-    ft_printf("sa\n");
+    ft_printf("pa\n");
 }
