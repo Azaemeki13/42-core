@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 17:22:01 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/07 14:26:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,14 @@ void  create_node (t_list **head, char *argv)
 int main (int argc, char **argv)
 {
     static t_list   *stack_a = NULL;
-    //t_list *stack_b = NULL;
-    // t_list          *testa;
-    //t_list          *testb;
+    t_list *stack_b = NULL;
+    t_list          *testa;
+    t_list          *testb;
     signed int i;
 
     i = 1;
-    // testa = stack_a;
-    //testb = stack_b;
-    if (argc < 2)
-        return (ft_printf("Error, please retry"));
+    if (argc < 3)
+        return (ft_printf("Error, please retry\n"));
     else 
         {
             while (argv[i] != 0)
@@ -56,10 +54,21 @@ int main (int argc, char **argv)
                 create_node(&stack_a, argv[i++]); // using i++ here and not before because otherwise OOB access .
             }
         }
-    reverse_rotate_a(&stack_a);
-    // testa = stack_a;
-    i = pass_amount(stack_a);
-    ft_printf("biggest count is : %d\n", i);
+    list_sorter(&stack_a, &stack_b);
+    testa = stack_a;
+    testb = stack_b;
+    ft_printf("List sorting action finished.\n");
+    while (testa && testa->next)
+    {
+        ft_printf("Stack A: [Data: %d, Adress: %p]\n", testa->data, (void*) testa);
+        testa = testa->next;
+    }
+    while (testb && testb->next)
+    {
+        ft_printf("Stack B: [Data: %d, Adress: %p]\n", testb->data, (void*) testb);
+        testb = testb->next;
+    }
     free_stack(stack_a);
+    free_stack(stack_b);
     return 0;
 }

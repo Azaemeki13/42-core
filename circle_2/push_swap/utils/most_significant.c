@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   most_significant.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:53:48 by ituriel           #+#    #+#             */
-/*   Updated: 2025/01/06 17:21:17 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/07 14:13:23 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,17 @@ result = n;
 return (result);
 }
 
+int comparer (t_list *head)
+{
+    unsigned long long i;
+    unsigned long long n;
+
+    if (head->next == NULL)
+        return 1;
+    i = numeric_convertor(head->data);
+    n = numeric_convertor(head->next->data);
+    if (i > n)
+        return (0);
+    else
+        return (1);
+}

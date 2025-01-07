@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 17:19:02 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/07 14:21:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ typedef struct s_rand_list
 }					t_rand_list;
 
 void  create_node (t_list **head, char *argv);
+int comparer (t_list *head);
 void free_push(t_list *head);
 void free_stack(t_list *head);
 void index_refresher(t_list **head);
 void list_generator (t_rand_list **head, int max_number);
+void list_sorter( t_list **head_a, t_list **head_b);
 int numeric_convertor(unsigned long long n);
 t_rand_list *rand_list(int number_a);
 int pass_amount( t_list *head_a);

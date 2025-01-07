@@ -25,7 +25,9 @@ ACTIONS_SRCS = $(ACTIONS_DIR)/push.c \
 # Manually listed source files for actions
 UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \
 				$(UTILS_DIR)/index_refresher.c \
-				$(UTILS_DIR)/most_significant.c
+				$(UTILS_DIR)/most_significant.c \
+				$(UTILS_DIR)/logic.c 
+
 # Source files for push_swap and actions
 PUSH_SWAP_SRCS = $(PUSH_SWAP_DIR)/ft_push_swap.c
 SRCS = $(PUSH_SWAP_SRCS) $(ACTIONS_SRCS) $(UTILS_SRCS)
