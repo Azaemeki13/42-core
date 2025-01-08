@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 16:31:19 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/08 11:42:02 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void push_b(t_list **head_a, t_list **head_b)
         return;
     new_node = *head_a;
     *head_a = (*head_a)->next;
-    ft_printf("New node at address %p has data %d.\n", (void*) new_node, new_node->data);
-    if (!head_b)
+    if (!*head_b)
     {
         ft_printf("No stack b found.\n");
         *head_b = new_node;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/07 14:26:03 by root             ###   ########.fr       */
+/*   Updated: 2025/01/08 15:36:11 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main (int argc, char **argv)
     static t_list   *stack_a = NULL;
     t_list *stack_b = NULL;
     t_list          *testa;
-    t_list          *testb;
+   // t_list          *testb;
     signed int i;
 
     i = 1;
@@ -56,18 +56,16 @@ int main (int argc, char **argv)
         }
     list_sorter(&stack_a, &stack_b);
     testa = stack_a;
-    testb = stack_b;
+   // testb = stack_b;
     ft_printf("List sorting action finished.\n");
-    while (testa && testa->next)
+    
+    while (testa)
     {
         ft_printf("Stack A: [Data: %d, Adress: %p]\n", testa->data, (void*) testa);
         testa = testa->next;
     }
-    while (testb && testb->next)
-    {
-        ft_printf("Stack B: [Data: %d, Adress: %p]\n", testb->data, (void*) testb);
-        testb = testb->next;
-    }
+
+    
     free_stack(stack_a);
     free_stack(stack_b);
     return 0;

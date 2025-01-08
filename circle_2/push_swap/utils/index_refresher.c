@@ -3,31 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   index_refresher.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 18:58:29 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/06 16:39:55 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/01/08 12:09:10 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../ft_push_swap.h"
 /*
-void index_refresher(t_list **head)
+void    refresher_push(t_list **head)
 {
-    t_list *current_node;
-    int index;
-
-    index = 0;
-    current_node =(*head);
-    while (current_node && current_node->next)
-    {
-        current_node->index = index++;
-        //ft_printf("Index : %d , Value : %d, Adress: %p\n", current_node->index, current_node->data, (void *) current_node);
-        current_node = current_node->next;
-    }
-        current_node->index = index++;
-    //ft_printf("Index : %d , Value : %d, Adress: %p\n", current_node->index, current_node->data, (void *) current_node);
+    t_list *current_node = NULL;
+    t_list *temp_node = NULL;
 }
 */
 

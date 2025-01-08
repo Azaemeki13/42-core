@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   most_significant.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:53:48 by ituriel           #+#    #+#             */
-/*   Updated: 2025/01/07 14:13:23 by root             ###   ########.fr       */
+/*   Updated: 2025/01/08 15:41:34 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ int comparer (t_list *head)
     unsigned long long i;
     unsigned long long n;
 
-    if (head->next == NULL)
-        return 1;
+    if (!head->next)
+        return (i >=n);
     i = numeric_convertor(head->data);
     n = numeric_convertor(head->next->data);
-    if (i > n)
-        return (0);
-    else
-        return (1);
+    ft_printf("Comparing i: %d and n: %d\n", head->data,head->next->data);
+    return(i <= n);
 }
