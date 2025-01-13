@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/13 13:53:04 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:08:08 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,26 @@ void push_a(t_list **head_a, t_list **head_b)
     
     if (!*head_b)
     {
-        ft_printf("Error, returning...");
+        print_error();
         return;
     }
     new_node = *head_b;
     *head_b = (*head_b)->next;
-    ft_printf("New node at address %p has data %d.\n", (void*) new_node, new_node->data);
+    if (*head_b)
+        (*head_b)->prev = NULL;
     if (!head_a)
     {
         ft_printf("No stack a found.\n");
         *head_a = new_node;
         (*head_a)->next = NULL;
+        (*head_a)->prev = NULL;
     }
     else
     {
         new_node->next = *head_a;
-        *head_a = new_node;        
+        (*head_a)->prev = new_node;
+        *head_a = new_node;  
+        (*head_a)->prev = NULL;
     }
     ft_printf("pa\n");
 }
