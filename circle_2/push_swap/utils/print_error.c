@@ -6,11 +6,11 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:08:42 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/13 10:14:46 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:00:52 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap.c"
+#include "../ft_push_swap.h"
 
 void print_error()
 {

@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/08 11:42:02 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:53:04 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,20 @@ void push_b(t_list **head_a, t_list **head_b)
         return;
     new_node = *head_a;
     *head_a = (*head_a)->next;
+    if (*head_a)
+        (*head_a)->prev = NULL;
     if (!*head_b)
     {
-        ft_printf("No stack b found.\n");
         *head_b = new_node;
         (*head_b)->next = NULL;
+        (*head_b)->prev = NULL;
     }
     else
     {
         new_node->next = *head_b;
-        *head_b = new_node;        
+        (*head_b)->prev = new_node;
+        *head_b = new_node;
+        (*head_b)->prev = NULL;        
     }
     ft_printf("pb\n");
 }
