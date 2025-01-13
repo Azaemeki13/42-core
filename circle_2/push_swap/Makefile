@@ -24,7 +24,7 @@ ACTIONS_SRCS = $(ACTIONS_DIR)/push.c \
 
 # Manually listed source files for actions
 UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \
-				$(UTILS_DIR)/index_refresher.c \
+				$(UTILS_DIR)/ft_atol.c \
 				$(UTILS_DIR)/most_significant.c \
 				$(UTILS_DIR)/logic.c 
 

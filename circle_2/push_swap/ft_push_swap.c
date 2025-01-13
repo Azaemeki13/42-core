@@ -6,23 +6,24 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/08 15:36:11 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/13 10:14:39 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // MOST SIGNIFICANT TO LEAST SIGNIFICANT 
 #include "ft_push_swap.h"
 
-void  create_node (t_list **head, char *argv)
+void  create_node (t_list **head, char *arguments)
 {
     /* NOTE : here actually we always go from start of list, may want to be optimised.*/
     t_list *new_node = NULL;
     t_list *current_node = NULL;
+    t_list *temp_node = NULL;
 
     new_node = malloc(sizeof (t_list));
-    new_node->data = ft_atoi(argv);
-    new_node->digit_count = ft_count_digits(new_node->data);
+    new_node->data = ft_atol(arguments);
     new_node->next = NULL;
+    new_node->prev = NULL;
     if (*head == NULL) 
     {
         *head = new_node;
@@ -31,20 +32,24 @@ void  create_node (t_list **head, char *argv)
     {
         current_node = (*head);
         while (current_node->next != NULL)
+        {
+            temp_node = current_node;
             current_node = current_node-> next;
+        }
+        current_node->prev = temp_node;
         current_node->next = new_node;
     }
 } 
-
+/*
 int main (int argc, char **argv)
 {
-    static t_list   *stack_a = NULL;
+     t_list   *stack_a = NULL;
     t_list *stack_b = NULL;
-    t_list          *testa;
-   // t_list          *testb;
-    signed int i;
-
-    i = 1;
+    char **arguments;
+ 
+    arguments = NULL;
+    if (argc == 1 || (argc == 2 && argv[1][0] == 0))
+        return
     if (argc < 3)
         return (ft_printf("Error, please retry\n"));
     else 
@@ -70,3 +75,4 @@ int main (int argc, char **argv)
     free_stack(stack_b);
     return 0;
 }
+*/
