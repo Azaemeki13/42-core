@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/15 10:51:53 by root             ###   ########.fr       */
+/*   Updated: 2025/01/15 13:19:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,7 @@ char **argv_to_arg(int argc, char **argv)
 int main (int argc, char **argv)
 {
     t_list   *stack_a = NULL;
-    t_list *stack_b = NULL;
-    t_list *head_a = NULL;
-    t_list *head_b = NULL;
+    
     char **arguments;
     int i;
 
@@ -95,23 +93,13 @@ int main (int argc, char **argv)
         create_node(&stack_a, arguments[i]);
         i++;
     }
-    push_b(&stack_a, &stack_b);
-    push_b(&stack_a, &stack_b);
-    head_a = stack_a;
-    head_b = stack_b;
-    while (head_a->next)
+    sort_three(&stack_a);
+    while (stack_a->next)
     {
-        ft_printf("Stack A forward : [Data: %d, Adress: %p, Adress ->prev %p]\n", head_a->data, (void*) head_a, (void *) head_a->prev);
-        head_a = head_a->next;
+        ft_printf("Stack A forward : [Data: %d, Adress: %p]\n", stack_a->data, (void*) stack_a);
+        stack_a = stack_a->next;
     }
-    ft_printf("Stack A forward : [Data: %d, Adress: %p, Adress ->prev %p]\n", head_a->data, (void*) head_a, (void *) head_a->prev);
-    while (head_b->next)
-    {
-        ft_printf("Stack B forward : [Data: %d, Adress: %p, Adress ->prev %p]\n", head_b->data, (void*) head_b, (void *) head_b->prev);
-        head_b = head_b->next;
-    }
-    ft_printf("Stack B forward : [Data: %d, Adress: %p, Adress ->prev %p]\n", head_b->data, (void*) head_b, (void *) head_b->prev);
+        ft_printf("Stack A forward : [Data: %d, Adress: %p]\n", stack_a->data, (void*) stack_a);
     free_stack(stack_a);
-    free_stack(stack_b);
     return 0;
 }
