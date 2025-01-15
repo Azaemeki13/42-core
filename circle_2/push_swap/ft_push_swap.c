@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/13 13:41:24 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/15 10:51:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,12 @@ int main (int argc, char **argv)
         print_error();
         return (0);
     }
-     arguments = argv_to_arg(argc, argv);
+    arguments = argv_to_arg(argc, argv);
+    if (!error_checker(arguments))
+    {
+        print_error();
+        return (0);
+    }
     while (arguments[i])
     {
         create_node(&stack_a, arguments[i]);
