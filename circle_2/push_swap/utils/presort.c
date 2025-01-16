@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:30:36 by root              #+#    #+#             */
-/*   Updated: 2025/01/15 13:23:43 by root             ###   ########.fr       */
+/*   Updated: 2025/01/16 13:44:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,35 @@ void sort_three(t_list **head_a)
     if (current_node->next->next->data != highest_node->data)
     {
         if (current_node->data == highest_node->data)
-            rotate_a(head_a); // not reverse rotate :D
+            reverse_rotate_a(head_a);
         else
         {
             swap_a(*head_a);
+            reverse_rotate_a(head_a);
         }
+    }
+    if (current_node->data > current_node->next->data)
+    {
+        swap_a(*head_a);
     }
 } 
 
 t_list *find_highest_node(t_list *head)
 {
     t_list *result = NULL;
+    t_list *current = NULL;
 
-    result = head->next;
-    // if first one is bigger 
-    if (result->data < result->prev->data && result->data > result->next->data)
-        return (result->prev);
-    // if last one is bigger
-    else if (result->data > result->prev->data && result->data < result->next->data)
+    result = head;
+    current = head;
+    while (current && current->next)
     {
-        return (result->next);
+        if (current->data > result->data)
+            result = current;
+        current = current->next;
+    }
+    if (current->data > result->data)
+    {
+        result = current;
     }
     return (result);
-    
 }

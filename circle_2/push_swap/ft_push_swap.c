@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/15 13:19:45 by root             ###   ########.fr       */
+/*   Updated: 2025/01/15 13:35:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ int main (int argc, char **argv)
     }
         ft_printf("Stack A forward : [Data: %d, Adress: %p]\n", stack_a->data, (void*) stack_a);
     free_stack(stack_a);
+    
     return 0;
 }
