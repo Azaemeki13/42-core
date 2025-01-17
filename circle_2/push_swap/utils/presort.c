@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   presort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:30:36 by root              #+#    #+#             */
-/*   Updated: 2025/01/16 13:44:58 by root             ###   ########.fr       */
+/*   Updated: 2025/01/17 15:57:21 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,15 @@
 
 void sort_three(t_list **head_a)
 {
-    t_list *current_node =   NULL;
-    t_list *highest_node =  NULL;
-
-    highest_node = find_highest_node((*head_a));
-    current_node = (*head_a);
-    // CASE 1 ALLES GUT
-    if (current_node->data < current_node->next->data && current_node->next->data < current_node->next->
-        next->data)
+    if (is_sorted(*head_a))
         return;
-    // CASE N PUT ON BOTTOM
-    if (current_node->next->next->data != highest_node->data)
-    {
-        if (current_node->data == highest_node->data)
-            reverse_rotate_a(head_a);
-        else
-        {
-            swap_a(*head_a);
-            reverse_rotate_a(head_a);
-        }
-    }
-    if (current_node->data > current_node->next->data)
+    if ((*head_a)->data > (*head_a)->next->data)
+        swap_a(*head_a);
+    rotate_a(head_a);
+    if ((*head_a)->data > (*head_a)->next->data)
+        swap_a(*head_a);
+    reverse_rotate_a(head_a);
+    if((*head_a)->data > (*head_a)->next->data)
     {
         swap_a(*head_a);
     }
@@ -60,4 +48,27 @@ t_list *find_highest_node(t_list *head)
         result = current;
     }
     return (result);
+}
+
+int is_sorted(t_list *head_a)
+{
+    long data2;
+    long data3;
+    
+    data2 = head_a->next->data;
+    if (!head_a->next->next)
+    {
+        if (head_a->data > data2)
+            return (1);
+        else
+            return (0);
+    }
+    else
+    {
+        data3 = head_a->next->next->data;
+        if (head_a->data > data2 && data2 > data3)
+            return(1);
+        else
+            return(0);
+    }
 }

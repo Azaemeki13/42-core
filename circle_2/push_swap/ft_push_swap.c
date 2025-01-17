@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/15 13:35:49 by root             ###   ########.fr       */
+/*   Updated: 2025/01/17 16:48:37 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,20 @@ char **argv_to_arg(int argc, char **argv)
     }
     else if (argc > 2)
     {
-        arguments = malloc(sizeof(char *) * (argc - 1));
+        arguments = malloc(sizeof(char *) * (argc));
         while (i < (argc - 1))
         {
         arguments[i] = ft_strdup(argv[i + 1]);
         i++;
         }
-        arguments[i] = '\0';
+        arguments[i] = NULL;
     }
     return (arguments);
 }
 
 int main (int argc, char **argv)
 {
-    t_list   *stack_a = NULL;
-    
+    t_list   *stack_a = NULL;    
     char **arguments;
     int i;
 
@@ -88,19 +87,15 @@ int main (int argc, char **argv)
         print_error();
         return (0);
     }
-    while (arguments[i])
+    while (arguments[i]!= NULL)
     {
         create_node(&stack_a, arguments[i]);
         i++;
     }
+    stack_a = stack_a;
     sort_three(&stack_a);
-    while (stack_a->next)
-    {
-        ft_printf("Stack A forward : [Data: %d, Adress: %p]\n", stack_a->data, (void*) stack_a);
-        stack_a = stack_a->next;
-    }
-        ft_printf("Stack A forward : [Data: %d, Adress: %p]\n", stack_a->data, (void*) stack_a);
     free_stack(stack_a);
+    free_arguments(arguments);
     
     return 0;
 }

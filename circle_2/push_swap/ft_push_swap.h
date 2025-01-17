@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/15 13:00:39 by root             ###   ########.fr       */
+/*   Updated: 2025/01/17 16:40:42 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_list
 {
-	int			data;
+	long			data;
 	struct s_list	*next;
 	struct s_list	*prev;
 	struct s_list	*target_node;
@@ -31,9 +31,11 @@ void  create_node (t_list **head, char *argv);
 int dup_checker (char **argv);
 int error_checker (char **argv);
 t_list *find_highest_node(t_list *head);
+void free_arguments(char **arguments);
 void free_push(t_list *head);
 void free_stack(t_list *head);
 long	ft_atol(const char *nptr);
+int is_sorted(t_list *head_a);
 int limits_checker (const char *nptr);
 int flow_checker (char **argv);
 void print_error();
