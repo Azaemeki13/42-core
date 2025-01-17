@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/17 16:40:42 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/17 18:30:41 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int flow_checker (char **argv);
 void print_error();
 void push_a(t_list **head_a, t_list **head_b);
 void push_b(t_list **head_a, t_list **head_b);
+void push_until_three(t_list **head_a, t_list **head_b);
 void reverse_rotate_a(t_list **head_a);
 void reverse_rotate_b(t_list **head_b);
 void rotate_a(t_list **head_a);

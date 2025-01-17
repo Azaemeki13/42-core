@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/17 16:48:37 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/17 19:05:18 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,13 @@ char **argv_to_arg(int argc, char **argv)
 
 int main (int argc, char **argv)
 {
-    t_list   *stack_a = NULL;    
+    t_list   *stack_a = NULL;  
+    t_list   *stack_b = NULL;
+    t_list   *stack_a_test = NULL;
+    t_list   *stack_b_test = NULL;  
     char **arguments;
     int i;
+    int j = 0;
 
 
     i = 0;
@@ -84,6 +88,7 @@ int main (int argc, char **argv)
     arguments = argv_to_arg(argc, argv);
     if (!error_checker(arguments))
     {
+        free_arguments(arguments);
         print_error();
         return (0);
     }
@@ -93,8 +98,25 @@ int main (int argc, char **argv)
         i++;
     }
     stack_a = stack_a;
+    push_until_three(&stack_a, &stack_b);
+    stack_b_test = stack_b;
     sort_three(&stack_a);
+    stack_a_test = stack_a;
+    while (stack_a_test)
+    {
+        ft_printf("Value of A [index :%d, Value: %d]\n", j,stack_a_test->data);
+        j++;
+        stack_a_test = stack_a_test->next;
+    }
+    j = 0;
+    while (stack_b_test)
+    {
+        ft_printf("Value of B [index :%d, Value: %d]\n", j,stack_b_test->data);
+        j++;
+        stack_b_test = stack_b_test->next;
+    }
     free_stack(stack_a);
+    free_stack(stack_b);
     free_arguments(arguments);
     
     return 0;

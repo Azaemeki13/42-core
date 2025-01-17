@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:30:36 by root              #+#    #+#             */
-/*   Updated: 2025/01/17 15:57:21 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/17 19:27:19 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,18 @@ int is_sorted(t_list *head_a)
         else
             return(0);
     }
+}
+
+void push_until_three(t_list **head_a, t_list **head_b)
+{
+        while((*head_a)->next->next->next !=0)
+    {
+        push_b(head_a, head_b);
+    }
+    while((*head_a)->prev)
+    {
+        (*head_a) = (*head_a)->prev;
+    }
+    ft_printf("Successfully pushed all \n");
+    return;
 }

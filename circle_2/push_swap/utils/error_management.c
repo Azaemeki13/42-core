@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:19:04 by root              #+#    #+#             */
-/*   Updated: 2025/01/15 12:29:23 by root             ###   ########.fr       */
+/*   Updated: 2025/01/17 17:52:42 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int limits_checker (const char *nptr)
     long long i;
     
     i = ft_atol(nptr);
-    if (i < LONG_MIN || i > LONG_MAX)
+    if (i < INT_MIN || i > INT_MAX)
     {
         return (0);
     }
