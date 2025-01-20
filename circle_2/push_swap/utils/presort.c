@@ -3,86 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   presort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:30:36 by root              #+#    #+#             */
-/*   Updated: 2025/01/17 19:27:19 by cauffret         ###   ########.fr       */
+/*   Created: 2025/01/20 10:25:40 by root              #+#    #+#             */
+/*   Updated: 2025/01/20 10:26:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-//FYI dummy, bottom means first that was in the list, you cannot push it ;)
-
-void sort_three(t_list **head_a)
+void presort (t_list **head_a, t_list **head_b, char **arguments)
 {
-    if (is_sorted(*head_a))
+    if (presort_checker(arguments) == 2)
+    {
+        sort_two(head_a);
         return;
-    if ((*head_a)->data > (*head_a)->next->data)
-        swap_a(*head_a);
-    rotate_a(head_a);
-    if ((*head_a)->data > (*head_a)->next->data)
-        swap_a(*head_a);
-    reverse_rotate_a(head_a);
-    if((*head_a)->data > (*head_a)->next->data)
-    {
-        swap_a(*head_a);
     }
-} 
-
-t_list *find_highest_node(t_list *head)
-{
-    t_list *result = NULL;
-    t_list *current = NULL;
-
-    result = head;
-    current = head;
-    while (current && current->next)
+    if (presort_checker(arguments) == 3)
     {
-        if (current->data > result->data)
-            result = current;
-        current = current->next;
+        sort_three(head_a);
+        return;
     }
-    if (current->data > result->data)
+    else if (presort_checker(arguments) > 3)
     {
-        result = current;
+        push_until_three(head_a, head_b);
+        sort_three(head_a);
+        return;
     }
-    return (result);
-}
-
-int is_sorted(t_list *head_a)
-{
-    long data2;
-    long data3;
-    
-    data2 = head_a->next->data;
-    if (!head_a->next->next)
-    {
-        if (head_a->data > data2)
-            return (1);
-        else
-            return (0);
-    }
-    else
-    {
-        data3 = head_a->next->next->data;
-        if (head_a->data > data2 && data2 > data3)
-            return(1);
-        else
-            return(0);
-    }
-}
-
-void push_until_three(t_list **head_a, t_list **head_b)
-{
-        while((*head_a)->next->next->next !=0)
-    {
-        push_b(head_a, head_b);
-    }
-    while((*head_a)->prev)
-    {
-        (*head_a) = (*head_a)->prev;
-    }
-    ft_printf("Successfully pushed all \n");
-    return;
 }

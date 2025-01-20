@@ -28,6 +28,8 @@ UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \
 				$(UTILS_DIR)/print_error.c \
 				$(UTILS_DIR)/error_management.c \
 				$(UTILS_DIR)/presort.c \
+				$(UTILS_DIR)/presort_prep.c \
+				$(UTILS_DIR)/pre_logic.c 
 
 # Source files for push_swap and actions
 PUSH_SWAP_SRCS = $(PUSH_SWAP_DIR)/ft_push_swap.c

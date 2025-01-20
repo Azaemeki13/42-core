@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/17 19:05:18 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:59:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,21 +97,20 @@ int main (int argc, char **argv)
         create_node(&stack_a, arguments[i]);
         i++;
     }
-    stack_a = stack_a;
-    push_until_three(&stack_a, &stack_b);
-    stack_b_test = stack_b;
-    sort_three(&stack_a);
+    presort(&stack_a, &stack_b, arguments);
+    node_targeting(&stack_a, &stack_b);
     stack_a_test = stack_a;
+    stack_b_test = stack_b;
     while (stack_a_test)
     {
-        ft_printf("Value of A [index :%d, Value: %d]\n", j,stack_a_test->data);
+        ft_printf("Value of A [index :%d, Value: %d, adress %p]\n", j,stack_a_test->data, (void *) stack_a_test);
         j++;
         stack_a_test = stack_a_test->next;
     }
     j = 0;
     while (stack_b_test)
     {
-        ft_printf("Value of B [index :%d, Value: %d]\n", j,stack_b_test->data);
+        ft_printf("Value of B [index :%d, Value: %d, linked to Value #%d]\n", j,stack_b_test->data,stack_b_test->target_node->data);
         j++;
         stack_b_test = stack_b_test->next;
     }
