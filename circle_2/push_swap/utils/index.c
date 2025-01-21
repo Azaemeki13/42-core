@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   presort.c                                          :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 10:25:40 by root              #+#    #+#             */
-/*   Updated: 2025/01/21 12:02:25 by root             ###   ########.fr       */
+/*   Created: 2025/01/21 11:45:46 by root              #+#    #+#             */
+/*   Updated: 2025/01/21 12:04:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void presort (t_list **head_a, t_list **head_b, char **arguments)
+void index_refresher(t_list *head)
 {
-    if (presort_checker(arguments) == 2)
-    {
-        sort_two(head_a);
+    t_list *current_node = NULL;
+    int i;
+    
+    i = 0;
+    if (!head)
         return;
-    }
-    if (presort_checker(arguments) == 3)
+    current_node = head;
+    current_node->index = i;
+    while (current_node)
     {
-        sort_three(head_a);
-        return;
-    }
-    else if (presort_checker(arguments) > 3)
-    {
-        push_until_three(head_a, head_b);
-        sort_three(head_a);
-        return;
+        current_node->index = i++;
+        current_node = current_node->next;
     }
 }

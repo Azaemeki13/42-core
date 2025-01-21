@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:31:14 by root              #+#    #+#             */
-/*   Updated: 2025/01/20 15:29:27 by root             ###   ########.fr       */
+/*   Updated: 2025/01/21 13:42:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void node_targeting(t_list **head_a, t_list **head_b)
     b_move->target_node = find_target(*head_a, b_move);
     b_move = b_move->next;
     }
+    price_refresher (*head_b);
 }
+
 t_list *find_target(t_list *head_a, t_list *b_node)
 {
     t_list *best_target = head_a;
@@ -66,6 +68,7 @@ t_list *maxi_value(t_list *head_a, int max_value)
         tmp = tmp->next;
     return (tmp);
 }
+
 void value_filler(long *min_value, long *max_value, t_list *head_a)
 {
     t_list *tmp = NULL;
@@ -80,4 +83,3 @@ void value_filler(long *min_value, long *max_value, t_list *head_a)
         tmp = tmp->next;
     } 
 }
-

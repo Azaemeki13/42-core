@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/20 15:29:28 by root             ###   ########.fr       */
+/*   Updated: 2025/01/21 13:37:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 typedef struct s_list
 {
 	long			data;
+	int				index;
+	int				push_price;
 	struct s_list	*next;
 	struct s_list	*prev;
 	struct s_list	*target_node;
@@ -37,6 +39,7 @@ void free_arguments(char **arguments);
 void free_push(t_list *head);
 void free_stack(t_list *head);
 long	ft_atol(const char *nptr);
+void index_refresher(t_list *head);
 int is_sorted(t_list *head_a);
 int limits_checker (const char *nptr);
 t_list *maxi_value(t_list *head_a, int max_value);
@@ -44,6 +47,7 @@ t_list *mini_value(t_list *head_a, int min_value);void node_targeting(t_list **h
 int flow_checker (char **argv);
 void presort (t_list **head_a, t_list **head_b, char **arguments);
 int presort_checker(char **arguments);
+void price_refresher(t_list *head);
 void print_error();
 void push_a(t_list **head_a, t_list **head_b);
 void push_b(t_list **head_a, t_list **head_b);
