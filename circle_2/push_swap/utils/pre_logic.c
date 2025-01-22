@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:31:14 by root              #+#    #+#             */
-/*   Updated: 2025/01/21 13:42:15 by root             ###   ########.fr       */
+/*   Updated: 2025/01/22 16:10:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void node_targeting(t_list **head_a, t_list **head_b)
     b_move->target_node = find_target(*head_a, b_move);
     b_move = b_move->next;
     }
-    price_refresher (*head_b);
+    overall_refresher((*head_a), (*head_b));
 }
 
 t_list *find_target(t_list *head_a, t_list *b_node)

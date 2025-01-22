@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/21 13:37:55 by root             ###   ########.fr       */
+/*   Updated: 2025/01/22 16:08:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_list
 	long			data;
 	int				index;
 	int				push_price;
+	int				above_median;
 	struct s_list	*next;
 	struct s_list	*prev;
 	struct s_list	*target_node;
@@ -44,10 +45,11 @@ int is_sorted(t_list *head_a);
 int limits_checker (const char *nptr);
 t_list *maxi_value(t_list *head_a, int max_value);
 t_list *mini_value(t_list *head_a, int min_value);void node_targeting(t_list **head_a, t_list **head_b);
+void overall_refresher(t_list *head_a, t_list *head_b);
 int flow_checker (char **argv);
 void presort (t_list **head_a, t_list **head_b, char **arguments);
 int presort_checker(char **arguments);
-void price_refresher(t_list *head);
+void price_refresher(t_list *head_a, t_list *head_b);
 void print_error();
 void push_a(t_list **head_a, t_list **head_b);
 void push_b(t_list **head_a, t_list **head_b);
@@ -56,8 +58,10 @@ void reverse_rotate_a(t_list **head_a);
 void reverse_rotate_b(t_list **head_b);
 void rotate_a(t_list **head_a);
 void rotate_b(t_list **head_b);
+void set_median (t_list *head);
 void sort_three(t_list **head_a);
 void sort_two(t_list **head_a);
+int len_stack(t_list *head);
 void swap_a (t_list *head);
 void swap_all (t_list *head_a, t_list *head_b);
 void swap_b (t_list *head);

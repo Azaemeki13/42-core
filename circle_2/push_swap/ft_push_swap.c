@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/21 13:06:35 by root             ###   ########.fr       */
+/*   Updated: 2025/01/22 16:32:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,18 @@ int main (int argc, char **argv)
         i++;
     }
     presort(&stack_a, &stack_b, arguments);
+    ft_printf("all good here\n");
     node_targeting(&stack_a, &stack_b);
     stack_a_test = stack_a;
     stack_b_test = stack_b;
     while (stack_a_test)
     {
-        ft_printf("Value of A [index :%d, Value: %d, adress %p]\n", stack_a_test->index,stack_a_test->data, (void *) stack_a_test);
+        ft_printf("Value of A [index :%d, Value: %d, Median %d]\n", stack_a_test->index,stack_a_test->data, stack_a_test->above_median);
         stack_a_test = stack_a_test->next;
     }
     while (stack_b_test)
     {
-        ft_printf("Value of B [index :%d, Value: %d, push price %d]\n", stack_b_test->index,stack_b_test->data,stack_b_test->push_price);
+        ft_printf("Value of B [index :%d, Value: %d, Push price %d]\n", stack_b_test->index,stack_b_test->data,stack_b_test->push_price);
         stack_b_test = stack_b_test->next;
     }
     free_stack(stack_a);

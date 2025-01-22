@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:25:40 by root              #+#    #+#             */
-/*   Updated: 2025/01/21 12:02:25 by root             ###   ########.fr       */
+/*   Updated: 2025/01/22 16:54:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void presort (t_list **head_a, t_list **head_b, char **arguments)
     {
         push_until_three(head_a, head_b);
         sort_three(head_a);
+        index_refresher(*head_a);
+        index_refresher(*head_b);
         return;
     }
 }
