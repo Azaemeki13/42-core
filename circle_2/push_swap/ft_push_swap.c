@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/22 16:32:11 by root             ###   ########.fr       */
+/*   Updated: 2025/01/23 14:11:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,16 +98,19 @@ int main (int argc, char **argv)
     presort(&stack_a, &stack_b, arguments);
     ft_printf("all good here\n");
     node_targeting(&stack_a, &stack_b);
+    ft_printf("List size is %d \n", list_size(stack_a));
     stack_a_test = stack_a;
     stack_b_test = stack_b;
+    rotate_before(&stack_a, &stack_b, find_cheapest(stack_b));
+    stack_a_test = stack_a;
     while (stack_a_test)
     {
-        ft_printf("Value of A [index :%d, Value: %d, Median %d]\n", stack_a_test->index,stack_a_test->data, stack_a_test->above_median);
+        ft_printf("Value of A [index :%d, Value: %d]\n", stack_a_test->index,stack_a_test->data);
         stack_a_test = stack_a_test->next;
     }
     while (stack_b_test)
     {
-        ft_printf("Value of B [index :%d, Value: %d, Push price %d]\n", stack_b_test->index,stack_b_test->data,stack_b_test->push_price);
+        ft_printf("Value of B [index :%d, Value: %d, cheapest %d]\n", stack_b_test->index,stack_b_test->data,stack_b_test->cheapest);
         stack_b_test = stack_b_test->next;
     }
     free_stack(stack_a);

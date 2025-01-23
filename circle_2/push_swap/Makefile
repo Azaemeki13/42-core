@@ -30,7 +30,10 @@ UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \
 				$(UTILS_DIR)/presort.c \
 				$(UTILS_DIR)/presort_prep.c \
 				$(UTILS_DIR)/pre_logic.c \
-				$(UTILS_DIR)/push_price.c
+				$(UTILS_DIR)/push_price.c \
+				$(UTILS_DIR)/cheapest.c \
+				$(UTILS_DIR)/solving.c
+
 
 
 
