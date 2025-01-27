@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:34:06 by root              #+#    #+#             */
-/*   Updated: 2025/01/23 14:08:54 by root             ###   ########.fr       */
+/*   Updated: 2025/01/23 14:16:23 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void rotate_above(t_list **head_a, t_list **head_b, t_list *target_node)
         return ;
     while (target_node->index != 0 && target_node->target_node->index != 0)
         rotate_all(head_a, head_b);
-    while (target_node->target_node->index != 0)
     overall_refresher(*head_a, *head_b);
     while (target_node->target_node->index != 0)
         reverse_rotate_a(head_a);

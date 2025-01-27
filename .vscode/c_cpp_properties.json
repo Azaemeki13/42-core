@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                ":~/42-core/**"
+            ],
+            "defines": []
+        }
+    ],
+    "version": 4
+}
