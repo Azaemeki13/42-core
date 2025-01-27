@@ -12,8 +12,10 @@
 
 #include "../ft_push_swap.h"
 
-void print_error()
+void	print_error(void)
 {
-    char *error_msg = "Error\n";
-    write (2,error_msg,6);
+	char	*error_msg;
+
+	error_msg = "Error\n";
+	write(2, error_msg, 6);
 }

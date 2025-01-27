@@ -12,7 +12,7 @@
 
 #include "../ft_push_swap.h"
 
-    static int	ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
 		|| c == '\r')
@@ -34,8 +34,8 @@ static void	ft_right_place(int *i, const char *nptr, int *f)
 
 long	ft_atol(const char *nptr)
 {
-	int	i;
-	int	f;
+	int		i;
+	int		f;
 	long	current;
 	long	final;
 

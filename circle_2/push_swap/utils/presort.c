@@ -12,24 +12,24 @@
 
 #include "../ft_push_swap.h"
 
-void presort (t_list **head_a, t_list **head_b, char **arguments)
+void	presort(t_list **head_a, t_list **head_b, char **arguments)
 {
-    if (presort_checker(arguments) == 2)
-    {
-        sort_two(head_a);
-        return;
-    }
-    if (presort_checker(arguments) == 3)
-    {
-        sort_three(head_a);
-        return;
-    }
-    else if (presort_checker(arguments) > 3)
-    {
-        push_until_three(head_a, head_b);
-        sort_three(head_a);
-        index_refresher(*head_a);
-        index_refresher(*head_b);
-        return;
-    }
+	if (presort_checker(arguments) == 2)
+	{
+		sort_two(head_a);
+		return ;
+	}
+	if (presort_checker(arguments) == 3)
+	{
+		sort_three(head_a);
+		return ;
+	}
+	else if (presort_checker(arguments) > 3)
+	{
+		push_until_three(head_a, head_b);
+		sort_three(head_a);
+		index_refresher(*head_a);
+		index_refresher(*head_b);
+		return ;
+	}
 }

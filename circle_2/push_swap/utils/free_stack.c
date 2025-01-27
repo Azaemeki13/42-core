@@ -12,41 +12,42 @@
 
 #include "../ft_push_swap.h"
 
-void free_stack(t_list *head)
+void	free_stack(t_list *head)
 {
-    t_list *tmp_stack;
-    
-    while (head)
-    {
-        tmp_stack = head->next;
-        free(head);
-        head=tmp_stack;
-    }   
-    free(head);
+	t_list	*tmp_stack;
+
+	while (head)
+	{
+		tmp_stack = head->next;
+		free(head);
+		head = tmp_stack;
+	}
+	free(head);
 }
 
-void free_push(t_list *head)
+void	free_push(t_list *head)
 {
-    t_list *tmp_stack;
-    while (head->next)
-    {
-        tmp_stack = head->next;
-        free(head);
-        head=tmp_stack;
-    }
+	t_list	*tmp_stack;
+
+	while (head->next)
+	{
+		tmp_stack = head->next;
+		free(head);
+		head = tmp_stack;
+	}
 }
 
-void free_arguments(char **arguments)
+void	free_arguments(char **arguments)
 {
-    int i;
+	int i;
 
-    i = 0;
-    if (!arguments)
-        return;
-    while(arguments[i])
-    {
-        free(arguments[i]);
-        i++;
-    }
-    free(arguments);
+	i = 0;
+	if (!arguments)
+		return ;
+	while (arguments[i])
+	{
+		free(arguments[i]);
+		i++;
+	}
+	free(arguments);
 }
