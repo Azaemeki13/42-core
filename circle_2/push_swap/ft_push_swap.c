@@ -130,15 +130,15 @@ int	main(int argc, char **argv)
 		list_cheapest(stack_b);
 		ft_printf("cheapest listed.\n");
 		cheapest = find_cheapest(stack_b);
-        node_targeting(&stack_a, &stack_b);
+		node_targeting(&stack_a, &stack_b);
 		ft_printf("done with node targeting.\n");
 		ft_printf("cheapest tagged. \n");
 		final_rotate(&stack_a, &stack_b, cheapest);
-        	ft_printf("rotation done. \n");
+		ft_printf("rotation done. \n");
 		price_refresher(stack_a, stack_b);
 		ft_printf("price refreshed.\n");
 	}
-    f_solving(&stack_a, &stack_b);
+	f_solving(&stack_a, &stack_b);
 	ft_printf("final solving done. \n");
 	stack_a_test = stack_a;
 	while (stack_a_test)
