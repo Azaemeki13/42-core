@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:09:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/17 17:47:59 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:36:33 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void	free_stack(t_list *head)
 {
-	t_list	*tmp_stack;
+	t_list	*tmp_stack = NULL;
 
 	while (head)
 	{
-		tmp_stack = head->next;
-		free(head);
-		head = tmp_stack;
+		tmp_stack = head;
+		head = head->next;
+		if (tmp_stack->target_node)
+			tmp_stack->target_node = NULL;
+		free(tmp_stack);
 	}
-	free(head);
 }
 
 void	free_push(t_list *head)

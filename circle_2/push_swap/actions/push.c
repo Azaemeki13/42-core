@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/29 18:26:34 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:43:32 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,5 @@ void	push_a(t_list **head_a, t_list **head_b)
 		(*head_a)->prev = NULL;
 	}
 	overall_refresher((*head_a),(*head_b));
-	if (!*head_b)
-	{
-		return ;
-	}
 	ft_printf("pa\n");
 }

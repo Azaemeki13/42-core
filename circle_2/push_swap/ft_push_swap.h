@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/30 16:39:46 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:59:13 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void				rotate_all(t_list **head_a, t_list **head_b);
 void				rotate_b(t_list **head_b);
 void				sort_three(t_list **head_a);
 void				sort_two(t_list **head_a);
-void				swap_a(t_list *head);
-void				swap_all(t_list *head_a, t_list *head_b);
-void				swap_b(t_list *head);
+void				swap_a(t_list **head);
+void				swap_all(t_list **head_a, t_list **head_b);
+void				swap_b(t_list **head);
 void				rotate_before1(t_list **head_a, t_list **head_b, t_list *target_node);
 void				rotate_before2(t_list **head_a, t_list **head_b,
 						t_list *target_node);

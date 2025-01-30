@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/30 16:38:24 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:32:39 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	create_node(t_list **head, char *arguments)
 	new_node = NULL;
 	new_node = malloc(sizeof(t_list));
 	new_node->data = ft_atol(arguments);
+	new_node->index = -1;
+	new_node->push_price = -1;
+	new_node->above_median = 0;
+	new_node->cheapest = -1;
+	new_node->target_node = NULL;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	if (*head == NULL)

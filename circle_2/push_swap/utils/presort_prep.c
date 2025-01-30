@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2025/01/30 16:41:29 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:10:36 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort_two(t_list **head_a)
 	if ((*head_a)->data < (*head_a)->next->data)
 		return ;
 	else
-		swap_a(*head_a);
+		swap_a(head_a);
 	return ;
 }
 
@@ -29,14 +29,14 @@ void	sort_three(t_list **head_a)
 	if (is_sorted(*head_a))
 		return ;
 	if ((*head_a)->data > (*head_a)->next->data)
-		swap_a(*head_a);
+		swap_a(head_a);
 	rotate_a(head_a);
 	if ((*head_a)->data > (*head_a)->next->data)
-		swap_a(*head_a);
+		swap_a(head_a);
 	reverse_rotate_a(head_a);
 	if ((*head_a)->data > (*head_a)->next->data)
 	{
-		swap_a(*head_a);
+		swap_a(head_a);
 	}
 }
 

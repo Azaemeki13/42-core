@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:14:41 by root              #+#    #+#             */
-/*   Updated: 2025/01/30 16:15:51 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:44:25 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void	list_cheapest(t_list *head_b)
 
 t_list	*find_cheapest(t_list *head_b)
 {
+	if(!head_b)
+		return (NULL);
 	while (head_b)
 	{
-		if (head_b->cheapest)
+		if (head_b->cheapest ==1)
 			return (head_b);
 		head_b = head_b->next;
 	}
