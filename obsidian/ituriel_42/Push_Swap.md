@@ -33,5 +33,10 @@ Like the index we will add this to my [[data structure]].
 
 Let's take a look at [[price_refresher]].
 as price_refresher always refreshes the price, I want to use it after i'm done with my main logic loop. 
+<<<<<<< HEAD
 
 ![[Untitled Diagram.svg]]
+=======
+![[ituriel_42/Untitled Diagram 1.svg]]
+![[ituriel_42/Untitled Diagram.svg]]
+>>>>>>> 995e166 (AASSAS)
