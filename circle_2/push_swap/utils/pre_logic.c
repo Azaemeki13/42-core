@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:31:14 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 15:04:27 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:01:38 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_list	*find_target(t_list *head_a, t_list *b_node)
 	max_value = LONG_MIN;
 	value_filler(&min_value, &max_value, head_a);
 	if (b_node->data < min_value)
-		return (mini_value(head_a, min_value));
+		return (maxi_value(head_a, max_value));
 	if (b_node->data > max_value)
 		return (mini_value(head_a, min_value));
 	tmp = head_a;
@@ -54,7 +54,7 @@ t_list	*find_target(t_list *head_a, t_list *b_node)
 	return (best_target);
 }
 
-t_list	*mini_value(t_list *head_a, int min_value)
+t_list	*mini_value(t_list *head_a, long min_value)
 {
 	t_list	*tmp;
 
@@ -65,7 +65,7 @@ t_list	*mini_value(t_list *head_a, int min_value)
 	return (tmp);
 }
 
-t_list	*maxi_value(t_list *head_a, int max_value)
+t_list	*maxi_value(t_list *head_a, long max_value)
 {
 	t_list	*tmp;
 
@@ -73,6 +73,8 @@ t_list	*maxi_value(t_list *head_a, int max_value)
 	tmp = head_a;
 	while (tmp->data != max_value)
 		tmp = tmp->next;
+	if (tmp->data != max_value)
+		ft_printf("WOULA CPAS BIEN PAS DMAX.");
 	return (tmp);
 }
 

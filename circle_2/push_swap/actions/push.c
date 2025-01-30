@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/27 16:38:59 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/29 18:26:34 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ void	push_b(t_list **head_a, t_list **head_b)
 		*head_b = new_node;
 		(*head_b)->prev = NULL;
 	}
-	index_refresher(*head_a);
-	index_refresher(*head_b);
+	overall_refresher((*head_a), (*head_b));
 	ft_printf("pb\n");
 }
 
@@ -56,7 +55,6 @@ void	push_a(t_list **head_a, t_list **head_b)
 		(*head_b)->prev = NULL;
 	if (!*head_a)
 	{
-		ft_printf("No stack a found.\n");
 		*head_a = new_node;
 		(*head_a)->next = NULL;
 		(*head_a)->prev = NULL;
@@ -68,11 +66,9 @@ void	push_a(t_list **head_a, t_list **head_b)
 		*head_a = new_node;
 		(*head_a)->prev = NULL;
 	}
-	index_refresher(*head_a);
-	index_refresher(*head_b);
+	overall_refresher((*head_a),(*head_b));
 	if (!*head_b)
 	{
-		ft_printf("no node found\n");
 		return ;
 	}
 	ft_printf("pa\n");

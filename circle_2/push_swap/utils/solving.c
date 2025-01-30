@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:34:06 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 17:27:15 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:02:12 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	rotate_above(t_list **head_a, t_list **head_b, t_list *target_node)
 {
+	ft_printf("starting rotate above");
 	if (!head_a || !head_b)
 		return ;
 	while (target_node != 0 && target_node->target_node->index != 0)
@@ -24,7 +25,6 @@ void	rotate_above(t_list **head_a, t_list **head_b, t_list *target_node)
 	while (target_node != *head_b)
 	{
 		rotate_b(head_b);
-		ft_printf("test above\n");
 	}
 	push_a(head_a, head_b);
 	overall_refresher(*head_a, *head_b);
@@ -32,6 +32,7 @@ void	rotate_above(t_list **head_a, t_list **head_b, t_list *target_node)
 
 void	rotate_before(t_list **head_a, t_list **head_b, t_list *target_node)
 {
+	ft_printf("starting rotate before\n");
 	if (!head_a || !head_b)
 		return ;
 	while (target_node != 0 && target_node->target_node->index != 0)
@@ -42,21 +43,23 @@ void	rotate_before(t_list **head_a, t_list **head_b, t_list *target_node)
 	while (target_node->index != 0)
 	{
 		reverse_rotate_b(head_b);
-		ft_printf("target node goal %p target node index %d\n", (void *)target_node, target_node->index);
-        ft_printf("data %d, index %d address %p\n", (*head_b)->data, (*head_b)->index,(void *)(*head_b));
 	}
 	push_a(head_a, head_b);
 	overall_refresher(*head_a, *head_b);
 }
 
-void	final_rotate(t_list **head_a, t_list **head_b, t_list *target_node)
+void	final_rotate(t_list **head_a, t_list **head_b)
 {
+	t_list *target_node = NULL;
+
+	target_node =find_cheapest((*head_b));
 	if (target_node->above_median)
 		rotate_above(head_a, head_b, target_node);
 	else
 	{
 		rotate_before(head_a, head_b, target_node);
 	}
+	ft_printf("done with final rotate node.\n");
 }
 
 t_list	*find_min(t_list *head)

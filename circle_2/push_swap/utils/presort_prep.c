@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   presort_prep.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:30:36 by root              #+#    #+#             */
-/*   Updated: 2025/01/20 10:25:27 by root             ###   ########.fr       */
+/*   Updated: 2025/01/29 18:34:54 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	push_until_three(t_list **head_a, t_list **head_b)
 	{
 		(*head_a) = (*head_a)->prev;
 	}
-	ft_printf("Successfully pushed all \n");
 	return ;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:35 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/21 11:53:39 by root             ###   ########.fr       */
+/*   Updated: 2025/01/29 18:28:19 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	swap_all(t_list *head_a, t_list *head_b)
 {
 	swap_a(head_a);
 	swap_b(head_b);
-	index_refresher(head_a);
-	index_refresher(head_b);
+	overall_refresher(head_a, head_b);
 	ft_printf("ss\n");
 }
