@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:30:36 by root              #+#    #+#             */
-/*   Updated: 2025/01/29 18:34:54 by cauffret         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2025/01/30 16:41:29 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../ft_push_swap.h"
 
@@ -60,19 +61,6 @@ int	is_sorted(t_list *head_a)
 		else
 			return (0);
 	}
-}
-
-void	push_until_three(t_list **head_a, t_list **head_b)
-{
-	while ((*head_a)->next->next->next != 0)
-	{
-		push_b(head_a, head_b);
-	}
-	while ((*head_a)->prev)
-	{
-		(*head_a) = (*head_a)->prev;
-	}
-	return ;
 }
 
 int	presort_checker(char **arguments)

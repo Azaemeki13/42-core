@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/29 19:01:08 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:38:24 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,14 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_list	*stack_a_test;
+	t_list	*stack_b_test;
 	char	**arguments;
 	int		i;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_a_test = NULL;
+	stack_b_test = NULL;
 	i = 0;
 	arguments = NULL;
 	if (argc == 1 || (argc == 2 && argv[1][0] == 0))
@@ -101,35 +103,20 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	presort(&stack_a, &stack_b, arguments);
-	overall_refresher(stack_a, stack_b);
-	node_targeting(&stack_a, &stack_b);
 	stack_a_test = stack_a;
-	while (stack_b)
-	{
-<<<<<<< HEAD
-		list_cheapest(stack_b);
-		ft_printf("cheapest listed.\n");
-		cheapest = find_cheapest(stack_b);
-		node_targeting(&stack_a, &stack_b);
-		ft_printf("done with node targeting.\n");
-		ft_printf("cheapest tagged. \n");
-		final_rotate(&stack_a, &stack_b, cheapest);
-		ft_printf("rotation done. \n");
-		price_refresher(stack_a, stack_b);
-		ft_printf("price refreshed.\n");
-=======
-		final_refresher(&stack_a, &stack_b);
-		final_rotate(&stack_a, &stack_b);
->>>>>>> 56851cc (still need to fix, doc is done however)
-	}
-	f_solving(&stack_a, &stack_b);
-	ft_printf("final solving done. \n");
-	stack_a_test = stack_a;
+	stack_b_test = stack_b;
 	while (stack_a_test)
 	{
-		ft_printf("Value of A [index :%d, Value: %d]\n", stack_a_test->index,
-			stack_a_test->data);
+		ft_printf("Value of A [index :%d, Value: %d, address %p]\n",
+			stack_a_test->index, stack_a_test->data, (void *)stack_a_test);
 		stack_a_test = stack_a_test->next;
+	}
+	stack_b_test = stack_b;
+	while (stack_b_test)
+	{
+		ft_printf("Value of B [index :%d, Value: %d, target %p]\n",
+			stack_b_test->index, stack_b_test->data, stack_b_test->target_node);
+		stack_b_test = stack_b_test->next;
 	}
 	free_stack(stack_a);
 	free_stack(stack_b);

@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:31:14 by root              #+#    #+#             */
-/*   Updated: 2025/01/29 19:01:38 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:40:06 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_list	*find_target(t_list *head_a, t_list *b_node)
 	if (b_node->data < min_value)
 		return (maxi_value(head_a, max_value));
 	if (b_node->data > max_value)
-		return (mini_value(head_a, min_value));
+		return (maxi_value(head_a, max_value));
 	tmp = head_a;
 	while (tmp)
 	{

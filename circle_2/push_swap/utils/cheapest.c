@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:14:41 by root              #+#    #+#             */
-/*   Updated: 2025/01/27 13:15:39 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:15:51 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	list_cheapest(t_list *head_b)
 		}
 		head_b = head_b->next;
 	}
-	node_result->cheapest = 1;
+	if (node_result)
+	{
+		node_result->cheapest = 1;
+	}
 }
 
 t_list	*find_cheapest(t_list *head_b)
