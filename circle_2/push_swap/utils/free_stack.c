@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:09:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/30 18:36:33 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:16:23 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,6 @@ void	free_stack(t_list *head)
 	}
 }
 
-void	free_push(t_list *head)
-{
-	t_list	*tmp_stack;
-
-	while (head->next)
-	{
-		tmp_stack = head->next;
-		free(head);
-		head = tmp_stack;
-	}
-}
-
 void	free_arguments(char **arguments)
 {
 	int i;
@@ -51,4 +39,11 @@ void	free_arguments(char **arguments)
 		i++;
 	}
 	free(arguments);
+}
+
+void free_all (t_list **head_a, t_list **head_b, char **arguments)
+{
+	free_stack(*head_a);
+	free_stack(*head_b);
+	free_arguments(arguments);
 }

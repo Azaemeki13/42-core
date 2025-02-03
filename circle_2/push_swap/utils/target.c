@@ -3,87 +3,84 @@
 /*                                                        :::      ::::::::   */
 /*   pre_logic.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:31:14 by root              #+#    #+#             */
-/*   Updated: 2025/01/30 16:40:06 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:51:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	node_targeting(t_list **head_a, t_list **head_b)
+void	node_targeting(t_list **to, t_list **from)
 {
 	t_list	*b_move;
 
 	b_move = NULL;
-	b_move = (*head_b);
+	b_move = (*from);
 	while (b_move)
 	{
-		b_move->target_node = find_target(*head_a, b_move);
+		b_move->target_node = find_target(*to, b_move);
 		b_move = b_move->next;
 	}
-	overall_refresher((*head_a), (*head_b));
+	overall_refresher((*to), (*from));
 }
 
-t_list	*find_target(t_list *head_a, t_list *b_node)
+t_list	*find_target(t_list *to, t_list *from)
 {
-	t_list	*best_target;
+	t_list	*best_target = NULL;
 	long	min_value;
 	long	max_value;
-	t_list	*tmp;
+	t_list	*tmp = NULL;
 
-	best_target = head_a;
-	tmp = head_a;
 	min_value = LONG_MAX;
 	max_value = LONG_MIN;
-	value_filler(&min_value, &max_value, head_a);
-	if (b_node->data < min_value)
-		return (maxi_value(head_a, max_value));
-	if (b_node->data > max_value)
-		return (maxi_value(head_a, max_value));
-	tmp = head_a;
+	value_filler(&min_value, &max_value, to);
+	if (from->data < min_value || from->data > max_value)
+		return (mini_value(to, min_value));
+	tmp = to;
 	while (tmp)
 	{
-		if (tmp->data >= b_node->data)
+		if (tmp->data >= from->data)
 		{
-			return (tmp);
+			if (!best_target || tmp->data < best_target->data)
+				best_target = tmp;
 		}
 		tmp = tmp->next;
 	}
+	if (!best_target)
+		best_target = mini_value(to, min_value);
 	return (best_target);
 }
 
-t_list	*mini_value(t_list *head_a, long min_value)
+t_list	*mini_value(t_list *to, long min_value)
 {
 	t_list	*tmp;
 
 	tmp = NULL;
-	tmp = head_a;
+	tmp = to;
 	while (tmp->data != min_value)
 		tmp = tmp->next;
 	return (tmp);
 }
 
-t_list	*maxi_value(t_list *head_a, long max_value)
+t_list	*maxi_value(t_list *to, long max_value)
 {
 	t_list	*tmp;
 
 	tmp = NULL;
-	tmp = head_a;
+	tmp = to;
 	while (tmp->data != max_value)
 		tmp = tmp->next;
-	if (tmp->data != max_value)
-		ft_printf("WOULA CPAS BIEN PAS DMAX.");
 	return (tmp);
 }
 
-void	value_filler(long *min_value, long *max_value, t_list *head_a)
+void	value_filler(long *min_value, long *max_value, t_list *to)
 {
 	t_list	*tmp;
 
 	tmp = NULL;
-	tmp = head_a;
+	tmp = to;
 	while (tmp != NULL)
 	{
 		if (tmp->data < *min_value)

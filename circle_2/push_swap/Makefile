@@ -11,8 +11,6 @@ LIBFT_DIR = ./libft
 PRINTF_DIR = ./libft/ft_printf
 ACTIONS_DIR = ./actions
 UTILS_DIR = ./utils
-STEP2_DIR = ./step2
-DEBOG_DIR = ./debog
 
 # Library files
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -31,23 +29,16 @@ UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \
 				$(UTILS_DIR)/error_management.c \
 				$(UTILS_DIR)/presort.c \
 				$(UTILS_DIR)/presort_prep.c \
-				$(UTILS_DIR)/pre_logic.c \
+				$(UTILS_DIR)/target.c \
 				$(UTILS_DIR)/push_price.c \
 				$(UTILS_DIR)/cheapest.c \
-				$(UTILS_DIR)/solving2.c 
-
-#Manually listed source files for xd 
-STEP2_SRCS = 	$(STEP2_DIR)/atob.c \
-				$(STEP2_DIR)/solving1.c
-
-#Manually listed source files for DEBOG 
-DEBOG_SRCS = 	$(DEBOG_DIR)/target_data.c 
-				
-
+				$(UTILS_DIR)/solving2.c \
+				$(UTILS_DIR)/solving3.c \
+				$(UTILS_DIR)/solving1.c
 
 # Source files for push_swap and actions
 PUSH_SWAP_SRCS = $(PUSH_SWAP_DIR)/ft_push_swap.c
-SRCS = $(PUSH_SWAP_SRCS) $(ACTIONS_SRCS) $(UTILS_SRCS) $(STEP2_SRCS) $(DEBOG_SRCS)
+SRCS = $(PUSH_SWAP_SRCS) $(ACTIONS_SRCS) $(UTILS_SRCS)
 
 # Object files
 OBJS = $(SRCS:.c=.o)

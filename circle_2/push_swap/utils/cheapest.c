@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cheapest.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:14:41 by root              #+#    #+#             */
-/*   Updated: 2025/01/30 18:44:25 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:28:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,18 @@ void	list_cheapest(t_list *head_b)
 	}
 }
 
-t_list	*find_cheapest(t_list *head_b)
+t_list	*find_cheapest(t_list *head)
 {
-	if(!head_b)
-		return (NULL);
-	while (head_b)
+	t_list *cheapest = NULL;
+	t_list *current = NULL;
+
+	cheapest = head;
+	current = head;
+	while (current)
 	{
-		if (head_b->cheapest ==1)
-			return (head_b);
-		head_b = head_b->next;
+		if (current->push_price < cheapest->push_price)
+			cheapest = current;
+		current = current->next;
 	}
-	return (NULL);
+	return (cheapest);
 }

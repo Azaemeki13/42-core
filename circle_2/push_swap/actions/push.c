@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/30 18:43:32 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:00:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,8 @@ void	push_a(t_list **head_a, t_list **head_b)
 	*head_b = (*head_b)->next;
 	if (*head_b)
 		(*head_b)->prev = NULL;
-	if (!*head_a)
-	{
-		*head_a = new_node;
-		(*head_a)->next = NULL;
-		(*head_a)->prev = NULL;
-	}
+	if (!(*head_a))
+		set_nul(head_a, new_node);
 	else
 	{
 		new_node->next = *head_a;
@@ -68,4 +64,11 @@ void	push_a(t_list **head_a, t_list **head_b)
 	}
 	overall_refresher((*head_a),(*head_b));
 	ft_printf("pa\n");
+}
+
+void set_nul(t_list **head, t_list *new_node)
+{
+		*head = new_node;
+		(*head)->next = NULL;
+		(*head)->prev = NULL;
 }

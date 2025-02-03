@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/01/30 18:32:39 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:17:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,11 @@ char	**argv_to_arg(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	t_list	*stack_a_test;
-	t_list	*stack_b_test;
+	t_list	*stack_a = NULL;
+	t_list	*stack_b = NULL;
 	char	**arguments;
 	int		i;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	stack_a_test = NULL;
-	stack_b_test = NULL;
 	i = 0;
 	arguments = NULL;
 	if (argc == 1 || (argc == 2 && argv[1][0] == 0))
@@ -108,23 +102,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	presort(&stack_a, &stack_b, arguments);
-	stack_a_test = stack_a;
-	stack_b_test = stack_b;
-	while (stack_a_test)
-	{
-		ft_printf("Value of A [index :%d, Value: %d, address %p]\n",
-			stack_a_test->index, stack_a_test->data, (void *)stack_a_test);
-		stack_a_test = stack_a_test->next;
-	}
-	stack_b_test = stack_b;
-	while (stack_b_test)
-	{
-		ft_printf("Value of B [index :%d, Value: %d, target %p]\n",
-			stack_b_test->index, stack_b_test->data, stack_b_test->target_node);
-		stack_b_test = stack_b_test->next;
-	}
-	free_stack(stack_a);
-	free_stack(stack_b);
-	free_arguments(arguments);
+	f_solving(&stack_a, &stack_b);
+	free_all(&stack_a, &stack_b, arguments);
 	return (0);
 }

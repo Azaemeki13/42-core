@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   presort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:25:40 by root              #+#    #+#             */
-/*   Updated: 2025/01/30 13:34:09 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:11:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ void	presort(t_list **head_a, t_list **head_b, char **arguments)
 	}
 	else if (presort_checker(arguments) > 3)
 	{
-		rota_one(head_a, head_b);
-		sort_three(head_a);
-		index_refresher(*head_a);
-		index_refresher(*head_b);
+		solving(head_a, head_b);
+		overall_refresher(*head_a, *head_b);
 		return ;
 	}
 }

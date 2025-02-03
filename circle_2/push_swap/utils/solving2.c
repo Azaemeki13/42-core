@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solving2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:34:06 by root              #+#    #+#             */
-/*   Updated: 2025/01/30 16:40:19 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:13:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	rotate_above2(t_list **head_a, t_list **head_b, t_list *target_node)
 	while (target_node != *head_b)
 	{
 		rotate_b(head_b);
-		ft_printf("test above\n");
 	}
 	push_a(head_a, head_b);
 	overall_refresher(*head_a, *head_b);
@@ -42,8 +41,6 @@ void	rotate_before2(t_list **head_a, t_list **head_b, t_list *target_node)
 	while (target_node->index != 0)
 	{
 		reverse_rotate_b(head_b);
-		ft_printf("target node goal %p target node index %d\n", (void *)target_node, target_node->index);
-        ft_printf("data %d, index %d address %p\n", (*head_b)->data, (*head_b)->index,(void *)(*head_b));
 	}
 	push_a(head_a, head_b);
 	overall_refresher(*head_a, *head_b);
@@ -85,7 +82,6 @@ void	f_solving(t_list **head_a, t_list **head_b)
 	t_list *min = NULL;
 
 	min = find_min(*head_a);
-	ft_printf("found min = %d\n", min->data);
 	if (min->above_median)
 	{
 		while (min->index != 0)
