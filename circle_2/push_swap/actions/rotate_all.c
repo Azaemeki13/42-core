@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_all.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 16:59:32 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 16:43:58 by cauffret         ###   ########.fr       */
+/*   Created: 2025/02/05 16:43:12 by cauffret          #+#    #+#             */
+/*   Updated: 2025/02/05 16:44:51 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	rotate_a(t_list **head_a)
+void	rotate_a_all(t_list **head_a)
 {
 	t_list	*temp_a;
 	t_list	*current_node;
@@ -36,10 +36,9 @@ void	rotate_a(t_list **head_a)
 	temp_a->prev = current_node;
 	temp_a->next = NULL;
 	index_refresher(*head_a);
-	ft_printf("ra\n");
 }
 
-void	rotate_b(t_list **head_b)
+void	rotate_b_all(t_list **head_b)
 {
 	t_list	*temp_b;
 	t_list	*current_node;
@@ -63,5 +62,12 @@ void	rotate_b(t_list **head_b)
 	temp_b->prev = current_node;
 	temp_b->next = NULL;
 	index_refresher(*head_b);
-	ft_printf("rb\n");
+}
+
+void	rotate_all(t_list **head_a, t_list **head_b)
+{
+	rotate_a_all(head_a);
+	rotate_b_all(head_b);
+	overall_refresher((*head_a), (*head_b));
+	printf("rr\n");
 }

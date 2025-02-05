@@ -20,7 +20,10 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 ACTIONS_SRCS = $(ACTIONS_DIR)/push.c \
                $(ACTIONS_DIR)/reverse_rotate.c \
                $(ACTIONS_DIR)/rotate.c \
-			   $(ACTIONS_DIR)/swap.c 
+			   $(ACTIONS_DIR)/swap.c \
+			   $(ACTIONS_DIR)/reverse_rotate_all.c \
+			   $(ACTIONS_DIR)/rotate_all.c
+
 
 # Manually listed source files for actions
 UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \

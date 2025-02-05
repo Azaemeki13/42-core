@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:19:04 by root              #+#    #+#             */
-/*   Updated: 2025/01/17 17:52:42 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:56:58 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,13 @@ int	error_checker(char **argv)
 	{
 		return (0);
 	}
-	ft_printf("No issue with arg checker\n");
 	if (!flow_checker(argv))
 	{
 		return (0);
 	}
-	ft_printf("No issue with flow checker\n");
 	if (!dup_checker(argv))
 	{
 		return (0);
 	}
-	ft_printf("No issue with dup checker\n");
 	return (1);
 }

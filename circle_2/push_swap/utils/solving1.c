@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solving1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:21:37 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/03 11:59:44 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 17:10:33 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	rotate_above1(t_list **head_a, t_list **head_b, t_list *target_node)
 {
 	if (!head_a || !head_b)
 		return ;
-	while (target_node != 0 && target_node->target_node->index != 0)
+	while (target_node->index != 0 && target_node->target_node->index != 0)
 		reverse_rotate_all(head_a, head_b);
-	overall_refresher(*head_a, *head_b);
 	while (target_node->target_node->index != 0)
 		reverse_rotate_b(head_b);
 	while (target_node->index != 0)
@@ -33,9 +32,8 @@ void	rotate_before1(t_list **head_a, t_list **head_b, t_list *target_node)
 {
 	if (!head_a || !head_b)
 		return ;
-	while (target_node != 0 && target_node->target_node->index != 0)
+	while (target_node->index != 0 && target_node->target_node->index != 0)
 		rotate_all(head_a, head_b);
-	overall_refresher(*head_a, *head_b);
 	while (target_node->target_node->index != 0)
 		rotate_b(head_b);
 	while (target_node->index != 0)

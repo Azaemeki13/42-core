@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/03 13:17:08 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 17:14:02 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,11 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	presort(&stack_a, &stack_b, arguments);
-	f_solving(&stack_a, &stack_b);
+	while(stack_a)
+	{
+		ft_printf("Index:%d Value:%d \n", stack_a->index, stack_a->data);
+		stack_a = stack_a->next;
+	}
 	free_all(&stack_a, &stack_b, arguments);
 	return (0);
 }

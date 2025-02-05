@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/03 13:16:45 by root             ###   ########.fr       */
+/*   Updated: 2025/02/05 16:55:29 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_list
 void				append_node(t_list **head, t_list *new_node);
 int					arg_checker(char **argv);
 char				**argv_to_arg(int argc, char **argv);
+t_list 				*bigger_smallest(t_list *from, t_list *to);
+t_list 				*smallest_bigger(t_list *from, t_list *to);
 int					case_checker(t_list **head_a, t_list *b_node);
 void				create_node(t_list **head, char *argv);
 int					dup_checker(char **argv);
@@ -41,6 +43,7 @@ void				final_rotate2(t_list **head_a, t_list **head_b,
 t_list				*find_cheapest(t_list *head);
 t_list				*find_min(t_list *head);
 t_list				*find_target(t_list *to, t_list *from);
+t_list				*find_target_2(t_list *to, t_list *from);
 void 				free_all (t_list **head_a, t_list **head_b, char **arguments);
 void				free_arguments(char **arguments);
 void				free_stack(t_list *head);
@@ -55,6 +58,7 @@ t_list				*maxi_value(t_list *to, long max_value);
 int					minimal_rotation_cost(int i, int len);
 t_list				*mini_value(t_list *to, long min_value);
 void				node_targeting(t_list **to, t_list **from);
+void				node_targeting2(t_list **to, t_list **from);
 void				overall_refresher(t_list *head_a, t_list *head_b);
 int					flow_checker(char **argv);
 void				presort(t_list **head_a, t_list **head_b, char **arguments);
@@ -65,24 +69,34 @@ void				push_a(t_list **head_a, t_list **head_b);
 void				push_b(t_list **head_a, t_list **head_b);
 void 				push_two(t_list **head_a, t_list **head_b);
 void				reverse_rotate_a(t_list **head_a);
+void				reverse_rotate_a_all(t_list **head_a);
+void				reverse_rotate_b_all(t_list **head_b);
 void				reverse_rotate_all(t_list **head_a, t_list **head_b);
 void				reverse_rotate_b(t_list **head_b);
 void				rotate_a(t_list **head_a);
+void				rotate_a_all(t_list **head_a);
+void				rotate_b_all(t_list **head_b);
 void				rotate_all(t_list **head_a, t_list **head_b);
 void				rotate_b(t_list **head_b);
+int 				same_d (t_list *a, t_list *b);
+void 				same_d_price(t_list *current_node, int len_a, int len_b);
 void 				set_nul(t_list **head, t_list *new_node);
 void 				solving(t_list **head_a, t_list **head_b);
 void				sort_three(t_list **head_a);
 void				sort_two(t_list **head_a);
 void				swap_a(t_list **head);
+void				swap_a_all(t_list **head);
 void				swap_all(t_list **head_a, t_list **head_b);
 void				swap_b(t_list **head);
+void				swap_b_all(t_list **head);
 void				rotate_before1(t_list **head_a, t_list **head_b, t_list *target_node);
 void				rotate_before2(t_list **head_a, t_list **head_b,
 						t_list *target_node);
 void				rotate_above1(t_list **head_a, t_list **head_b, t_list *target_node);
 void				rotate_above2(t_list **head_a, t_list **head_b,
 						t_list *target_node);
+void 				after_three(t_list **head_a, t_list **head_b);
+void 				until_three(t_list **head_a, t_list **head_b);
 void				value_filler(long *min_value, long *max_value, t_list *to);
 
 #endif

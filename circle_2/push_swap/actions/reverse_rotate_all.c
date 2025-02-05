@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate_all.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 16:59:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 16:42:56 by cauffret         ###   ########.fr       */
+/*   Created: 2025/02/05 16:39:29 by cauffret          #+#    #+#             */
+/*   Updated: 2025/02/05 16:40:48 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	reverse_rotate_a(t_list **head_a)
+void	reverse_rotate_a_all(t_list **head_a)
 {
 	t_list	*current_node;
 	t_list	*temp_a = NULL;
@@ -29,10 +29,9 @@ void	reverse_rotate_a(t_list **head_a)
 	temp_a->prev = NULL;
 	(*head_a) = temp_a;
 	index_refresher(*head_a);
-	ft_printf("rra\n");
 }
 
-void	reverse_rotate_b(t_list **head_b)
+void	reverse_rotate_b_all(t_list **head_b)
 {
 	t_list	*current_node;
 	t_list	*temp_b = NULL;
@@ -51,5 +50,12 @@ void	reverse_rotate_b(t_list **head_b)
 	temp_b->prev = NULL;
 	(*head_b) = temp_b;
 	index_refresher(*head_b);
-	ft_printf("rrb\n");
+}
+
+void	reverse_rotate_all(t_list **head_a, t_list **head_b)
+{
+	reverse_rotate_a_all(head_a);
+	reverse_rotate_b_all(head_b);
+	overall_refresher((*head_a), (*head_b));
+	ft_printf("rrr\n");
 }
