@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 17:14:02 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:13:23 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,12 @@ int	main(int argc, char **argv)
 	{
 		create_node(&stack_a, arguments[i]);
 		i++;
+	}
+	t_list * t_a = stack_a;
+	while (t_a)
+	{
+		ft_printf("Stack A [Index: %d, Value %d]\n", t_a->index, t_a->data);
+		t_a = t_a->next;
 	}
 	presort(&stack_a, &stack_b, arguments);
 	while(stack_a)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:32 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 16:43:58 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/06 12:41:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rotate_a(t_list **head_a)
 	temp_a->prev = current_node;
 	temp_a->next = NULL;
 	index_refresher(*head_a);
-	ft_printf("ra\n");
+	write(1,"ra\n",3);
 }
 
 void	rotate_b(t_list **head_b)
@@ -63,5 +63,5 @@ void	rotate_b(t_list **head_b)
 	temp_b->prev = current_node;
 	temp_b->next = NULL;
 	index_refresher(*head_b);
-	ft_printf("rb\n");
+	write(1,"rb\n",3);
 }

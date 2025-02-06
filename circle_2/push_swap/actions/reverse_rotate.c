@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 16:42:56 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:48:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	reverse_rotate_a(t_list **head_a)
 	temp_a->prev = NULL;
 	(*head_a) = temp_a;
 	index_refresher(*head_a);
-	ft_printf("rra\n");
+	write(1,"rra\n",4);
 }
 
 void	reverse_rotate_b(t_list **head_b)
@@ -51,5 +51,5 @@ void	reverse_rotate_b(t_list **head_b)
 	temp_b->prev = NULL;
 	(*head_b) = temp_b;
 	index_refresher(*head_b);
-	ft_printf("rrb\n");
+	write(1,"rrb\n",4);
 }

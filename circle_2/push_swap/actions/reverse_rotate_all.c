@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate_all.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:39:29 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 16:40:48 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:48:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void	reverse_rotate_all(t_list **head_a, t_list **head_b)
 	reverse_rotate_a_all(head_a);
 	reverse_rotate_b_all(head_b);
 	overall_refresher((*head_a), (*head_b));
-	ft_printf("rrr\n");
+	write(1,"rrr\n",4);
 }

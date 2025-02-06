@@ -37,7 +37,9 @@ UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \
 				$(UTILS_DIR)/cheapest.c \
 				$(UTILS_DIR)/solving2.c \
 				$(UTILS_DIR)/solving3.c \
-				$(UTILS_DIR)/solving1.c
+				$(UTILS_DIR)/solving1.c \
+				$(UTILS_DIR)/cases_prices.c \
+				$(UTILS_DIR)/moves.c
 
 # Source files for push_swap and actions
 PUSH_SWAP_SRCS = $(PUSH_SWAP_DIR)/ft_push_swap.c

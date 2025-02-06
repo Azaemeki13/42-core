@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:23 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/03 13:00:59 by root             ###   ########.fr       */
+/*   Updated: 2025/02/06 12:41:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_b(t_list **head_a, t_list **head_b)
 		(*head_b)->prev = NULL;
 	}
 	overall_refresher((*head_a), (*head_b));
-	ft_printf("pb\n");
+	write(1,"pb\n",3);
 }
 
 void	push_a(t_list **head_a, t_list **head_b)
@@ -63,7 +63,7 @@ void	push_a(t_list **head_a, t_list **head_b)
 		(*head_a)->prev = NULL;
 	}
 	overall_refresher((*head_a),(*head_b));
-	ft_printf("pa\n");
+	write(1,"pa\n",3);
 }
 
 void set_nul(t_list **head, t_list *new_node)

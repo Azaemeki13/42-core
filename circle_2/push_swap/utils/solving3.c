@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solving3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:06:01 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 14:53:57 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:55:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void until_three(t_list **head_a, t_list **head_b)
     sort_three(head_a);
 }
 
-void after_three(t_list **head_a, t_list **head_b)
+/*void after_three(t_list **head_a, t_list **head_b)
 {
     t_list *cheapest = NULL;
     while((*head_b))
@@ -56,3 +56,4 @@ void after_three(t_list **head_a, t_list **head_b)
     }
     f_solving(head_a, head_b);
 }
+*/

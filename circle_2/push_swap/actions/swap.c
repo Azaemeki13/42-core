@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:59:35 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/05 16:55:44 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:49:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	swap_a(t_list **head)
 	second->next = first;
 	first->prev = second;
 	(*head) = second;
-	ft_printf("sa\n");
+	write(1,"sa\n",3);
 }
 
 void	swap_b(t_list **head)
@@ -47,5 +47,5 @@ void	swap_b(t_list **head)
 	second->next = first;
 	first->prev = second;
 	(*head) = second;
-	ft_printf("sb\n");
+	write(1,"sb\n",3);
 }
