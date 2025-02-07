@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/07 16:24:26 by root             ###   ########.fr       */
+/*   Updated: 2025/02/07 16:37:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ int 				compute_rotation_cost(int index_a, int index_b, int len_a, int len_b, t_
 void				create_node(t_list **head, char *argv);
 int					dup_checker(char **argv);
 int					error_checker(char **argv);
-void				final_rotate1(t_list **head_a, t_list **head_b, t_list *target_node);
-void				final_rotate2(t_list **head_a, t_list **head_b,
-						t_list *target_node);
 t_list				*find_cheapest(t_list *head);
 t_list				*find_min(t_list *head);
 t_list				*find_target(t_list *to, t_list *from);
@@ -68,7 +65,6 @@ int					limits_checker(const char *nptr);
 void				list_cheapest(t_list *head_b);
 int					list_size(t_list *head);
 t_list				*maxi_value(t_list *to, long max_value);
-int					minimal_rotation_cost(int i, int len);
 t_list				*mini_value(t_list *to, long min_value);
 void				node_targeting(t_list **to, t_list **from);
 void				node_targeting2(t_list **to, t_list **from);
@@ -84,7 +80,6 @@ void 				perform_rot_ra_rrb2(t_list **head_a, t_list **head_b, t_list *from);
 void 				perform_rot_rra_rb2(t_list **head_a, t_list **head_b, t_list *from);
 void				presort(t_list **head_a, t_list **head_b, char **arguments);
 int					presort_checker(char **arguments);
-void				price_refresher(t_list *head_a, t_list *head_b);
 void				print_error(void);
 void				push_a(t_list **head_a, t_list **head_b);
 void				push_b(t_list **head_a, t_list **head_b);
@@ -103,10 +98,7 @@ void				rotate_b_all(t_list **head_b);
 void				rotate_all(t_list **head_a, t_list **head_b);
 void				rotate_b(t_list **head_b);
 void 				rota_cost2(t_list *head_b);
-int 				same_d (t_list *a, t_list *b);
-void 				same_d_price(t_list *current_node, int len_a, int len_b);
 void 				set_nul(t_list **head, t_list *new_node);
-void 				solving(t_list **head_a, t_list **head_b);
 void				sort_three(t_list **head_a);
 void				sort_two(t_list **head_a);
 void				swap_a(t_list **head);
@@ -114,14 +106,6 @@ void				swap_a_all(t_list **head);
 void				swap_all(t_list **head_a, t_list **head_b);
 void				swap_b(t_list **head);
 void				swap_b_all(t_list **head);
-void				rotate_before1(t_list **head_a, t_list **head_b, t_list *target_node);
-void				rotate_before2(t_list **head_a, t_list **head_b,
-						t_list *target_node);
-void				rotate_above1(t_list **head_a, t_list **head_b, t_list *target_node);
-void				rotate_above2(t_list **head_a, t_list **head_b,
-						t_list *target_node);
-void 				after_three(t_list **head_a, t_list **head_b);
-void 				until_three(t_list **head_a, t_list **head_b);
 void				value_filler(long *min_value, long *max_value, t_list *to);
 
 #endif

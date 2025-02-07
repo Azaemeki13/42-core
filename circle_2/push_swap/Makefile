@@ -30,14 +30,12 @@ UTILS_SRCS =	$(UTILS_DIR)/free_stack.c \
 				$(UTILS_DIR)/ft_atol.c \
 				$(UTILS_DIR)/print_error.c \
 				$(UTILS_DIR)/error_management.c \
-				$(UTILS_DIR)/presort.c \
+				$(UTILS_DIR)/sort.c \
 				$(UTILS_DIR)/presort_prep.c \
 				$(UTILS_DIR)/target.c \
-				$(UTILS_DIR)/push_price.c \
+				$(UTILS_DIR)/index_helper.c \
 				$(UTILS_DIR)/cheapest.c \
-				$(UTILS_DIR)/solving2.c \
-				$(UTILS_DIR)/solving3.c \
-				$(UTILS_DIR)/solving1.c \
+				$(UTILS_DIR)/min_to_top.c \
 				$(UTILS_DIR)/cases_prices.c \
 				$(UTILS_DIR)/moves.c \
 				$(UTILS_DIR)/moves_2.c
