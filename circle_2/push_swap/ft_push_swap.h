@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/06 16:49:31 by root             ###   ########.fr       */
+/*   Updated: 2025/02/07 16:24:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,10 @@ void 				perform_rot_rr(t_list **head_a, t_list **head_b, t_list *from);
 void				perform_rot_rrr(t_list **head_a, t_list **head_b, t_list *from);
 void 				perform_rot_ra_rrb(t_list **head_a, t_list **head_b, t_list *from);
 void 				perform_rot_rra_rb(t_list **head_a, t_list **head_b, t_list *from);
+void 				perform_rot_rr2(t_list **head_a, t_list **head_b, t_list *from);
+void 				perform_rot_rrr2(t_list **head_a, t_list **head_b, t_list *from);
+void 				perform_rot_ra_rrb2(t_list **head_a, t_list **head_b, t_list *from);
+void 				perform_rot_rra_rb2(t_list **head_a, t_list **head_b, t_list *from);
 void				presort(t_list **head_a, t_list **head_b, char **arguments);
 int					presort_checker(char **arguments);
 void				price_refresher(t_list *head_a, t_list *head_b);
@@ -98,6 +102,7 @@ void				rotate_a_all(t_list **head_a);
 void				rotate_b_all(t_list **head_b);
 void				rotate_all(t_list **head_a, t_list **head_b);
 void				rotate_b(t_list **head_b);
+void 				rota_cost2(t_list *head_b);
 int 				same_d (t_list *a, t_list *b);
 void 				same_d_price(t_list *current_node, int len_a, int len_b);
 void 				set_nul(t_list **head, t_list *new_node);
