@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   min_to_top.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:34:06 by root              #+#    #+#             */
-/*   Updated: 2025/02/07 16:36:47 by root             ###   ########.fr       */
+/*   Updated: 2025/02/10 12:53:26 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ t_list	*find_min(t_list *head)
 
 void	f_solving(t_list **head_a, t_list **head_b)
 {
-	t_list *min = NULL;
+	t_list	*min;
 
+	min = NULL;
 	min = find_min(*head_a);
 	if (min->above_median)
 	{

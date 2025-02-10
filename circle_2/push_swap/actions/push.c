@@ -37,13 +37,14 @@ void	push_b(t_list **head_a, t_list **head_b)
 		(*head_b)->prev = NULL;
 	}
 	overall_refresher((*head_a), (*head_b));
-	write(1,"pb\n",3);
+	write(1, "pb\n", 3);
 }
 
 void	push_a(t_list **head_a, t_list **head_b)
 {
-	t_list *new_node = NULL;
+	t_list	*new_node;
 
+	new_node = NULL;
 	if (!*head_b)
 	{
 		print_error();
@@ -62,13 +63,13 @@ void	push_a(t_list **head_a, t_list **head_b)
 		*head_a = new_node;
 		(*head_a)->prev = NULL;
 	}
-	overall_refresher((*head_a),(*head_b));
-	write(1,"pa\n",3);
+	overall_refresher((*head_a), (*head_b));
+	write(1, "pa\n", 3);
 }
 
-void set_nul(t_list **head, t_list *new_node)
+void	set_nul(t_list **head, t_list *new_node)
 {
-		*head = new_node;
-		(*head)->next = NULL;
-		(*head)->prev = NULL;
+	*head = new_node;
+	(*head)->next = NULL;
+	(*head)->prev = NULL;
 }

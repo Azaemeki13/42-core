@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:06:14 by root              #+#    #+#             */
-/*   Updated: 2025/01/15 11:09:33 by root             ###   ########.fr       */
+/*   Updated: 2025/02/10 13:03:55 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strcmp(char *str1, char *str2)
+int	ft_strcmp(char *str1, char *str2)
 {
-    while ((*str1) && (*str2))
-        {
-            if ((*str1) != (*str2))
-                return ((*str1) - (*str2));
-            str1++;
-            str2++;
-        }
-        return ((*str1) - (*str2));
+	while ((*str1) && (*str2))
+	{
+		if ((*str1) != (*str2))
+			return ((*str1) - (*str2));
+		str1++;
+		str2++;
+	}
+	return ((*str1) - (*str2));
 }

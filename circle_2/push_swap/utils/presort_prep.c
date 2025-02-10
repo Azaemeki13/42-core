@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   presort_prep.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2025/02/06 12:41:24 by root             ###   ########.fr       */
+/*   Created: 2025/02/10 12:16:48 by cauffret          #+#    #+#             */
+/*   Updated: 2025/02/10 12:17:04 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../ft_push_swap.h"
 

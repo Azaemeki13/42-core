@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/07 13:39:04 by root             ###   ########.fr       */
+/*   Updated: 2025/02/10 15:10:03 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	create_node(t_list **head, char *arguments)
 {
 	t_list	*new_node;
 
-	/* NOTE : here actually we always go from start of list,
-		may want to be optimised.*/
 	new_node = NULL;
 	new_node = malloc(sizeof(t_list));
 	new_node->data = ft_atol(arguments);
@@ -77,12 +75,12 @@ char	**argv_to_arg(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_list	*stack_a = NULL;
-	t_list	*stack_b = NULL;
+	t_list	*stack_a;
+	t_list	*stack_b;
 	char	**arguments;
-	int		i;
 
-	i = 0;
+	stack_a = NULL;
+	stack_b = NULL;
 	arguments = NULL;
 	if (argc == 1 || (argc == 2 && argv[1][0] == 0))
 	{
@@ -92,17 +90,24 @@ int	main(int argc, char **argv)
 	arguments = argv_to_arg(argc, argv);
 	if (!error_checker(arguments))
 	{
-		free_arguments(arguments);
-		print_error();
+		print_free_error(arguments);
 		return (0);
 	}
+	stack_a = arg_to_node(arguments, stack_a);
+	presort(&stack_a, &stack_b, arguments);
+	free_all(&stack_a, &stack_b, arguments);
+	return (0);
+}
+
+t_list	*arg_to_node(char **arguments, t_list *stack_a)
+{
+	int	i;
+
+	i = 0;
 	while (arguments[i] != NULL)
 	{
 		create_node(&stack_a, arguments[i]);
 		i++;
 	}
-	presort(&stack_a, &stack_b, arguments);
-	
-	free_all(&stack_a, &stack_b, arguments);
-	return (0);
+	return (stack_a);
 }

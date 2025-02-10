@@ -36,7 +36,7 @@ void	rotate_a(t_list **head_a)
 	temp_a->prev = current_node;
 	temp_a->next = NULL;
 	index_refresher(*head_a);
-	write(1,"ra\n",3);
+	write(1, "ra\n", 3);
 }
 
 void	rotate_b(t_list **head_b)
@@ -63,5 +63,5 @@ void	rotate_b(t_list **head_b)
 	temp_b->prev = current_node;
 	temp_b->next = NULL;
 	index_refresher(*head_b);
-	write(1,"rb\n",3);
+	write(1, "rb\n", 3);
 }

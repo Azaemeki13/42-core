@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:25:40 by root              #+#    #+#             */
-/*   Updated: 2025/02/07 16:41:25 by root             ###   ########.fr       */
+/*   Updated: 2025/02/10 12:52:54 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void push_two(t_list **head_a, t_list **head_b)
+void	push_two(t_list **head_a, t_list **head_b)
 {
-    push_b(head_a, head_b);
-    push_b(head_a, head_b);
+	push_b(head_a, head_b);
+	push_b(head_a, head_b);
 }
 
 void	presort(t_list **head_a, t_list **head_b, char **arguments)
