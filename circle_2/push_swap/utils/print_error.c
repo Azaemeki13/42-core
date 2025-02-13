@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:08:42 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/10 14:19:08 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:10:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	print_error(void)
 {
-	char	*error_msg;
-
-	error_msg = "Error\n";
-	write(2, error_msg, 6);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	print_free_error(char **arguments)

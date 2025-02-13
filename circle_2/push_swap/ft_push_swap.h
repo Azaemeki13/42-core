@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:09:27 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/10 14:47:58 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:14:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void				f_solving(t_list **head_a, t_list **head_b);
 long				ft_atol(const char *nptr);
 int					ft_max(int a, int b);
 void				index_refresher(t_list *head);
-int					is_sorted(t_list *head_a);
+int					is_sorted(t_list *head);
 int					limits_checker(const char *nptr);
 void				list_cheapest(t_list *head_b);
 int					list_size(t_list *head);
@@ -116,6 +116,7 @@ void				rotate_all(t_list **head_a, t_list **head_b);
 void				rotate_b(t_list **head_b);
 void				rota_cost2(t_list *head_b);
 void				set_nul(t_list **head, t_list *new_node);
+void				sort_4(t_list **head_a, t_list **head_b);
 void				sort_three(t_list **head_a);
 void				sort_two(t_list **head_a);
 void				swap_a(t_list **head);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:19:04 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 14:56:58 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:53:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ int	arg_checker(char **argv)
 	while (argv[i])
 	{
 		j = 0;
+		if (argv[i][j] == '-')
+			j++;
+		if (!argv[i][j])
+			return (0);
+		if (argv[i][j] == '0' && argv[i][j + 1])
+			return (0);
 		while (argv[i][j])
 		{
-			if (j == 0 && (argv[i][j] == '-'))
-				j++;
 			if (!ft_isdigit(argv[i][j]))
-			{
 				return (0);
-			}
 			j++;
 		}
 		i++;
@@ -64,16 +66,20 @@ int	flow_checker(char **argv)
 
 int	dup_checker(char **argv)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	long	num_i;
+	long	num_j;
 
 	i = 0;
 	while (argv[i])
 	{
+		num_i = ft_atol(argv[i]);
 		j = i + 1;
 		while (argv[j])
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
+			num_j = ft_atol(argv[j]);
+			if (num_i == num_j)
 				return (0);
 			j++;
 		}

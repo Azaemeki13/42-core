@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:00:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/10 15:10:03 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:09:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,8 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	arguments = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == 0))
+	if (argc < 2 || (argc == 2 && argv[1][0] == 0))
 	{
-		print_error();
 		return (0);
 	}
 	arguments = argv_to_arg(argc, argv);

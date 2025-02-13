@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   presort_prep.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:16:48 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/10 12:17:04 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:14:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,41 +25,25 @@ void	sort_two(t_list **head_a)
 
 void	sort_three(t_list **head_a)
 {
-	if (is_sorted(*head_a))
-		return ;
-	if ((*head_a)->data > (*head_a)->next->data)
-		swap_a(head_a);
-	rotate_a(head_a);
-	if ((*head_a)->data > (*head_a)->next->data)
-		swap_a(head_a);
-	reverse_rotate_a(head_a);
-	if ((*head_a)->data > (*head_a)->next->data)
-	{
-		swap_a(head_a);
-	}
-}
+	t_list	*data_one;
+	t_list	*data_two;
+	t_list	*data_three;
 
-int	is_sorted(t_list *head_a)
-{
-	long	data2;
-	long	data3;
-
-	data2 = head_a->next->data;
-	if (!head_a->next->next)
-	{
-		if (head_a->data < data2)
-			return (1);
-		else
-			return (0);
-	}
-	else
-	{
-		data3 = head_a->next->next->data;
-		if (head_a->data < data2 && data2 < data3)
-			return (1);
-		else
-			return (0);
-	}
+	data_one = NULL;
+	data_two = NULL;
+	data_three = NULL;
+	data_one = (*head_a);
+	data_two = (*head_a)->next;
+	data_three = (*head_a)->next->next;
+	if (data_one->data > data_two->data && data_one->data > data_three->data)
+		rotate_a(head_a);
+	else if (data_two->data > data_three->data)
+		reverse_rotate_a(head_a);
+	data_one = (*head_a);
+	data_two = (*head_a)->next;
+	data_three = (*head_a)->next->next;
+	if (data_one->data > data_two->data)
+		swap_a(head_a);
 }
 
 int	presort_checker(char **arguments)
@@ -70,4 +54,15 @@ int	presort_checker(char **arguments)
 	while (arguments[i] != 0)
 		i++;
 	return (i);
+}
+
+int	is_sorted(t_list *head)
+{
+	while (head && head->next)
+	{
+		if (head->data > head->next->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }
