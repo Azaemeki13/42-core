@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/20 15:10:53 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:46:51 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 
 # include "./libft/ft_printf/ft_printf.h"
 # include "./libft/libft.h"
-# include <signal.h>
-# include <sys/types.h>
-
+# include "./mlx_linux/mlx.h"
+// test structure 
+typedef struct s_data
+{
+    void *img;
+    char *addr;
+    int     bits_per_pixel;
+    int     line_length;
+    int     endian;
+}           t_data;
 // map checker
-void	ack_handler(int signum);
-void	char_to_sig(char c, pid_t pid);
-int		error_checker(int argc, char **argv);
-long	ft_atol(const char *nptr);
-void	str_to_sig(char *str, pid_t pid);
+
 
 // server side
 

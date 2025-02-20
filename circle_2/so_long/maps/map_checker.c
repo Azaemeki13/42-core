@@ -6,7 +6,14 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/20 14:47:00 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:59:18 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./so_long.h"
+/*
+int main(void)
+{
+    // printing out a window
+}
+*/
