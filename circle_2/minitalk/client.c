@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:48:11 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 14:21:34 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:31:04 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	char_to_sig(char c, pid_t pid)
 		while (!g_ack)
 			pause();
 		g_ack = 0;
+		usleep(20);
 	}
 }
 

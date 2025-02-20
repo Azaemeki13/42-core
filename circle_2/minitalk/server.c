@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:48:14 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 14:21:03 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:31:16 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	bit_handler(int signum, siginfo_t *info, void *context)
 		current_char = 0;
 		bit_count = 0;
 	}
+	usleep(20);
 	kill(info->si_pid, SIGUSR1);
 }
 
