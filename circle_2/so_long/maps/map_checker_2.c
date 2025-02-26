@@ -6,11 +6,11 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/21 16:10:57 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/25 17:29:19 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./so_long.h"
+#include "../so_long.h"
 
 void init_map_c(struct map_c *map)
 {
@@ -18,6 +18,8 @@ void init_map_c(struct map_c *map)
     map->map_exit = 0;
     map->player_start = 0;
     map->empty_space = 0;
+    map->height = 0;
+    map->width = 0;
 }
 
 int cool_checker(char c)
@@ -98,10 +100,11 @@ int map_checker_basic(char *arg)
     char *str;
     struct map_c map;
 
+    str = NULL;
     i = 1;
     if (!map_read(arg)) 
         i = 0;
-    if (!map_shape(arg)) 
+    if (!map_shape(arg, &map)) 
         i = 0;
     if (!map_closed(arg, str)) 
         i = 0;

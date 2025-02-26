@@ -6,15 +6,17 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/21 15:59:42 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/25 17:33:35 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./so_long.h"
+#include "../so_long.h"
 
 void error_print()
 {
-    write(2, "Error\n", 6);
+    if(write(2, "Error\n", 6) < 0)
+    {
+    }
 }
 
 int map_read(char *arg)
@@ -37,24 +39,25 @@ int map_read(char *arg)
     return (1);
 }
 
-int map_shape(char *arg)
+int map_shape(char *arg, struct map_c *map)
 {
     int fd;
-    int small_l;
     char *str;
 
     fd = open(arg, O_RDONLY);
     str = get_next_line(fd);
-    small_l = ft_strlen(str);
+    map->width = ft_strlen(str);
+    map->height = 1;
     while (str)
     {
         free(str);
         str = get_next_line(fd);
-        if (ft_strlen(str) != small_l)
+        if (ft_strlen(str) != map->width)
         {
             close(fd);
             return (0);
         }
+        map->height++;
     }
     free(str);
     close(fd);

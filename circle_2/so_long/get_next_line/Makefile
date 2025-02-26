@@ -1,17 +1,16 @@
 # Variables
-NAME = test_gnl
+NAME = get_next_line.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = get_next_line.c get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
 
-# Default target to build the executable
-all: $(NAME)
-
 # Link objects to create the executable
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	ar rcs $(NAME) $(OBJS)
+
+all: $(NAME)
 
 # Rule to compile each .c file into a .o file
 %.o: %.c get_next_line.h
@@ -27,3 +26,5 @@ fclean: clean
 
 # Rebuild the project
 re: fclean all
+
+.PHONY: all clean fclean re

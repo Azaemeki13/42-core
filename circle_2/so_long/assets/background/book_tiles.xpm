@@ -1,0 +1,48 @@
+/* XPM */
+static char *pile_of_books_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"32 32 8 1",
+/* color definitions */
+". c #000000", /* background (black) */
+"g c #1e9e1e", /* green cover */
+"r c #9c4646", /* red cover */
+"b c #b29b59", /* brown cover */
+"o c #c2751e", /* orange cover */
+"w c #ffffff", /* white pages */
+"s c #654321", /* spine/shadow */
+"x c #cccccc", /* highlight (unused) */
+
+/* pixel data: 32 rows, each 32 characters wide */
+"................................",
+"................................",
+"................................",
+"................................",
+"..........sssssss...............",
+"..........sgggggggs.............",
+"..........sgggwwggs.............",
+"..........sgggggggs.............",
+"..........sgggggggs.............",
+"..........sssssss...............",
+".........rrrrrrrrrrr............",
+".........rrrrwwrrrrr............",
+".........rrrrrrrrrrr............",
+".........rrrrrrrrrrr............",
+".........rrrrrrrrrrr............",
+"........bbbbbbbbbbbbb...........",
+"........bbbwwbbbbbbbbb..........",
+"........bbbbbbbbbbbbb...........",
+"........bbbbbbbbbbbbb...........",
+"........bbbbbbbbbbbbb...........",
+".......ooooooooooooooo..........",
+".......ooowwoooooooooo..........",
+".......ooooooooooooooo..........",
+".......ooooooooooooooo..........",
+".......ooooooooooooooo..........",
+"................................",
+"................................",
+"................................",
+"................................",
+"................................",
+"................................",
+"................................"
+};

@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/21 16:11:15 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/25 17:26:54 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,39 @@
 # include <fcntl.h>
 
 // for map checking
+
+typedef struct background
+{
+    void *mlx;
+    void *mlx_win;
+    void *background_layer1;
+    ssize_t width;
+    ssize_t height;
+} t_background;
+
+struct tiles
+{
+    char *type;
+    ssize_t size_x;
+    ssize_t size_y;
+};
+
 struct map_c
 {
     unsigned int collectible;
     unsigned int map_exit;
     unsigned int player_start;
     unsigned int empty_space;
+    unsigned int height;
+    unsigned int width;
+};
+
+// my game structure
+struct game
+{
+    void *mlx;
+    char **map_grid;
+    
 };
 
 
@@ -34,7 +61,7 @@ struct map_c
 int map_closed2(char *arg);
 int map_closed(char *arg, char *str);
 int map_read(char *arg);
-int map_shape(char *arg);
+int map_shape(char *arg, struct map_c *map);
 void error_print();
 
 // map checker_2
