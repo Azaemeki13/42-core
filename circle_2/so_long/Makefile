@@ -6,7 +6,7 @@
 #    By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/02/24 19:55:44 by ituriel          ###   ########.fr        #
+#    Updated: 2025/02/27 16:21:00 by ituriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ MLX = $(MLX_DIR)/libmlx_Linux.a
 
 # now listing my files 
 MAPS_SRCS = $(MAPS_DIR)/map_checker_1.c \
-			$(MAPS_DIR)/map_checker_2.c
+			$(MAPS_DIR)/map_checker_2.c \
+			$(MAPS_DIR)/map_list.c 
+
 
 # What do I need to make so_long work ? my custom so_long functions :)
 SO_LONG_SRCS = $(SO_LONG_DIR)/so_long.c

@@ -6,12 +6,12 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/25 17:29:19 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:34:51 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
+/*
 void init_map_c(struct map_c *map)
 {
     map->collectible = 0;
@@ -104,10 +104,16 @@ int map_checker_basic(char *arg)
     i = 1;
     if (!map_read(arg)) 
         i = 0;
+    if (i == 1)
+        ft_printf("map read test OK\n");
     if (!map_shape(arg, &map)) 
         i = 0;
+    if (i == 1)
+        ft_printf("map shape test OK\n");
     if (!map_closed(arg, str)) 
         i = 0;
+    if (i == 1)
+        ft_printf("map closed test OK\n");
     map_value_filler(arg, str, &map);
     map_value_checker(arg, str, &map);
     if (map.collectible < 1)
@@ -120,3 +126,4 @@ int map_checker_basic(char *arg)
         free(str);
     return(i);
 }
+    */
