@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/28 13:18:20 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:34:35 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,26 +70,20 @@ struct game
 // map checker_1
 int map_checker(char *arg, b_buffer **map_buffer, map_c **map); // REDO from here
 int map_init(char *arg, b_buffer **map_buffer);
-int map_closed2(char *arg);
-int map_closed(char *arg, char *str);
+void error_print();
+
+// map checker_2
 void init_map_c(map_c **map);
 int map_shape (b_buffer **map_buffer, map_c **map);
 int check_ns(b_buffer *map);
 int check_we(b_buffer *map);
 int filler_checker(b_buffer *map, map_c **map_compo);
-void error_print();
 
 //map buffer
 void	create_node(b_buffer **head, char *arguments);
 void	add_node(b_buffer **head, b_buffer *new_node);
 b_buffer	*arg_to_node(b_buffer *map_buffer, int fd);
 void index_refresher (b_buffer *map_buffer);
-
-// map checker_2
-int cool_checker(char c);
-void map_value_filler(char *arg, char *str, map_c *map);
-int map_value_checker(char *arg, char *str, map_c *map);
-int map_checker_basic(char *arg);
 
 // server side
 
