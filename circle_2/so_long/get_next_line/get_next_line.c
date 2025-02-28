@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:44:22 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/26 13:48:11 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/28 12:47:31 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*rl_creator(t_list *head)
 	if (head == NULL)
 		return (NULL);
 	total_length = length_to_nl(head);
-	return_line = malloc(sizeof(char) * total_length + 1);
+	return_line = malloc(sizeof(char) * total_length);
 	if (!return_line)
 		return (NULL);
 	stash_to_line(head, return_line);
@@ -84,7 +84,6 @@ void	stash_to_line(t_list *head, char *return_line)
 		{
 			if (head->str_buf[j] == '\n')
 			{
-				return_line[i++] = '\n';
 				return_line[i] = '\0';
 				return ;
 			}

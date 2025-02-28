@@ -3,127 +3,117 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/27 15:34:51 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/28 13:32:06 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-/*
-void init_map_c(struct map_c *map)
+
+void init_map_c(map_c **map)
 {
-    map->collectible = 0;
-    map->map_exit = 0;
-    map->player_start = 0;
-    map->empty_space = 0;
-    map->height = 0;
-    map->width = 0;
+    (*map) = malloc(sizeof(map_c));
+    (*map)->collectible = 0;
+    (*map)->map_exit = 0;
+    (*map)->player_start = 0;
+    (*map)->empty_space = 0;
+    (*map)->height = 0;
+    (*map)->width = 0;
 }
-
-int cool_checker(char c)
+int map_shape (b_buffer **map_buffer,  map_c **map)
 {
-    int i; 
-
-    i = 1;
-    if(c == '0')
-        i = 0;
-    else if(c == '1')
-        i = 0;
-    else if(c == 'C')
-        i = 0;
-    else if(c == 'E')
-        i = 0;
-    else if(c == 'P')
-        i = 0;
-    return(i);
-}
-
-void map_value_filler(char *arg, char *str, struct map_c *map)
-{
-    int fd;
-    int i;
-
-    fd = open(arg, O_RDONLY);
-    i = 0;
-    init_map_c(map);
-    str = get_next_line(fd);
-    while (str)
+    b_buffer *nav = NULL;
+    
+    nav = (*map_buffer);
+    init_map_c((map));
+    (*map)->width = ft_strlen((nav)->content);
+    while (nav->next)
     {
-        free(str);
-        str = get_next_line(fd);
-        while (str[++i] && str[i + 1])
-        {
-            if ((str[i]) == 'C')
-                (*map).collectible++;
-            if ((str[i]) == 'E')
-                (*map).map_exit++;
-            if ((str[i]) == 'P')
-                (*map).player_start++;
-        }
+        nav = nav->next;
     }
-    close(fd);
-}
-
-int map_value_checker(char *arg, char *str, struct map_c *map)
-{
-    int fd;
-    int i;
-
-    fd = open(arg, O_RDONLY);
-    i = 0;
-    init_map_c(map);
-    str = get_next_line(fd);
-    while (str)
+    (*map)->height = (nav->index) + 1;
+    nav = (*map_buffer);
+    while (nav)
     {
-        free(str);
-        str = get_next_line(fd);
-        while (str[++i] && str[i + 1])
-        {
-            if ((str[i]) == '0')
-                (*map).empty_space++;
-            if (cool_checker(str[i]))
-            {
-                close(fd);
-                return(0);
-            }
-        }
+        if (ft_strlen(nav->content) != (*map)->width)
+            return (0);
+        nav = nav->next;
     }
-    close(fd);
+    ft_printf("Width = %d, height = %d \n", (*map)->width, (*map)->height);
     return (1);
 }
 
-int map_checker_basic(char *arg)
+int check_ns(b_buffer *map)
 {
+    char *test = map->content;
+    int length;
     int i;
-    char *str;
-    struct map_c map;
 
-    str = NULL;
-    i = 1;
-    if (!map_read(arg)) 
-        i = 0;
-    if (i == 1)
-        ft_printf("map read test OK\n");
-    if (!map_shape(arg, &map)) 
-        i = 0;
-    if (i == 1)
-        ft_printf("map shape test OK\n");
-    if (!map_closed(arg, str)) 
-        i = 0;
-    if (i == 1)
-        ft_printf("map closed test OK\n");
-    map_value_filler(arg, str, &map);
-    map_value_checker(arg, str, &map);
-    if (map.collectible < 1)
-        i = 0;
-    if (map.map_exit == 0 || map.map_exit > 1)
-        i = 0;
-    if (map.player_start == 0 || map.player_start > 1)
-        i = 0;
-    if (str)
-        free(str);
-    return(i);
+    i = 0;
+    length = ft_strlen(test);
+    while(i < length)
+    {
+        if (test[i] != '1')
+            return (0);
+        i++;
+    }
+
+    while (map->next)
+        map = map->next;
+    test = map->content;
+    i = 1; 
+    while(i < length)
+    {
+        if (test[i] != '1')
+            return (0);
+        i++;
+    }
+    return (1);
 }
-    */
+
+int check_we(b_buffer *map)
+{
+    b_buffer *test;
+    int f;
+    int l;
+
+    test = map;
+    f = 0;
+    l = ft_strlen(test->content) - 1;
+    while(test)
+    {
+        if (test->content[f] != '1' || test->content[l] != '1')
+            return(0);
+        test = test->next;
+    }
+    return (1);
+}
+
+int filler_checker(b_buffer *map, map_c **map_compo)
+{
+    // E P C 0
+    map_c *mappy = NULL;
+    
+    mappy = (*map_compo);
+    while(map)
+    {
+        while(*map->content)
+        {
+            if (*map->content == 'E')
+                mappy->map_exit++;
+            else if (*map->content == 'P')
+                mappy->player_start++;
+            else if (*map->content == 'C')
+                mappy->collectible++;
+            else if (*map->content == '0')
+                mappy->empty_space++;
+            map->content++;
+        }
+        map = map->next;
+    }
+    if (mappy->map_exit != 1 || mappy->player_start != 1 || mappy->collectible < 1)
+        return(0);
+    return(1);
+}

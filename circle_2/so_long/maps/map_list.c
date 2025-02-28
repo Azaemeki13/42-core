@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:53:05 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/27 16:29:56 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:03 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,12 @@ void index_refresher (b_buffer *map_buffer)
         map_buffer->index = ++i;
         map_buffer = map_buffer->next;
     }
+}
+
+void nl_stripper (b_buffer *map)
+{
+	while (map)
+	{
+		
+	}
 }

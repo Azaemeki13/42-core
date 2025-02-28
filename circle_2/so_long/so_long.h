@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/27 17:20:50 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/02/28 13:18:20 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ int map_closed2(char *arg);
 int map_closed(char *arg, char *str);
 void init_map_c(map_c **map);
 int map_shape (b_buffer **map_buffer, map_c **map);
+int check_ns(b_buffer *map);
+int check_we(b_buffer *map);
+int filler_checker(b_buffer *map, map_c **map_compo);
 void error_print();
 
 //map buffer
