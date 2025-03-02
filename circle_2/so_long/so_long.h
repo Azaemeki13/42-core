@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/28 13:34:35 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:40:50 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,6 @@ typedef struct buffer
 	struct buffer	*prev;
 }					b_buffer;
 
-typedef struct background
-{
-    void *mlx;
-    void *mlx_win;
-    void *background_layer1;
-    ssize_t width;
-    ssize_t height;
-} t_background;
-
-
-
-struct tiles
-{
-    char *type;
-    ssize_t size_x;
-    ssize_t size_y;
-};
 
 typedef struct map_components
 {
@@ -58,13 +41,42 @@ typedef struct map_components
     unsigned int width;
 } map_c;
 
+typedef struct character_sprite
+{
+    void *up;
+    void *down;
+    void *left;
+    void *right;
+} s_character;
+
+typedef struct coin_sprite
+{
+    void *s_one;
+    void *s_two;
+    void *s_three;
+    void *s_four;
+} s_coin;
+
+typedef struct tiles_sprite
+{
+    void *wall;
+    void *exit;
+    void *nuthin;
+    void *background;
+} s_tiles;
+
 // my game structure
-struct game
+typedef struct game
 {
     void *mlx;
-    char **map_grid;
-    
-};
+    void *mlx_win;
+    map_c *map_components;
+    b_buffer *map_buffer;
+    s_coin *s_c;
+    s_character *s_char;
+    s_tiles *s_til;
+    int mlx_loop;
+} g_game;
 
 
 // map checker_1
