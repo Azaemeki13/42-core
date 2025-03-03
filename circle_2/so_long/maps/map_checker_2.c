@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/28 13:32:06 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:34:49 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,23 +95,27 @@ int filler_checker(b_buffer *map, map_c **map_compo)
 {
     // E P C 0
     map_c *mappy = NULL;
+    b_buffer *nav = NULL;
+    int i;
     
+    nav = map;
     mappy = (*map_compo);
-    while(map)
+    while(nav)
     {
-        while(*map->content)
+        i = 0;
+        while(nav->content[i] != '\0')
         {
-            if (*map->content == 'E')
+            if (nav->content[i] == 'E')
                 mappy->map_exit++;
-            else if (*map->content == 'P')
+            else if (nav->content[i] == 'P')
                 mappy->player_start++;
-            else if (*map->content == 'C')
+            else if (nav->content[i] == 'C')
                 mappy->collectible++;
-            else if (*map->content == '0')
+            else if (nav->content[i] == '0')
                 mappy->empty_space++;
-            map->content++;
+            i++;
         }
-        map = map->next;
+        nav = nav->next;
     }
     if (mappy->map_exit != 1 || mappy->player_start != 1 || mappy->collectible < 1)
         return(0);

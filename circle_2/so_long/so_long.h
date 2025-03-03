@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/02 18:40:50 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/03 16:02:11 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <fcntl.h>
 
 // for map checking
-
 typedef struct buffer
 {
 	char *			content;
@@ -65,6 +64,18 @@ typedef struct tiles_sprite
     void *background;
 } s_tiles;
 
+typedef struct tiles_map
+{
+    int pix_x;
+    int pix_y;
+    int index_x;
+    int index_y;
+    char type;
+    void *tiles_image;
+    struct tiles_map *next;
+    struct tiles_map *prev;
+    
+} t_map;
 // my game structure
 typedef struct game
 {
@@ -75,6 +86,7 @@ typedef struct game
     s_coin *s_c;
     s_character *s_char;
     s_tiles *s_til;
+    t_map *t_map;
     int mlx_loop;
 } g_game;
 
@@ -97,6 +109,17 @@ void	add_node(b_buffer **head, b_buffer *new_node);
 b_buffer	*arg_to_node(b_buffer *map_buffer, int fd);
 void index_refresher (b_buffer *map_buffer);
 
-// server side
+// my game initialiser
+g_game *game_init(char *arg);
+void sprite_loader(g_game **game);
+
+// grid list 
+void init_tiles_m(t_map **tiles);
+void add_tile (t_map **tiles, t_map *nav);
+void fill_grid (g_game **game);
+void map_to_grid(g_game **game);
+void grid_type(g_game **game);
+void grid_image(g_game **game);
+void render_grid(g_game **game);
 
 #endif

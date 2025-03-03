@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/02/28 13:32:49 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:34:59 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,16 @@ void error_print()
 
 int map_checker(char *arg, b_buffer **map_buffer, map_c **map)
 {
-    if (!map_init(arg, map_buffer))
+    if ((map_init(arg, map_buffer)) == 0)
         return(0);
-    ft_printf(" passed init \n");
     if (!map_shape(map_buffer, map))
         return(0);
-    ft_printf(" passed shape \n");
     if (!check_ns(*map_buffer))
         return(0);
     if(!check_we(*map_buffer))
         return(0);
     if(!filler_checker(*map_buffer, map))
         return(0);
-    ft_printf("checkers passed \n");
-    ft_printf("[Collectibles %d, exit %d, start %d]\n", (*map)->collectible, (*map)->map_exit, (*map)->player_start);
     return (1);
 }
 

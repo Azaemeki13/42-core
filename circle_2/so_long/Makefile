@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+         #
+#    By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/02/27 16:21:00 by ituriel          ###   ########.fr        #
+#    Updated: 2025/03/03 14:36:03 by cauffret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ PRINTF_DIR = ./libft/ft_printf
 MAPS_DIR= ./maps
 GET_NEXT_LINE_DIR = ./get_next_line
 MLX_DIR = ./mlx_linux
+UTILS_DIR = ./utils
 
 # what i want to link against
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -32,12 +33,14 @@ MLX = $(MLX_DIR)/libmlx_Linux.a
 # now listing my files 
 MAPS_SRCS = $(MAPS_DIR)/map_checker_1.c \
 			$(MAPS_DIR)/map_checker_2.c \
-			$(MAPS_DIR)/map_list.c 
+			$(MAPS_DIR)/map_list.c \
+			$(MAPS_DIR)/map_renderer.c
 
+UTILS_SRCS = $(UTILS_DIR)/game_start.c
 
 # What do I need to make so_long work ? my custom so_long functions :)
 SO_LONG_SRCS = $(SO_LONG_DIR)/so_long.c
-SRCS = $(SO_LONG_SRCS) $(MAPS_SRCS)
+SRCS = $(SO_LONG_SRCS) $(MAPS_SRCS) $(UTILS_SRCS)
 
 # object files build
 OBJS = $(SRCS:.c=.o) 
@@ -67,7 +70,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c
 	@echo "Compiling $<..."
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(GET_NEXT_LINE_DIR) -I$(MAPS_DIR)  -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(GET_NEXT_LINE_DIR) -I$(MAPS_DIR) -I$(UTILS_DIR) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean:
 	@echo "Cleaning object files..."
