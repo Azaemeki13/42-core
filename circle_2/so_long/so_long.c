@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:22 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/03 16:20:41 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:24:45 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ int main (int argc, char **argv)
     game = game_init(argv[1]);
     if (game == NULL)
         ft_printf("Failed to init \n");
-    game->mlx_win = mlx_new_window(game->mlx, 800, 800, "so_long");
-    render_grid(&game);
+    game->mlx_win = mlx_new_window(game->mlx, game->map_components->win_width, game->map_components->win_height, "so_long");
+    mlx_loop_hook(game->mlx, animation_loop, game);
+    mlx_hook(game->mlx_win, 2, (1L << 0), key_press, game);
+    ft_printf("lol\n");
+    mlx_hook(game->mlx_win, 17, (1L << 0), close_window, game);
     mlx_loop(game->mlx);
     return (0);
 }

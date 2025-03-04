@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+         #
+#    By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/03/03 14:36:03 by cauffret         ###   ########.fr        #
+#    Updated: 2025/03/04 16:38:17 by ituriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,11 @@ MAPS_SRCS = $(MAPS_DIR)/map_checker_1.c \
 			$(MAPS_DIR)/map_list.c \
 			$(MAPS_DIR)/map_renderer.c
 
-UTILS_SRCS = $(UTILS_DIR)/game_start.c
+UTILS_SRCS = $(UTILS_DIR)/game_start.c \
+			 $(UTILS_DIR)/animations.c \
+			 $(UTILS_DIR)/window_exit.c \
+			 $(UTILS_DIR)/clean.c \
+			 $(UTILS_DIR)/game_clean.c
 
 # What do I need to make so_long work ? my custom so_long functions :)
 SO_LONG_SRCS = $(SO_LONG_DIR)/so_long.c

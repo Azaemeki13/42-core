@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/03 15:34:49 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:30:41 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void init_map_c(map_c **map)
     (*map)->empty_space = 0;
     (*map)->height = 0;
     (*map)->width = 0;
+    (*map)->win_width = 0;
+    (*map)->win_height = 0;
+
 }
 int map_shape (b_buffer **map_buffer,  map_c **map)
 {
@@ -29,11 +32,14 @@ int map_shape (b_buffer **map_buffer,  map_c **map)
     nav = (*map_buffer);
     init_map_c((map));
     (*map)->width = ft_strlen((nav)->content);
+    (*map)->win_width = (*map)->width * 32;
+
     while (nav->next)
     {
         nav = nav->next;
     }
     (*map)->height = (nav->index) + 1;
+    (*map)->win_height = (*map)->height * 32;
     nav = (*map_buffer);
     while (nav)
     {
@@ -41,7 +47,7 @@ int map_shape (b_buffer **map_buffer,  map_c **map)
             return (0);
         nav = nav->next;
     }
-    ft_printf("Width = %d, height = %d \n", (*map)->width, (*map)->height);
+    ft_printf("Width = %d, height = %d \n", (*map)->win_width, (*map)->win_height);
     return (1);
 }
 

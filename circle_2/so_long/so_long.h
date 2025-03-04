@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/03 16:02:11 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:55:51 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct map_components
     unsigned int empty_space;
     unsigned int height;
     unsigned int width;
+    unsigned int win_height;
+    unsigned int win_width;
 } map_c;
 
 typedef struct character_sprite
@@ -74,8 +76,8 @@ typedef struct tiles_map
     void *tiles_image;
     struct tiles_map *next;
     struct tiles_map *prev;
-    
 } t_map;
+
 // my game structure
 typedef struct game
 {
@@ -121,5 +123,22 @@ void map_to_grid(g_game **game);
 void grid_type(g_game **game);
 void grid_image(g_game **game);
 void render_grid(g_game **game);
+
+// animations xd 
+void animation_char(g_game *nav);
+void animation_coin(g_game *nav);
+int animation_loop(void *param);
+
+//window gestion
+int key_press(int keycode, void *param);
+int close_window(void *param);
+
+// free memory
+void free_buffer(g_game **game);
+void free_char_sprite(g_game **game);
+void free_coin_sprite(g_game **game);
+void free_tiles_sprite(g_game **game);
+void free_grid(g_game **game);
+void clean_game(g_game **game);
 
 #endif
