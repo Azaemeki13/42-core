@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:22 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/04 17:24:45 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/05 18:22:54 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ g_game *game_init(char *arg)
     game_struct->s_char = malloc(sizeof(s_character));
     game_struct->s_til = malloc(sizeof(s_tiles));
     game_struct->mlx = mlx_init();
+    game_struct->side = RIGHT;
+    game_struct->size = DOWN;
     sprite_loader(&game_struct);
     map_to_grid(&game_struct);
     grid_image(&game_struct);
@@ -48,7 +50,6 @@ int main (int argc, char **argv)
     game->mlx_win = mlx_new_window(game->mlx, game->map_components->win_width, game->map_components->win_height, "so_long");
     mlx_loop_hook(game->mlx, animation_loop, game);
     mlx_hook(game->mlx_win, 2, (1L << 0), key_press, game);
-    ft_printf("lol\n");
     mlx_hook(game->mlx_win, 17, (1L << 0), close_window, game);
     mlx_loop(game->mlx);
     return (0);

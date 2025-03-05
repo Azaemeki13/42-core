@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:09:32 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/03 15:47:19 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/05 18:20:13 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void init_tiles_m(t_map **tiles)
     nav->tiles_image = NULL;
     nav->next = NULL;
     nav->prev = NULL;
+    nav->up = NULL;
+    nav->down = NULL;
     if (*tiles == NULL )
         *tiles = nav;
     else
@@ -91,6 +93,7 @@ void fill_grid (g_game **game)
         y++;
     }
     grid_type(game);
+    grid_directions(game);
 }
 
 void map_to_grid(g_game **game)
@@ -112,4 +115,5 @@ void map_to_grid(g_game **game)
         y++;
     }
     fill_grid(game);
+    
 }

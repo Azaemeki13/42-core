@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/04 16:55:51 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/05 18:06:49 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@
 # include "./mlx_linux/mlx.h"
 # include <string.h>
 # include <fcntl.h>
+
+// FOR ANIM XD LEFT
+typedef enum t_direction
+{
+    RIGHT,
+    LEFT
+} d_direction;
+
+typedef enum t_gravity
+{
+    UP,
+    DOWN
+} g_gravity;
 
 // for map checking
 typedef struct buffer
@@ -76,6 +89,8 @@ typedef struct tiles_map
     void *tiles_image;
     struct tiles_map *next;
     struct tiles_map *prev;
+    struct tiles_map *up;
+    struct tiles_map *down;
 } t_map;
 
 // my game structure
@@ -83,6 +98,8 @@ typedef struct game
 {
     void *mlx;
     void *mlx_win;
+    d_direction side;
+    g_gravity size;
     map_c *map_components;
     b_buffer *map_buffer;
     s_coin *s_c;
@@ -123,9 +140,26 @@ void map_to_grid(g_game **game);
 void grid_type(g_game **game);
 void grid_image(g_game **game);
 void render_grid(g_game **game);
+t_map *pos_finder(g_game **game, int x, int y);
+void grid_directions(g_game **game);
+void precision_change(t_map *from, t_map *to, g_game *game);
+
+// movements
+int wall_up(t_map *nav);
+void move_up(g_game **game);
+int wall_down(t_map *nav);
+void move_down(g_game **game);
+int wall_left(t_map *nav);
+void move_left(g_game **game);
+int wall_right(t_map *nav);
+void move_right(g_game **game);
+
+// movement hooks 
+void move_press(int keycode, g_game *param);
 
 // animations xd 
 void animation_char(g_game *nav);
+void animation_char_2(g_game *nav);
 void animation_coin(g_game *nav);
 int animation_loop(void *param);
 

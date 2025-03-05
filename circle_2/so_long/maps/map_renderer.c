@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_renderer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:01:21 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/04 15:33:55 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/05 17:24:14 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,33 @@ void grid_image(g_game **game)
             grid->tiles_image = (*game)->s_char->up;
         else if(grid->type == 'E')
             grid->tiles_image = (*game)->s_til->exit;
+        grid = grid->next;
+    }
+}
+
+t_map *pos_finder(g_game **game, int x, int y)
+{
+    t_map *grid = NULL;
+    
+    grid = (*game)->t_map;
+    while (grid)
+    {
+        if (grid->index_x == x && grid->index_y == y)
+            return(grid);
+        grid = grid->next;
+    }
+    return(grid);
+}
+
+void grid_directions(g_game **game)
+{
+    t_map *grid = NULL; 
+    
+    grid = (*game)->t_map;
+    while (grid)
+    {
+        grid->down = pos_finder(game, grid->index_x, (grid->index_y) + 1);
+        grid->up = pos_finder(game, grid->index_x, (grid->index_y) - 1);
         grid = grid->next;
     }
 }

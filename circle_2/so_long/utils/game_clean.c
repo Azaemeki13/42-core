@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_clean.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:40:06 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/04 17:15:22 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/05 12:10:21 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void clean_game(g_game **game)
     mlx_loop_end((*game)->mlx);
     if ((*game)->mlx_win)
         mlx_destroy_window((*game)->mlx, (*game)->mlx_win);
+    free((*game)->mlx);
     free_buffer(game);
     free_char_sprite(game);
     free_coin_sprite(game);

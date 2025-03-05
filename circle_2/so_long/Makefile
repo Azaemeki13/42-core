@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+         #
+#    By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/03/04 16:38:17 by ituriel          ###   ########.fr        #
+#    Updated: 2025/03/05 15:37:34 by cauffret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,11 @@ UTILS_SRCS = $(UTILS_DIR)/game_start.c \
 			 $(UTILS_DIR)/animations.c \
 			 $(UTILS_DIR)/window_exit.c \
 			 $(UTILS_DIR)/clean.c \
-			 $(UTILS_DIR)/game_clean.c
+			 $(UTILS_DIR)/game_clean.c \
+			 $(UTILS_DIR)/movement.c \
+			 $(UTILS_DIR)/movement_1.c \
+			 $(UTILS_DIR)/move_hook.c
+
 
 # What do I need to make so_long work ? my custom so_long functions :)
 SO_LONG_SRCS = $(SO_LONG_DIR)/so_long.c

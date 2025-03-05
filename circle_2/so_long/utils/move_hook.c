@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window_exit.c                                      :+:      :+:    :+:   */
+/*   move_hook.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 15:36:09 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/05 16:03:47 by cauffret         ###   ########.fr       */
+/*   Created: 2025/03/05 15:28:37 by cauffret          #+#    #+#             */
+/*   Updated: 2025/03/05 17:23:39 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int key_press(int keycode, void *param)
+void move_press(int keycode, g_game *param)
 {
     g_game *game = NULL;
-    ft_printf("Keycode: %d\n", keycode);  // Debug print
-    game = (g_game *) param;
-    move_press(keycode, game);
-    if (keycode == 65307)
-    {
-        clean_game(&game);
-        exit(0);
-    }
-    return(0);
-}
 
-int close_window(void *param)
-{
-    g_game *game;
-
-    game = (g_game *) param;
-    clean_game(&game);
-    exit(0);
-    return (0);
+    game = param;
+    if (keycode == 119 || keycode == 65362)
+        move_up(&game);
+    else if (keycode == 100 || keycode == 65363)
+        move_right(&game);
+    else if (keycode == 115 || keycode == 65364)
+        move_down(&game);
+    else if (keycode == 97 || keycode == 65361)
+        move_left(&game);
 }
