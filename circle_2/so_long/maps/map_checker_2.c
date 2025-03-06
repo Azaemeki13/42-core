@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/04 14:30:41 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/06 22:55:47 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int map_shape (b_buffer **map_buffer,  map_c **map)
 {
     b_buffer *nav = NULL;
     
+    (*map) = NULL;
     nav = (*map_buffer);
     init_map_c((map));
     (*map)->width = ft_strlen((nav)->content);

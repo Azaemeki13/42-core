@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   state.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:59:58 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 18:34:57 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:26:56 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,17 @@ void end_refresher(g_game *game)
 {
     t_map *nav = NULL;
 
+    game_state_watcher(game);
     nav = game->t_map;
     if (game->state == END)
     {
         while(nav)
         {
             if (nav->end)
+            {
                 nav->type = 'E';
+                nav->tiles_image = game->s_til->exit;
+            }
             nav = nav->next;
         }
     }
@@ -59,5 +63,7 @@ void game_state_watcher(g_game *game)
 {
     if(!scan_coins(game))
         game->state = END;
+    if(game->state == END)
+        ft_printf("END STATE\n");
     return ;
 }

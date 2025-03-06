@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:22 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 15:59:04 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:57:14 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ g_game *game_init(char *arg)
     g_game *game_struct = NULL;
 
     game_struct = malloc(sizeof(g_game));
+    game_struct->map_buffer = NULL;
+    game_struct->map_components = NULL;
     if ((map_checker(arg, &game_struct->map_buffer, &game_struct->map_components)) == 0)
     {
         free(game_struct);

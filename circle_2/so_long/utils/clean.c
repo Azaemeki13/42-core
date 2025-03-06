@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:54:23 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/05 16:43:57 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:41:45 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,18 @@ void free_buffer(g_game **game)
 
 void free_char_sprite(g_game **game)
 {
-    s_character *sprite = NULL;
 
-    sprite = (*game)->s_char;
-    if(sprite)
+    if((*game)->s_char)
     {
-        if (sprite->down)
-            mlx_destroy_image((*game)->mlx, sprite->down);
-        if (sprite->left)
-            mlx_destroy_image((*game)->mlx, sprite->left);
-        if (sprite->up)
-            mlx_destroy_image((*game)->mlx, sprite->up);
-        if (sprite->right)
-            mlx_destroy_image((*game)->mlx, sprite->right);
+        ft_printf("found images \n");
+        if ((*game)->s_char->down)
+            mlx_destroy_image((*game)->mlx, (*game)->s_char->down);
+        if ((*game)->s_char->left)
+            mlx_destroy_image((*game)->mlx, (*game)->s_char->left);
+        if ((*game)->s_char->up)
+            mlx_destroy_image((*game)->mlx, (*game)->s_char->up);
+        if ((*game)->s_char->right)
+            mlx_destroy_image((*game)->mlx, (*game)->s_char->right);
     }
     free((*game)->s_char);
     (*game)->s_char = NULL;
@@ -51,19 +50,18 @@ void free_char_sprite(g_game **game)
 
 void free_coin_sprite(g_game **game)
 {
-    s_coin *sprite = NULL;
 
-    sprite = (*game)->s_c;
-    if(sprite)
+    if((*game)->s_c != NULL)
     {
-        if (sprite->s_one)
-            mlx_destroy_image((*game)->mlx, sprite->s_one);
-        if (sprite->s_two)
-            mlx_destroy_image((*game)->mlx, sprite->s_two);
-        if (sprite->s_three)
-            mlx_destroy_image((*game)->mlx, sprite->s_three);
-        if (sprite->s_four)
-            mlx_destroy_image((*game)->mlx, sprite->s_four);
+        ft_printf("found images \n");
+        if ((*game)->s_c->s_one)
+            mlx_destroy_image((*game)->mlx, (*game)->s_c->s_one);
+        if ((*game)->s_c->s_two)
+            mlx_destroy_image((*game)->mlx, (*game)->s_c->s_two);
+        if ((*game)->s_c->s_three)
+            mlx_destroy_image((*game)->mlx, (*game)->s_c->s_three);
+        if ((*game)->s_c->s_four)
+            mlx_destroy_image((*game)->mlx, (*game)->s_c->s_four);
     }
     free((*game)->s_c);
     (*game)->s_c = NULL;

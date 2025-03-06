@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_start.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:09:32 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 18:23:58 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 23:07:04 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void init_tiles_m(t_map **tiles)
     nav->index_y = 0;
     nav->type = 'x';
     nav->tiles_image = NULL;
-    nav->end = 0;
     nav->next = NULL;
     nav->prev = NULL;
+    nav->end = 0;
     nav->up = NULL;
     nav->down = NULL;
     if (*tiles == NULL )
@@ -79,6 +79,9 @@ void fill_grid (g_game **game)
     y = 0;
     nav = (*game);
     grid = nav->t_map;
+    ft_printf("Height %d \n", nav->map_components->height);
+    ft_printf("Width %d \n", nav->map_components->width);
+
     while (y < nav->map_components->height)
     {
         x = 0;
@@ -94,7 +97,6 @@ void fill_grid (g_game **game)
         y++;
     }
     grid_type(game);
-    grid_directions(game);
 }
 
 void map_to_grid(g_game **game)
@@ -116,5 +118,4 @@ void map_to_grid(g_game **game)
         y++;
     }
     fill_grid(game);
-    
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_renderer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:01:21 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/06 18:38:51 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:11:05 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void grid_image(g_game **game)
         else if(grid->type == 'E' && (*game)->state == GAME)
         {
             grid->tiles_image = (*game)->s_til->nuthin;
-            grid->type = '0';
+            grid->end = 1;
         }
-        else if(grid->end == '1' && (*game)->state == END)
+        else if(grid->end == 1 && (*game)->state == END)
         {
             grid->type = 'E';
             grid->tiles_image = (*game)->s_til->exit;

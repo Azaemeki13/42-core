@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/03 15:34:59 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:49:49 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int map_checker(char *arg, b_buffer **map_buffer, map_c **map)
 
 int map_init(char *arg, b_buffer **map_buffer)
 {
+    (*map_buffer) = NULL;
     char *dot;
     int fd;
     dot = ft_strchr(arg, '.');
