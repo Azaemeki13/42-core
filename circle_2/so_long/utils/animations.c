@@ -6,60 +6,78 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:33:39 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/05 18:28:41 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:36:01 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void animation_char(g_game *nav)
+int find_char(g_game *nav, t_map *tmp)
 {
-    static int counter = 0;
-    t_map *tmp;
+    if (tmp->tiles_image == nav->s_char->up)
+        return(1);
+    if (tmp->tiles_image == nav->s_char->right)
+        return(1);
+    if (tmp->tiles_image == nav->s_char->down)
+        return(1);
+    if (tmp->tiles_image == nav->s_char->left)
+        return(1);
+    return(0);
+}
 
-        counter++;
+void case_right(g_game *nav)
+{
+    t_map *tmp;
+    static int counter = 0;
+    
+    counter++;
     if (counter % 2 == 0)
     {
         tmp = nav->t_map;
         while(tmp)
         {
-            if (tmp->tiles_image == nav->s_char->up)
+            if(find_char(nav, tmp) == 1)
             {
                 if (nav->size == UP)
-                tmp->tiles_image = nav->s_char->right;
-                nav->size = DOWN;
-            }
-            else if (nav->size == DOWN)
-            {
-                tmp->tiles_image = nav->s_char->up;
-                nav->size = UP;
-            }
+                {
+                    tmp->tiles_image = nav->s_char->right;
+                    nav->size = DOWN;
+                }
+                else 
+                {
+                    tmp->tiles_image = nav->s_char->up;
+                    nav->size = UP;
+                }
+            }    
             tmp = tmp->next;
         }
     }
 }
 
-void animation_char_2(g_game *nav)
+void case_left(g_game *nav)
 {
-    static int counter = 0;
     t_map *tmp;
-
-        counter++;
+    static int counter = 0;
+    
+    counter++;
     if (counter % 2 == 0)
     {
         tmp = nav->t_map;
         while(tmp)
         {
-            if (tmp->tiles_image == )
+            if(find_char(nav, tmp) == 1)
             {
-                tmp->tiles_image = nav->s_char->left;
-                nav->size = UP;
-            }
-            else
-            {
-                tmp->tiles_image = nav->s_char->down;
-                nav->size = DOWN;
-            }
+                if (nav->size == UP)
+                {
+                    tmp->tiles_image = nav->s_char->left;
+                    nav->size = DOWN;
+                }
+                else 
+                {
+                    tmp->tiles_image = nav->s_char->down;
+                    nav->size = UP;
+                }
+            }    
             tmp = tmp->next;
         }
     }
@@ -88,18 +106,21 @@ int animation_loop(void *param)
 {
     static int frame = 0;
     g_game *nav = NULL;
+    g_game *tmp = NULL;
 
     nav = (g_game *)param;
+    tmp = nav;
     frame++;
     if (frame >= 600)
     {
         frame = 0;
         if (nav->side == RIGHT)
-            animation_char(nav);
+            case_right(nav);
         else if (nav->side == LEFT)
-            animation_char_2(nav);
+            case_left(nav);
         animation_coin(nav);
     }
+    end_refresher(tmp);
     render_grid(&nav);
     return(0);
 }

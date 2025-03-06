@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:22 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/05 18:22:54 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:59:04 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ g_game *game_init(char *arg)
     game_struct->mlx = mlx_init();
     game_struct->side = RIGHT;
     game_struct->size = DOWN;
+    game_struct->state = GAME;
     sprite_loader(&game_struct);
     map_to_grid(&game_struct);
     grid_image(&game_struct);

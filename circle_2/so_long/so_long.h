@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/05 18:06:49 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:34:48 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef enum t_direction
     RIGHT,
     LEFT
 } d_direction;
+
+typedef enum t_fstate
+{
+    GAME,
+    END
+} f_final;
 
 typedef enum t_gravity
 {
@@ -87,6 +93,7 @@ typedef struct tiles_map
     int index_y;
     char type;
     void *tiles_image;
+    int end;
     struct tiles_map *next;
     struct tiles_map *prev;
     struct tiles_map *up;
@@ -100,6 +107,7 @@ typedef struct game
     void *mlx_win;
     d_direction side;
     g_gravity size;
+    f_final state;
     map_c *map_components;
     b_buffer *map_buffer;
     s_coin *s_c;
@@ -158,10 +166,17 @@ void move_right(g_game **game);
 void move_press(int keycode, g_game *param);
 
 // animations xd 
-void animation_char(g_game *nav);
-void animation_char_2(g_game *nav);
+void case_right(g_game *nav);
+void left(g_game *nav);
 void animation_coin(g_game *nav);
 int animation_loop(void *param);
+int find_char(g_game *nav, t_map *tmp);
+
+// coin scanner + tile appearance
+int scan_coins(g_game *game);
+void game_state_watcher(g_game *game);
+void end_refresher(g_game *game);
+void debug_exit(t_map *nav);
 
 //window gestion
 int key_press(int keycode, void *param);

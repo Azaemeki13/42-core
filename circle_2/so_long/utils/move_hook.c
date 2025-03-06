@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:28:37 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/05 17:23:39 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:18:35 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void move_press(int keycode, g_game *param)
     g_game *game = NULL;
 
     game = param;
+    debug_exit(game->t_map);
     if (keycode == 119 || keycode == 65362)
         move_up(&game);
     else if (keycode == 100 || keycode == 65363)

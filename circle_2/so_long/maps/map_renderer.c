@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:01:21 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/05 17:24:14 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:38:51 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,16 @@ void grid_image(g_game **game)
             grid->tiles_image = (*game)->s_c->s_one;
         else if(grid->type == 'P')
             grid->tiles_image = (*game)->s_char->up;
-        else if(grid->type == 'E')
+        else if(grid->type == 'E' && (*game)->state == GAME)
+        {
+            grid->tiles_image = (*game)->s_til->nuthin;
+            grid->type = '0';
+        }
+        else if(grid->end == '1' && (*game)->state == END)
+        {
+            grid->type = 'E';
             grid->tiles_image = (*game)->s_til->exit;
+        }
         grid = grid->next;
     }
 }

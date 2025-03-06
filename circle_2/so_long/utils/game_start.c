@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:09:32 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/05 18:20:13 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:23:58 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void init_tiles_m(t_map **tiles)
     nav->index_y = 0;
     nav->type = 'x';
     nav->tiles_image = NULL;
+    nav->end = 0;
     nav->next = NULL;
     nav->prev = NULL;
     nav->up = NULL;

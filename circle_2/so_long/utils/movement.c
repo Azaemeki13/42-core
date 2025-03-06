@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:57:07 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/05 17:39:33 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:33:36 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,10 @@ void move_down(g_game **game)
 void precision_change(t_map *from, t_map *to, g_game *game)
 {
     from->tiles_image = game->s_til->nuthin;
-    to->tiles_image = game->s_char->right;
+    if(game->side == RIGHT)
+        to->tiles_image = game->s_char->right;
+    else
+    {
+        to->tiles_image = game->s_char->left;
+    }
 }
