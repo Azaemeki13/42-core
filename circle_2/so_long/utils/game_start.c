@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_start.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:09:32 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 23:07:04 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/07 15:55:37 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void init_tiles_m(t_map **tiles)
     nav->index_x = 0;
     nav->index_y = 0;
     nav->type = 'x';
+    nav->visited = 0;
     nav->tiles_image = NULL;
     nav->next = NULL;
     nav->prev = NULL;
@@ -96,6 +97,7 @@ void fill_grid (g_game **game)
         }
         y++;
     }
+    grid_directions(game);
     grid_type(game);
 }
 

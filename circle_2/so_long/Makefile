@@ -6,7 +6,7 @@
 #    By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/03/06 18:06:20 by cauffret         ###   ########.fr        #
+#    Updated: 2025/03/07 16:41:05 by cauffret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ UTILS_SRCS = $(UTILS_DIR)/game_start.c \
 			 $(UTILS_DIR)/movement.c \
 			 $(UTILS_DIR)/movement_1.c \
 			 $(UTILS_DIR)/move_hook.c \
-			 $(UTILS_DIR)/state.c
+			 $(UTILS_DIR)/state.c \
+			 $(UTILS_DIR)/flood_algo.c
+			 
 
 # What do I need to make so_long work ? my custom so_long functions :)
 SO_LONG_SRCS = $(SO_LONG_DIR)/so_long.c

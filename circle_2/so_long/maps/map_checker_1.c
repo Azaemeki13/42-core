@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 22:49:49 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/07 12:22:10 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,21 @@ int map_checker(char *arg, b_buffer **map_buffer, map_c **map)
 {
     if ((map_init(arg, map_buffer)) == 0)
         return(0);
-    if (!map_shape(map_buffer, map))
+    ft_printf("map init passed. \n");
+    if ((map_shape(map_buffer, map)) == 0)
+    {
+        ft_printf("returned 0. \n");
         return(0);
+    }
     if (!check_ns(*map_buffer))
         return(0);
+    ft_printf("map ns passed. \n");
     if(!check_we(*map_buffer))
         return(0);
+    ft_printf("map we passed. \n");
     if(!filler_checker(*map_buffer, map))
         return(0);
+    ft_printf("map filler passed. \n");
     return (1);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:22 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 22:57:14 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/07 17:15:53 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ g_game *game_init(char *arg)
     game_struct->map_components = NULL;
     if ((map_checker(arg, &game_struct->map_buffer, &game_struct->map_components)) == 0)
     {
+        free_buffer(&game_struct);
+        free_map_compo(&game_struct);
         free(game_struct);
-        return(game_struct);
+        return(NULL);
     }
     game_struct->s_c = malloc(sizeof(s_coin));
     game_struct->s_char = malloc(sizeof(s_character));
@@ -33,6 +35,12 @@ g_game *game_init(char *arg)
     game_struct->state = GAME;
     sprite_loader(&game_struct);
     map_to_grid(&game_struct);
+    if (!flood_algo(game_struct))
+    { 
+        ft_printf("flood not good. \n");
+        clean_game(&game_struct);
+        return NULL;
+    }
     grid_image(&game_struct);
     return (game_struct);
 }
@@ -48,8 +56,11 @@ int main (int argc, char **argv)
         return(0);
     }
     game = game_init(argv[1]);
-    if (game == NULL)
+    if (!game)
+    {
         ft_printf("Failed to init \n");
+        return (0);
+    }
     game->mlx_win = mlx_new_window(game->mlx, game->map_components->win_width, game->map_components->win_height, "so_long");
     mlx_loop_hook(game->mlx, animation_loop, game);
     mlx_hook(game->mlx_win, 2, (1L << 0), key_press, game);

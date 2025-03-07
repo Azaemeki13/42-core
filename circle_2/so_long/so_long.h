@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 18:34:48 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:49:34 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct tiles_map
     char type;
     void *tiles_image;
     int end;
+    int visited;
     struct tiles_map *next;
     struct tiles_map *prev;
     struct tiles_map *up;
@@ -178,12 +179,18 @@ void game_state_watcher(g_game *game);
 void end_refresher(g_game *game);
 void debug_exit(t_map *nav);
 
+// flood algo
+t_map *player_pos(g_game *game);
+void algo_rec(t_map *pos, unsigned int *coin_count, unsigned int *exit_count);
+int flood_algo(g_game *game);
+
 //window gestion
 int key_press(int keycode, void *param);
 int close_window(void *param);
 
 // free memory
 void free_buffer(g_game **game);
+void free_map_compo(g_game **game);
 void free_char_sprite(g_game **game);
 void free_coin_sprite(g_game **game);
 void free_tiles_sprite(g_game **game);

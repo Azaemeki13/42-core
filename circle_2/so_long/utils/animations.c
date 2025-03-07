@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:33:39 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/06 18:36:01 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:08:09 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int animation_loop(void *param)
     nav = (g_game *)param;
     tmp = nav;
     frame++;
-    if (frame >= 600)
+    if (frame >= 50)
     {
         frame = 0;
         if (nav->side == RIGHT)

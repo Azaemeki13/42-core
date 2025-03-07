@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:54:23 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/06 22:41:45 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/07 15:01:37 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void free_buffer(g_game **game)
         free(tmp);
     }
     (*game)->map_buffer = NULL;
+}
+
+void free_map_compo(g_game **game)
+{
+    free((*game)->map_components);
 }
 
 void free_char_sprite(g_game **game)

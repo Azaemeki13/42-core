@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/06 22:55:47 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/07 12:17:39 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int map_shape (b_buffer **map_buffer,  map_c **map)
     (*map) = NULL;
     nav = (*map_buffer);
     init_map_c((map));
+    ft_printf("map initialised \n");
     (*map)->width = ft_strlen((nav)->content);
     (*map)->win_width = (*map)->width * 32;
-
     while (nav->next)
     {
         nav = nav->next;
@@ -44,11 +44,11 @@ int map_shape (b_buffer **map_buffer,  map_c **map)
     nav = (*map_buffer);
     while (nav)
     {
+        ft_printf("map buffer line %s \n", nav->content);
         if (ft_strlen(nav->content) != (*map)->width)
             return (0);
         nav = nav->next;
     }
-    ft_printf("Width = %d, height = %d \n", (*map)->win_width, (*map)->win_height);
     return (1);
 }
 

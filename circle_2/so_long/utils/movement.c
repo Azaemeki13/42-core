@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:57:07 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 18:33:36 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:42:57 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ int wall_up(t_map *nav)
 {
     if(nav->type == 'P')
     {
+        if (!nav->up)
+            return (ft_printf("pointer not initialised \n"));
         if (nav->up->type == '1')
             return (0);
     }
     return (1);
 }
+
 
 void move_up(g_game **game)
 {
