@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+         #
+#    By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/03/07 16:41:05 by cauffret         ###   ########.fr        #
+#    Updated: 2025/03/09 13:18:19 by ituriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 #directories used
 SO_LONG_DIR = .
@@ -80,7 +80,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c
 	@echo "Compiling $<..."
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(GET_NEXT_LINE_DIR) -I$(MAPS_DIR) -I$(UTILS_DIR) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(GET_NEXT_LINE_DIR) -I$(MAPS_DIR) -I$(UTILS_DIR) -I/usr/include -Imlx_linux -O0 -c $< -o $@
 
 clean:
 	@echo "Cleaning object files..."

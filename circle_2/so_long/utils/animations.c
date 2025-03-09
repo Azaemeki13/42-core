@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:33:39 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/07 15:08:09 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/09 12:18:04 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int animation_loop(void *param)
     nav = (g_game *)param;
     tmp = nav;
     frame++;
-    if (frame >= 50)
+    if (frame >= 500)
     {
         frame = 0;
         if (nav->side == RIGHT)

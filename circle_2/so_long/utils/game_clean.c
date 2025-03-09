@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_clean.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:40:06 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/07 17:12:47 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/09 13:46:56 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void clean_game(g_game **game)
     ft_printf("sprites good \n");
     free_grid(game);
     ft_printf("grid good \n");
+    mlx_destroy_display((*game)->mlx);
     free((*game)->mlx);
     free(*game);
     *game = NULL;
