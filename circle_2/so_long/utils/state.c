@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:59:58 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/06 22:26:56 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/09 19:26:28 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,6 @@ int scan_coins(g_game *game)
         nav = nav->next;
     }
     return (i);
-}
-
-void debug_exit(t_map *nav)
-{
-    t_map *tmp = nav;
-    while(tmp)
-    {
-        if (tmp->type == 'E')
-            printf("found E \n");
-        tmp = tmp->next;
-    }
 }
 
 void end_refresher(g_game *game)
@@ -63,7 +52,5 @@ void game_state_watcher(g_game *game)
 {
     if(!scan_coins(game))
         game->state = END;
-    if(game->state == END)
-        ft_printf("END STATE\n");
     return ;
 }

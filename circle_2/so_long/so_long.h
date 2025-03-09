@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/07 16:49:34 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:26:23 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,11 +173,15 @@ void animation_coin(g_game *nav);
 int animation_loop(void *param);
 int find_char(g_game *nav, t_map *tmp);
 
-// coin scanner + tile appearance
+// coin scanner + tile appearance + end game
 int scan_coins(g_game *game);
 void game_state_watcher(g_game *game);
 void end_refresher(g_game *game);
 void debug_exit(t_map *nav);
+void end_game(int keycode, g_game *game);
+void end_game_exec(t_map *player, t_map *exit, int keycode, g_game* game);
+void my_func(g_game *game);
+t_map *exit_position (g_game *game);
 
 // flood algo
 t_map *player_pos(g_game *game);

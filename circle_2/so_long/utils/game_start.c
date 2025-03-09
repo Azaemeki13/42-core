@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:09:32 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/09 12:45:10 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/09 19:15:22 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void init_tiles_m(t_map **tiles)
     t_map *nav = NULL;
 
     nav = malloc(sizeof(t_map));
+    ft_memset(nav, 0, sizeof(t_map));
     nav->pix_x = 0;
     nav->pix_y = 0;
     nav->index_x = 0;
@@ -80,9 +81,6 @@ void fill_grid (g_game **game)
     y = 0;
     nav = (*game);
     grid = nav->t_map;
-    ft_printf("Height %d \n", nav->map_components->height);
-    ft_printf("Width %d \n", nav->map_components->width);
-
     while (y < nav->map_components->height)
     {
         x = 0;

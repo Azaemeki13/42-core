@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:54:23 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/07 15:01:37 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:12:23 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void free_char_sprite(g_game **game)
 
     if((*game)->s_char)
     {
-        ft_printf("found images \n");
         if ((*game)->s_char->down)
             mlx_destroy_image((*game)->mlx, (*game)->s_char->down);
         if ((*game)->s_char->left)
@@ -58,7 +57,6 @@ void free_coin_sprite(g_game **game)
 
     if((*game)->s_c != NULL)
     {
-        ft_printf("found images \n");
         if ((*game)->s_c->s_one)
             mlx_destroy_image((*game)->mlx, (*game)->s_c->s_one);
         if ((*game)->s_c->s_two)

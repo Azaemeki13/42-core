@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:22 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/09 13:13:20 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/09 21:10:09 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ g_game *game_init(char *arg)
         return(NULL);
     }
     game_struct->s_c = malloc(sizeof(s_coin));
+    ft_memset(game_struct->s_c, 0, sizeof(s_coin));
     game_struct->s_char = malloc(sizeof(s_character));
+    ft_memset(game_struct->s_char, 0, sizeof(s_character));
     game_struct->s_til = malloc(sizeof(s_tiles));
+    ft_memset(game_struct->s_til, 0, sizeof(s_tiles));
     game_struct->mlx = mlx_init();
     game_struct->side = RIGHT;
     game_struct->size = DOWN;
@@ -38,7 +41,7 @@ g_game *game_init(char *arg)
     map_to_grid(&game_struct);
     if (!flood_algo(game_struct))
     { 
-        ft_printf("flood not good. \n");
+        ft_printf("Error \nExit/ coins not reachable by player.");
         clean_game(&game_struct);
         return NULL;
     }
@@ -59,7 +62,6 @@ int main (int argc, char **argv)
     game = game_init(argv[1]);
     if (!game)
     {
-        ft_printf("Failed to init \n");
         return (0);
     }
     game->mlx_win = mlx_new_window(game->mlx, game->map_components->win_width, game->map_components->win_height, "so_long");

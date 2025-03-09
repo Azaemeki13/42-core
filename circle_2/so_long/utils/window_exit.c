@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_exit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:36:09 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/05 16:03:47 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:24:24 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int key_press(int keycode, void *param)
 {
-    g_game *game = NULL;
-    ft_printf("Keycode: %d\n", keycode);  // Debug print
-    game = (g_game *) param;
+    g_game *game;
+    game = (g_game *) param; 
     move_press(keycode, game);
     if (keycode == 65307)
     {

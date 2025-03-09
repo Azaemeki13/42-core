@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_algo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 10:10:05 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/07 16:49:33 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:16:21 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ t_map *player_pos(g_game *game)
     {
         nav = nav->next;
     }
-    if (nav->type != 'P')
-        ft_printf("couldnt find player tile \n");
     return (nav);
 }
 

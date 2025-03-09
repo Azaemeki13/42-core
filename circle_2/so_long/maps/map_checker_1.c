@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/07 12:22:10 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:10:12 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,15 @@ void error_print()
 
 int map_checker(char *arg, b_buffer **map_buffer, map_c **map)
 {
-    if ((map_init(arg, map_buffer)) == 0)
-        return(0);
-    ft_printf("map init passed. \n");
-    if ((map_shape(map_buffer, map)) == 0)
+    if (((map_init(arg, map_buffer)) == 0)
+    || ((map_shape(map_buffer, map)) == 0)
+    || (check_ns(*map_buffer) == 0)
+    || (check_we(*map_buffer) == 0)
+    || (filler_checker(*map_buffer, map) == 0))
     {
-        ft_printf("returned 0. \n");
+        ft_printf("Error \nIncorrect configuration of the file");
         return(0);
     }
-    if (!check_ns(*map_buffer))
-        return(0);
-    ft_printf("map ns passed. \n");
-    if(!check_we(*map_buffer))
-        return(0);
-    ft_printf("map we passed. \n");
-    if(!filler_checker(*map_buffer, map))
-        return(0);
-    ft_printf("map filler passed. \n");
     return (1);
 }
 
