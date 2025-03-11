@@ -6,15 +6,15 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:53:05 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/28 11:53:03 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:40:19 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	create_node(b_buffer **head, char *arguments)
+void	create_node(t_buffer **head, char *arguments)
 {
-	b_buffer	*new_node;
+	t_buffer	*new_node;
 
 	new_node = NULL;
 	new_node = malloc(sizeof(*new_node));
@@ -30,9 +30,9 @@ void	create_node(b_buffer **head, char *arguments)
 	}
 }
 
-void	add_node(b_buffer **head, b_buffer *new_node)
+void	add_node(t_buffer **head, t_buffer *new_node)
 {
-	b_buffer	*current_node;
+	t_buffer	*current_node;
 
 	current_node = NULL;
 	current_node = (*head);
@@ -44,32 +44,28 @@ void	add_node(b_buffer **head, b_buffer *new_node)
 	new_node->prev = current_node;
 }
 
-b_buffer *arg_to_node(b_buffer *map_buffer, int fd)
+t_buffer	*arg_to_node(t_buffer *map_buffer, int fd)
 {
-    char *arguments;
+	char	*arguments;
 
-    arguments = NULL;
-    while ((arguments = get_next_line(fd)) != NULL)
-	    create_node(&map_buffer, arguments);
-    index_refresher(map_buffer);
+	arguments = get_next_line(fd);
+	while (arguments != NULL)
+	{
+		create_node(&map_buffer, arguments);
+		arguments = get_next_line(fd);
+	}
+	index_refresher(map_buffer);
 	return (map_buffer);
 }
 
-void index_refresher (b_buffer *map_buffer)
+void	index_refresher(t_buffer *map_buffer)
 {
-    int i;
-    i = -1;
-    while (map_buffer)
-    {
-        map_buffer->index = ++i;
-        map_buffer = map_buffer->next;
-    }
-}
+	int	i;
 
-void nl_stripper (b_buffer *map)
-{
-	while (map)
+	i = -1;
+	while (map_buffer)
 	{
-		
+		map_buffer->index = ++i;
+		map_buffer = map_buffer->next;
 	}
 }

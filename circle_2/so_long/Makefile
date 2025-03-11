@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+         #
+#    By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/03/09 18:53:01 by ituriel          ###   ########.fr        #
+#    Updated: 2025/03/11 16:20:32 by cauffret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ MLX = $(MLX_DIR)/libmlx_Linux.a
 MAPS_SRCS = $(MAPS_DIR)/map_checker_1.c \
 			$(MAPS_DIR)/map_checker_2.c \
 			$(MAPS_DIR)/map_list.c \
-			$(MAPS_DIR)/map_renderer.c
+			$(MAPS_DIR)/map_renderer.c \
+			$(MAPS_DIR)/map_misc.c
+
 
 UTILS_SRCS = $(UTILS_DIR)/game_start.c \
 			 $(UTILS_DIR)/animations.c \
@@ -45,7 +47,8 @@ UTILS_SRCS = $(UTILS_DIR)/game_start.c \
 			 $(UTILS_DIR)/movement_1.c \
 			 $(UTILS_DIR)/move_hook.c \
 			 $(UTILS_DIR)/state.c \
-			 $(UTILS_DIR)/flood_algo.c
+			 $(UTILS_DIR)/flood_algo.c \
+			 $(UTILS_DIR)/sprite_loader.c
 			 
 
 # What do I need to make so_long work ? my custom so_long functions :)
