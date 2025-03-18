@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:44 by ituriel           #+#    #+#             */
-/*   Updated: 2025/03/11 16:44:07 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:39:09 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	init_map_c(t_map_c **map)
 	(*map)->map_exit = 0;
 	(*map)->player_start = 0;
 	(*map)->empty_space = 0;
+	(*map)->unallowed_char = 0;
+	(*map)->walls = 0;
 	(*map)->height = 0;
 	(*map)->width = 0;
 	(*map)->win_width = 0;
@@ -108,7 +110,7 @@ int	filler_checker(t_buffer *map, t_map_c **map_compo)
 	mappy = (*map_compo);
 	filling_map(nav, mappy);
 	if (mappy->map_exit != 1 || mappy->player_start != 1
-		|| mappy->collectible < 1)
+		|| mappy->collectible < 1 || mappy->unallowed_char != 0)
 		return (0);
 	return (1);
 }

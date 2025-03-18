@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:22 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/11 16:50:20 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:45:56 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_game	*game_init(char *arg)
 		free_buffer(&game_struct);
 		free_map_compo(&game_struct);
 		free(game_struct);
+		ft_printf("Error \nMap is invalid !! please retry :)");
 		return (NULL);
 	}
 	game_init_2(game_struct);
@@ -59,6 +60,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		error_print();
+		ft_printf("Invalid amount of arguments, please retry :) \n");
 		return (0);
 	}
 	game = game_init(argv[1]);

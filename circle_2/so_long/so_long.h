@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/11 16:50:38 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:31:22 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct map_components
 	unsigned int		map_exit;
 	unsigned int		player_start;
 	unsigned int		empty_space;
+	unsigned int		unallowed_char;
+	unsigned int		walls;
 	unsigned int		height;
 	unsigned int		width;
 	unsigned int		win_height;

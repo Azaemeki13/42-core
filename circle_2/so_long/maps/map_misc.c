@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_misc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:20:43 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/11 16:44:07 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:31:12 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	filling_map(t_buffer *nav, t_map_c *mappy)
 				mappy->collectible++;
 			else if (nav->content[i] == '0')
 				mappy->empty_space++;
+			else if (nav->content[i] == '1')
+				mappy->walls++;
+			else
+				mappy->unallowed_char++;
 			i++;
 		}
 		nav = nav->next;

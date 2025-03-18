@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:44:19 by ituriel           #+#    #+#             */
-/*   Updated: 2024/12/12 13:14:48 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/18 13:10:15 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ size_t	length_to_nl(t_list *head)
 		i = 0;
 		while (head->str_buf[i])
 		{
-			if (head->str_buf[i] == '\n')
+			if (head->str_buf[i] == '\n' || head->str_buf[i] == '\0')
 			{
 				total_length++;
 				return (total_length);

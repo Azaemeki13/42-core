@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 11:44:22 by ituriel           #+#    #+#             */
-/*   Updated: 2025/02/28 12:47:31 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/18 13:00:13 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*rl_creator(t_list *head)
 	if (head == NULL)
 		return (NULL);
 	total_length = length_to_nl(head);
-	return_line = malloc(sizeof(char) * total_length);
+	return_line = malloc(sizeof(char) * (total_length + 1));
 	if (!return_line)
 		return (NULL);
 	stash_to_line(head, return_line);
@@ -96,9 +96,10 @@ void	stash_to_line(t_list *head, char *return_line)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*head = NULL;
+	static t_list	*head;
 	char			*return_line;
 
+	head = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer_to_stash(&head, fd);

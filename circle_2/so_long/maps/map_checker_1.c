@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/11 16:44:07 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:21:52 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// 45 a 50 53
 #include "../so_long.h"
 
 void	error_print(void)
 {
-	if (write(2, "Error\n", 6) < 0)
+	if (ft_printf(" Error\n") < 0)
 	{
 	}
 }
@@ -26,7 +27,6 @@ int	map_checker(char *arg, t_buffer **map_buffer, t_map_c **map)
 		|| (check_we(*map_buffer) == 0) || (filler_checker(*map_buffer,
 				map) == 0))
 	{
-		ft_printf("Error \nIncorrect configuration of the file");
 		return (0);
 	}
 	return (1);
