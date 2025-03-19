@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:47:28 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/18 12:31:22 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/19 14:39:53 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ void					end_refresher(t_game *game);
 void					debug_exit(t_map *nav);
 void					my_func(t_game *game);
 t_map					*exit_position(t_game *game);
+void					move_counter(unsigned int count, t_game *game);
 
 // flood algo
 t_map					*player_pos(t_game *game);

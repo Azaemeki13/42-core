@@ -6,11 +6,20 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:28:37 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/11 16:46:01 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:39:28 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	move_counter(unsigned int count, t_game *game)
+{
+	if (game->state == GAME)
+	{
+		ft_printf("You did %d moves.\n", count);
+	}
+	return ;
+}
 
 void	move_press(int keycode, t_game *param)
 {
@@ -18,7 +27,7 @@ void	move_press(int keycode, t_game *param)
 	static unsigned int	count = 0;
 
 	game = param;
-	ft_printf("You did %d moves.\n", count);
+	move_counter(count, game);
 	if (keycode == 119 || keycode == 65362)
 	{
 		move_up(&game);
