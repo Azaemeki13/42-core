@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:46:49 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/18 12:21:52 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/19 15:10:03 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	map_init(char *arg, t_buffer **map_buffer)
 
 	(*map_buffer) = NULL;
 	dot = ft_strchr(arg, '.');
-	if (!dot)
+	if (!dot || dot[-1] == '/')
 		return (0);
 	if (ft_strcmp(dot, ".ber") != 0)
 		return (0);
