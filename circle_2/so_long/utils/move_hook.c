@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:28:37 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/19 14:39:28 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:30:53 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	move_counter(unsigned int count, t_game *game)
 {
-	if (game->state == GAME)
+	if (player_pos(game))
 	{
 		ft_printf("You did %d moves.\n", count);
 	}

@@ -6,7 +6,7 @@
 #    By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 12:00:36 by ituriel           #+#    #+#              #
-#    Updated: 2025/03/11 16:20:32 by cauffret         ###   ########.fr        #
+#    Updated: 2025/03/19 15:35:15 by cauffret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 SO_LONG_DIR = .
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./libft/ft_printf
-MAPS_DIR= ./maps
+MAPS_DIR= ./maps_func
 GET_NEXT_LINE_DIR = ./get_next_line
 MLX_DIR = ./mlx_linux
 UTILS_DIR = ./utils

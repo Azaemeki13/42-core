@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:59:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/11 16:46:01 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:37:31 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	load_coin(t_game **game)
 	width = 32;
 	nav = (*game);
 	nav->s_c->s_one = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/coin_1.xpm", &width, &height);
+			"./assets/textures/coin_1.xpm", &width, &height);
 	nav->s_c->s_two = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/coin_2.xpm", &width, &height);
+			"./assets/textures/coin_2.xpm", &width, &height);
 	nav->s_c->s_three = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/coin_3.xpm", &width, &height);
+			"./assets/textures/coin_3.xpm", &width, &height);
 	nav->s_c->s_four = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/coin_4.xpm", &width, &height);
+			"./assets/textures/coin_4.xpm", &width, &height);
 }
 
 void	load_character(t_game **game)
@@ -43,13 +43,13 @@ void	load_character(t_game **game)
 	width = 32;
 	nav = (*game);
 	nav->s_char->up = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/char_1_up.xpm", &width, &height);
+			"./assets/textures/char_1_up.xpm", &width, &height);
 	nav->s_char->right = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/char_1_d.xpm", &width, &height);
+			"./assets/textures/char_1_d.xpm", &width, &height);
 	nav->s_char->down = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/char_2_d.xpm", &width, &height);
+			"./assets/textures/char_2_d.xpm", &width, &height);
 	nav->s_char->left = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/char_2_up.xpm", &width, &height);
+			"./assets/textures/char_2_up.xpm", &width, &height);
 }
 
 void	load_tiles(t_game **game)
@@ -63,13 +63,13 @@ void	load_tiles(t_game **game)
 	width = 32;
 	nav = (*game);
 	nav->s_til->wall = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/wall.xpm", &width, &height);
+			"./assets/textures/wall.xpm", &width, &height);
 	nav->s_til->exit = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/waystone.xpm", &width, &height);
+			"./assets/textures/waystone.xpm", &width, &height);
 	nav->s_til->nuthin = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/none.xpm", &width, &height);
+			"./assets/textures/none.xpm", &width, &height);
 	nav->s_til->background = mlx_xpm_file_to_image(nav->mlx,
-			"./assets/sprites/bkg.xpm", &width, &height);
+			"./assets/textures/bkg.xpm", &width, &height);
 }
 
 void	free_tiles_sprite(t_game **game)
