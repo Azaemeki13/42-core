@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_annex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/25 16:55:26 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:20:06 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,44 @@
 
 void facto_requirements(t_list *nav, unsigned int requirements)
 {
-    while (nav)
+    t_list *temp;
+
+    temp = nav;
+    while (temp != nav->prev)
     {
-        nav->requirements = (unsigned int) requirements;
-        nav = nav->next;
+        temp->requirements = (unsigned int) requirements;
+        temp = temp->next;
+    }
+}
+
+void make_it_circular(t_list *head)
+{
+    t_list *temp = NULL;
+
+    temp = head;
+    while (temp->next)
+        temp = temp->next;
+    temp->next = head;
+    head->prev = temp;
+}
+void clear_list(t_list **head)
+{
+    t_list *temp = NULL;
+    t_list *last = NULL;
+
+    last = (*head);
+    while (*head != last)
+    {
+        if ((*head)->philosopher)
+            pthread_join((*head)->philosopher, NULL);
+        if((*head)->state->fork_init)
+            pthread_mutex_destroy(&(*head)->state->fork);
+        if((*head)->state->thinking_init)
+            pthread_mutex_destroy(&(*head)->state->thinking);
+        if((*head)->state->sleeping_init)
+            pthread_mutex_destroy(&(*head)->state->sleeping);
+        temp = (*head)->next;
+        free(*head);
+        (*head) = temp;
     }
 }

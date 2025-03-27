@@ -20,7 +20,7 @@ PHILO_SRCS = $(PHILO_DIR)/philo.c
 SRCS = $(PHILO_SRCS) $(UTILS_SRCS)
 
 #Object files
-OBJS = $(SRCS:.c = .o)
+OBJS = $(SRCS:.c=.o)
 
 # Rules
 all : $(NAME)

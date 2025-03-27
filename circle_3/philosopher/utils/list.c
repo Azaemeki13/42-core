@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/25 18:19:31 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:22:38 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ int generate_list(t_list **head, char *argument)
     i = ft_atoi(argument);
     if (i < 1)
     {
-        // clear_list(head);
-        printf("bug on generate list. \n");
+        printf("Please at least one philo on table. \n");
         return (0);
     }
     while (i != 0)
@@ -47,6 +46,7 @@ int generate_list(t_list **head, char *argument)
         create_node(head);
         i--;
     }
+    make_it_circular(*head);
     return (1);
 }
 
@@ -60,10 +60,10 @@ int populate_timers(t_list **head, char **arguments)
     if ((ft_atoi(arguments[0])) < 0 || (ft_atoi(arguments[1]) < 0) 
         || (ft_atoi(arguments[2])) < 0)
     {
-        printf("bug on generate timers. \n");
+        printf("Please enter proper timers. \n");
         return (0);
     }
-    while (nav)
+    while (nav != (*head)->prev)
     {
         nav->index = i++;
         nav->time_to_die = (time_t)ft_atoi(arguments[0]);
@@ -80,7 +80,7 @@ int populate_requirements(t_list **head, char **arguments)
     int requirements;
     int f;
 
-    f = 4;
+    f = 3;
     while(f != 0)
     {
         arguments++;
@@ -94,7 +94,7 @@ int populate_requirements(t_list **head, char **arguments)
         requirements = ft_atoi((*arguments));
         if (requirements <= 0)
         {
-            printf("bug on generate requirements. \n");
+            printf("Please enter smart requirements :). \n");
             return (0);
         }
     }
@@ -110,7 +110,7 @@ int populate_list (t_list **head, char **arguments)
     || (populate_requirements(head, arguments) == 0))
     {
         printf("Please enter right parameters. \n");
-        // clear_list(head);
+        clear_list(head);
         return(0);
     }
     return (1);
