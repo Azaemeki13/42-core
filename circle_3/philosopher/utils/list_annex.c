@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/27 16:20:06 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/27 16:34:54 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void clear_list(t_list **head)
     t_list *temp = NULL;
     t_list *last = NULL;
 
-    last = (*head);
-    while (*head != last)
+    last = (*head)->prev;
+    if (last)
+        last->next = NULL;
+    while (*head)
     {
         if ((*head)->philosopher)
             pthread_join((*head)->philosopher, NULL);
@@ -50,8 +52,10 @@ void clear_list(t_list **head)
             pthread_mutex_destroy(&(*head)->state->thinking);
         if((*head)->state->sleeping_init)
             pthread_mutex_destroy(&(*head)->state->sleeping);
+        free((*head)->state);
         temp = (*head)->next;
         free(*head);
         (*head) = temp;
     }
+    (*head) = NULL;
 }

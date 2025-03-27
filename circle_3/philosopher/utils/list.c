@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/27 16:22:38 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/27 16:28:41 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void create_node(t_list **head)
 
     new_node = malloc(sizeof(t_list));
     memset(new_node, 0,sizeof(t_list));
+    new_node->state = malloc(sizeof(t_mutex));
     if (!*head)
         (*head) = new_node;
     else
@@ -109,7 +110,6 @@ int populate_list (t_list **head, char **arguments)
     || (populate_timers(head, arguments) == 0) 
     || (populate_requirements(head, arguments) == 0))
     {
-        printf("Please enter right parameters. \n");
         clear_list(head);
         return(0);
     }
