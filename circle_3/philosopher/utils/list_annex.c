@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/27 16:34:54 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/31 11:56:19 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void facto_requirements(t_list *nav, unsigned int requirements)
     while (temp != nav->prev)
     {
         temp->requirements = (unsigned int) requirements;
+        init_mutex(temp);
         temp = temp->next;
     }
 }

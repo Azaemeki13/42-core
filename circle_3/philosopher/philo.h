@@ -29,9 +29,9 @@ typedef struct s_list
     int list_size;
     pthread_t philosopher;
     t_mutex *state;
-    time_t time_to_die;
-    time_t time_to_sleep;
-    time_t time_to_eat;
+    long long time_to_die;
+    long long time_to_sleep;
+    long long time_to_eat;
     unsigned int requirements;
 }   t_list;
 
@@ -50,8 +50,13 @@ char	**ft_split(char const *s, char c);
 int lst_size(t_list *head);
 
 // Threads & mutexes
-void init_mutex(t_list **head);
+void init_mutex(t_list *head);
 void *routine(void *arg);
 void create_pĥilo(t_list **head);
+
+// routines && time
+void philo_miam(t_list *head);
+void philo_cogito(t_list *head);
+void philo_zzz(t_list *head);
 
 #endif

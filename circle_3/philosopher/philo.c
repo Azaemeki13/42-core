@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:46:50 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/27 16:19:36 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/03/31 11:31:30 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ int main(int argc, char **argv)
         printf("List [Index : %d, t2d %ld, t2e %ld, t2s %ld, requirements %d]\n", nav->index,nav->time_to_die, nav->time_to_eat,nav->time_to_sleep, nav->requirements);
         nav = nav->next;
     }
+    philo_miam(head);
 }

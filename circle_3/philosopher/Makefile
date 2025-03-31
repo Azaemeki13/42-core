@@ -12,7 +12,9 @@ UTILS_DIR = ./utils
 UTILS_SRCS = $(UTILS_DIR)/ft_atoi.c \
 					$(UTILS_DIR)/list.c \
 					$(UTILS_DIR)/ft_split.c \
-					$(UTILS_DIR)/list_annex.c
+					$(UTILS_DIR)/list_annex.c \
+					$(UTILS_DIR)/philo_actions.c
+
 
 
 #Now my philo 
