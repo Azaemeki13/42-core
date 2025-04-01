@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/27 16:35:58 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/01 11:48:24 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ int generate_list(t_list **head, char *argument)
         create_node(head);
         i--;
     }
-    make_it_circular(*head);
     return (1);
 }
 
 int populate_timers(t_list **head, char **arguments)
 {
     t_list *nav = NULL;
-    int i;
+    int j;
 
-    i = 0;
+    j = 0;
+    arguments++;
     nav = (*head);
     if ((ft_atoi(arguments[0])) < 0 || (ft_atoi(arguments[1]) < 0) 
         || (ft_atoi(arguments[2])) < 0)
@@ -64,12 +64,13 @@ int populate_timers(t_list **head, char **arguments)
         printf("Please enter proper timers. \n");
         return (0);
     }
-    while (nav != (*head)->prev)
+    while (nav)
     {
-        nav->index = i++;
-        nav->time_to_die = (time_t)ft_atoi(arguments[0]);
-        nav->time_to_eat = (time_t)ft_atoi(arguments[1]);
-        nav->time_to_sleep = (time_t)ft_atoi(arguments[2]);
+        nav->index = j++;
+        nav->list_size = lst_size(*head);
+        nav->time_to_die = (long long)ft_atoi(arguments[0]);
+        nav->time_to_eat = (long long)ft_atoi(arguments[1]);
+        nav->time_to_sleep = (long long)ft_atoi(arguments[2]);
         nav = nav->next;
     }
     return(1);
@@ -81,7 +82,7 @@ int populate_requirements(t_list **head, char **arguments)
     int requirements;
     int f;
 
-    f = 3;
+    f = 4;
     while(f != 0)
     {
         arguments++;
@@ -105,7 +106,6 @@ int populate_requirements(t_list **head, char **arguments)
 
 int populate_list (t_list **head, char **arguments)
 {
-    arguments++;
     if (generate_list(head, *(arguments)) == 0
     || (populate_timers(head, arguments) == 0) 
     || (populate_requirements(head, arguments) == 0))
@@ -113,5 +113,22 @@ int populate_list (t_list **head, char **arguments)
         clear_list(head);
         return(0);
     }
+    make_it_circular(*head);
     return (1);
+}
+
+int lst_size(t_list *head)
+{
+    t_list *nav;
+    int i;
+
+    nav = head;
+    i = 0;
+    
+    while(nav != head->prev)
+    {
+        i++;
+        nav = nav->next;
+    }
+    return(i); 
 }

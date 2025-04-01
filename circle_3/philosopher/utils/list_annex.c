@@ -3,21 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   list_annex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/03/31 11:56:19 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/01 14:11:38 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
+
+char *format_arg(char **arguments)
+{
+    char *result;
+    char *temp;
+    
+    result = ft_strdup("");
+    while(*arguments)
+    {
+        temp = ft_strjoin(result, *arguments);
+        free(result);
+        result = temp;
+        arguments++;
+    }
+    printf("Thats the result %s\n", result);
+    return (result);
+}
 
 void facto_requirements(t_list *nav, unsigned int requirements)
 {
     t_list *temp;
 
     temp = nav;
-    while (temp != nav->prev)
+    while (temp)
     {
         temp->requirements = (unsigned int) requirements;
         init_mutex(temp);
@@ -53,6 +70,8 @@ void clear_list(t_list **head)
             pthread_mutex_destroy(&(*head)->state->thinking);
         if((*head)->state->sleeping_init)
             pthread_mutex_destroy(&(*head)->state->sleeping);
+        if((*head)->state->priority_init)
+            pthread_mutex_destroy(&(*head)->state->priority);
         free((*head)->state);
         temp = (*head)->next;
         free(*head);
