@@ -15,7 +15,8 @@ UTILS_SRCS = $(UTILS_DIR)/ft_atoi.c \
 					$(UTILS_DIR)/list_annex.c \
 					$(UTILS_DIR)/philo_actions.c \
 					$(UTILS_DIR)/thread.c \
-					$(UTILS_DIR)/ft_strjoin.c
+					$(UTILS_DIR)/ft_strjoin.c \
+					$(UTILS_DIR)/time.c
 
 #$(UTILS_DIR)/error.c
 

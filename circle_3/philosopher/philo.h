@@ -36,6 +36,7 @@ typedef struct s_list
     long long time_to_die;
     long long time_to_sleep;
     long long time_to_eat;
+    long long start_time;
     unsigned int requirements;
 }   t_list;
 
@@ -70,5 +71,8 @@ t_list *target_prio(t_list *head);
 int philo_controler(t_list *head);
 int  fork_1_check(t_list *head);
 int  fork_2_check(t_list *head);
+long long get_current_mili(void);
+void start_time(t_list *head);
+long long get_elapsed(t_list *head);
 
 #endif

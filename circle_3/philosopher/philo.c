@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:46:50 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/01 11:18:56 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:12:01 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int main(int argc, char **argv)
     }
     if (!head)
         return(0);
+    start_time(head);
     create_philo(&head);
 }

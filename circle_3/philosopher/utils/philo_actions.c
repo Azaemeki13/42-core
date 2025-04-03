@@ -3,32 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   philo_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 15:28:18 by ituriel           #+#    #+#             */
-/*   Updated: 2025/04/01 16:37:21 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:12:06 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
-
-long long get_current_mili(void)
-{
-    long long result;
-    struct timeval tv;
-
-    gettimeofday(&tv, NULL);
-    result = (long long)tv.tv_sec * 1000LL + tv.tv_usec / 1000LL;
-
-    return (result);
-}
 
 void philo_cogito(t_list *head)
 {
     if ((head != target_prio(head))&& (!philo_controler(head)))
     {
         pthread_mutex_lock(&head->state->thinking);
-        printf("%lld ms Philosopher %d is thinking\n", get_current_mili(), head->index);
+        printf("%lld ms Philosopher %d is thinking\n", get_elapsed(head), head->index);
         while ((head != target_prio(head))&& (!philo_controler(head)))
             usleep(10);
         pthread_mutex_unlock(&head->state->thinking);     
@@ -41,10 +30,10 @@ void philo_cogito(t_list *head)
 void philo_miam(t_list *head)
 {    
     pthread_mutex_lock(&head->next->state->fork);
-    printf("%lld ms Philosopher %d has taken right fork.\n",get_current_mili(), head->index);
+    printf("%lld ms Philosopher %d has taken right fork.\n",get_elapsed(head), head->index);
     pthread_mutex_lock(&head->state->fork);
-    printf("%lld ms Philosopher %d has taken left fork.\n", get_current_mili(), head->index);
-    printf("%lld ms Philosopher %d is eating\n", get_current_mili(), head->index);
+    printf("%lld ms Philosopher %d has taken left fork.\n", get_elapsed(head), head->index);
+    printf("%lld ms Philosopher %d is eating\n", get_elapsed(head), head->index);
     usleep((head->time_to_eat) * 1000);
     pthread_mutex_lock(&head->state->priority);
     head->state->priority_n = 0;
@@ -56,7 +45,7 @@ void philo_miam(t_list *head)
 void philo_zzz(t_list *head)
 {
     pthread_mutex_lock(&head->state->sleeping);
-    printf("%lld ms Philosopher %d is sleeping.\n",get_current_mili(), head->index);
+    printf("%lld ms Philosopher %d is sleeping.\n",get_elapsed(head), head->index);
     usleep(head->time_to_sleep * 1000);
     pthread_mutex_unlock(&head->state->sleeping);
 }

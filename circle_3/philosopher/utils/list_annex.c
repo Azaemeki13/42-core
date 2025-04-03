@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list_annex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/01 14:11:38 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:12:03 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
-
-char *format_arg(char **arguments)
-{
-    char *result;
-    char *temp;
-    
-    result = ft_strdup("");
-    while(*arguments)
-    {
-        temp = ft_strjoin(result, *arguments);
-        free(result);
-        result = temp;
-        arguments++;
-    }
-    printf("Thats the result %s\n", result);
-    return (result);
-}
 
 void facto_requirements(t_list *nav, unsigned int requirements)
 {

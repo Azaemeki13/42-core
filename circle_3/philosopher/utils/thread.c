@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/01 16:41:16 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:12:05 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ void *routine(void *arg)
 {
     t_list *list = (t_list *)arg;
     printf("Mutex initialised\n");
-    while (list->requirements != 0)
+    while (list->requirements > 1)
     {
         philo_miam(list);
         philo_zzz(list);
         philo_cogito(list);
         list->requirements--;
     }
+    philo_miam(list);
+    philo_zzz(list);
+    list->requirements--;
     return NULL;
 }
 
@@ -48,11 +51,12 @@ void create_philo(t_list **head)
 
     i = 0;
     nav = (*head);
-    list_size = lst_size(*head) + 1;    
+    list_size = lst_size(*head) + 1;
+    printf("List size is %d\n", list_size);
     while(i != list_size)
     {
         pthread_create(&nav->philosopher, NULL, routine, nav);
-        usleep(10);
+        usleep(200);
         nav = nav->next;
         i++;
     }
