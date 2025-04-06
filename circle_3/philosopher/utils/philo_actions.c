@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 15:28:18 by ituriel           #+#    #+#             */
-/*   Updated: 2025/04/03 11:12:06 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/06 12:57:04 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@ void philo_cogito(t_list *head)
 {
     if ((head != target_prio(head))&& (!philo_controler(head)))
     {
+        is_alive(head);
         pthread_mutex_lock(&head->state->thinking);
+        is_alive(head);
         printf("%lld ms Philosopher %d is thinking\n", get_elapsed(head), head->index);
         while ((head != target_prio(head))&& (!philo_controler(head)))
+        {
+            is_alive(head);
             usleep(10);
+        }
         pthread_mutex_unlock(&head->state->thinking);     
         return ;
     }
@@ -29,8 +34,10 @@ void philo_cogito(t_list *head)
 
 void philo_miam(t_list *head)
 {    
+    is_alive(head);
     pthread_mutex_lock(&head->next->state->fork);
     printf("%lld ms Philosopher %d has taken right fork.\n",get_elapsed(head), head->index);
+    is_alive(head);
     pthread_mutex_lock(&head->state->fork);
     printf("%lld ms Philosopher %d has taken left fork.\n", get_elapsed(head), head->index);
     printf("%lld ms Philosopher %d is eating\n", get_elapsed(head), head->index);
@@ -40,13 +47,17 @@ void philo_miam(t_list *head)
     pthread_mutex_unlock(&head->state->priority);
     pthread_mutex_unlock(&head->state->fork);
     pthread_mutex_unlock(&head->next->state->fork);
+    head->last_eat = get_elapsed(head);
 }
 
 void philo_zzz(t_list *head)
 {
+    is_alive(head);
     pthread_mutex_lock(&head->state->sleeping);
     printf("%lld ms Philosopher %d is sleeping.\n",get_elapsed(head), head->index);
+    is_alive(head);
     usleep(head->time_to_sleep * 1000);
+    is_alive(head);
     pthread_mutex_unlock(&head->state->sleeping);
 }
 

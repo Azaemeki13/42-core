@@ -9,6 +9,7 @@
 #include <string.h>
 #include <time.h>
 #include <limits.h>
+#include <stdatomic.h>
 
 //Basic structure 
 
@@ -37,6 +38,8 @@ typedef struct s_list
     long long time_to_sleep;
     long long time_to_eat;
     long long start_time;
+    long long last_eat;
+    _Atomic int living_state;
     unsigned int requirements;
 }   t_list;
 
@@ -74,5 +77,7 @@ int  fork_2_check(t_list *head);
 long long get_current_mili(void);
 void start_time(t_list *head);
 long long get_elapsed(t_list *head);
+void is_alive(t_list *head);
+int check_alive(t_list *head);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/03 11:12:05 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/06 13:47:51 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void init_mutex(t_list *list)
 void *routine(void *arg)
 {
     t_list *list = (t_list *)arg;
-    printf("Mutex initialised\n");
+    list->last_eat = get_elapsed(list);
     while (list->requirements > 1)
     {
         philo_miam(list);
@@ -37,9 +37,12 @@ void *routine(void *arg)
         philo_cogito(list);
         list->requirements--;
     }
-    philo_miam(list);
-    philo_zzz(list);
-    list->requirements--;
+    if (list->living_state)
+    {
+        philo_miam(list);
+        philo_zzz(list);
+        list->requirements--;
+    }
     return NULL;
 }
 
@@ -69,4 +72,5 @@ void create_philo(t_list **head)
         nav = nav->next;
         i++;
     }
+    //clear_list(head);
 }
