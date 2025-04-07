@@ -13,6 +13,11 @@
 
 //Basic structure 
 
+typedef struct s_shared
+{
+    pthread_mutex_t message;
+}   t_shared;
+
 typedef struct s_mutex
 {
     pthread_mutex_t fork;
@@ -33,7 +38,9 @@ typedef struct s_list
     int index;
     int list_size;
     pthread_t philosopher;
+    pthread_t controler;
     t_mutex *state;
+    t_shared *message;
     long long time_to_die;
     long long time_to_sleep;
     long long time_to_eat;
@@ -43,7 +50,7 @@ typedef struct s_list
     unsigned int requirements;
 }   t_list;
 
-// requirements to create the list
+// requirements to create the list && clear
 char ** char_to_arg(char **argv);
 char *format_arg(char **arguments);
 void create_node(t_list **head);
@@ -51,6 +58,7 @@ int generate_list(t_list **head, char *argument);
 void make_it_circular(t_list *head);
 void facto_requirements(t_list *nav, unsigned int requirements);
 int	ft_atoi(const char *nptr);
+void	*ft_memset(void *ptr, int value, size_t num);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
@@ -65,6 +73,7 @@ int lst_size(t_list *head);
 void init_mutex(t_list *head);
 void *routine(void *arg);
 void create_philo(t_list **head);
+void print_message(t_list *list, const char *message);
 
 // routines && time
 void philo_miam(t_list *head);
@@ -79,5 +88,10 @@ void start_time(t_list *head);
 long long get_elapsed(t_list *head);
 void is_alive(t_list *head);
 int check_alive(t_list *head);
+void wait_forks(t_list *head);
+void *contro_routine(void * arg);
+t_list *find_last(t_list *list);
+void precise_usleep(long long micro);
+int check_full_alive(t_list *head);
 
 #endif

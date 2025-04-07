@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/03 10:41:11 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/07 15:10:30 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,17 @@ void create_node(t_list **head)
 {
     t_list *new_node = NULL;
     t_list *nav = NULL;
+    t_shared *message = NULL;
+    pthread_t controler;
 
     new_node = malloc(sizeof(t_list));
-    memset(new_node, 0,sizeof(t_list));
+    ft_memset(new_node, 0,sizeof(t_list));
     new_node->state = malloc(sizeof(t_mutex));
+    message = malloc(sizeof(t_shared));
+    pthread_mutex_init(&message->message, NULL);
+    new_node->message = message;
+    new_node->controler = controler;
+    ft_memset(new_node->state, 0, sizeof(t_mutex));
     if (!*head)
         (*head) = new_node;
     else
@@ -42,7 +49,6 @@ int generate_list(t_list **head, char *argument)
         printf("Please at least one philo on table. \n");
         return (0);
     }
-    printf("i %d\n", i);
     while (i != 0)
     {
         create_node(head);

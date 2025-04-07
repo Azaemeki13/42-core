@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/06 13:47:51 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/07 15:05:44 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,25 @@ void *routine(void *arg)
         philo_zzz(list);
         philo_cogito(list);
         list->requirements--;
+        if ((check_full_alive(list) == 0))
+            return;
     }
     if (list->living_state)
     {
         philo_miam(list);
         philo_zzz(list);
         list->requirements--;
+        if ((check_full_alive(list) == 0))
+            return;
     }
     return NULL;
+}
+
+void print_message(t_list *list, const char *message)
+{
+    pthread_mutex_lock(&list->message->message);
+    printf("%lld Philosopher %d %s\n", get_elapsed(list), list->index, message);
+    pthread_mutex_unlock(&list->message->message);
 }
 
 void create_philo(t_list **head)
@@ -55,15 +66,15 @@ void create_philo(t_list **head)
     i = 0;
     nav = (*head);
     list_size = lst_size(*head) + 1;
-    printf("List size is %d\n", list_size);
     while(i != list_size)
     {
         pthread_create(&nav->philosopher, NULL, routine, nav);
+        if (i == 0)
+            pthread_create(&nav->controler, NULL, contro_routine, nav);
         usleep(200);
         nav = nav->next;
         i++;
     }
-    printf("done with philo creation.\n");
     i = 0;
     nav = (*head);
     while(i != list_size)
@@ -72,5 +83,6 @@ void create_philo(t_list **head)
         nav = nav->next;
         i++;
     }
-    //clear_list(head);
+    pthread_join(nav->controler, NULL);
+    clear_list(head);
 }

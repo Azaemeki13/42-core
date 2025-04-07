@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 10:58:25 by ituriel           #+#    #+#             */
-/*   Updated: 2025/04/06 14:36:27 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/07 14:59:02 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void is_alive(t_list *head)
     elapsed = get_elapsed(head);
     if (elapsed >= head->last_eat + head->time_to_die)
     {
+        printf("%lld ms Philosopher %d is dead\n", get_elapsed(head), head->index);
         while (i != head->list_size)
         {
             head->living_state = 0;
@@ -64,11 +65,35 @@ void is_alive(t_list *head)
 
 int check_alive(t_list *head)
 {
-    if (!head->living_state)
+    t_list *temp;
+
+    temp = head;
+    if (!temp->living_state)
     {
         printf("A philosopher died.\n");
         return (0);
     }
     else
         return(1);
+}
+
+int check_full_alive(t_list *head)
+{
+    t_list *temp;
+    int i;
+
+    temp = head;
+    i = 0;
+    while (i != temp->list_size)
+    {
+        if (!temp->living_state)
+        {
+            printf("A philosopher died.\n");
+            return (0);
+        }
+        else
+            temp = temp->next;
+        i++;
+    }
+    return (1);
 }
