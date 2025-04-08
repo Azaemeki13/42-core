@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/07 15:10:30 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:01:27 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ void create_node(t_list **head)
     t_list *new_node = NULL;
     t_list *nav = NULL;
     t_shared *message = NULL;
-    pthread_t controler;
+    pthread_t *controler;
 
     new_node = malloc(sizeof(t_list));
     ft_memset(new_node, 0,sizeof(t_list));
     new_node->state = malloc(sizeof(t_mutex));
     message = malloc(sizeof(t_shared));
+    controler = malloc(sizeof(pthread_t));
     pthread_mutex_init(&message->message, NULL);
     new_node->message = message;
-    new_node->controler = controler;
+    new_node->controler = *controler;
     ft_memset(new_node->state, 0, sizeof(t_mutex));
     if (!*head)
         (*head) = new_node;

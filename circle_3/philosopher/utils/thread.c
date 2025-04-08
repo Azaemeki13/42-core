@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/07 15:05:44 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:12:43 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ void *routine(void *arg)
         philo_zzz(list);
         philo_cogito(list);
         list->requirements--;
-        if ((check_full_alive(list) == 0))
-            return;
+        if (!check_full_alive(list))
+            return NULL;
     }
     if (list->living_state)
     {
         philo_miam(list);
         philo_zzz(list);
         list->requirements--;
-        if ((check_full_alive(list) == 0))
-            return;
+        if (!check_full_alive(list))
+            return NULL;
     }
     return NULL;
 }
@@ -53,7 +53,8 @@ void *routine(void *arg)
 void print_message(t_list *list, const char *message)
 {
     pthread_mutex_lock(&list->message->message);
-    printf("%lld Philosopher %d %s\n", get_elapsed(list), list->index, message);
+    if (check_full_alive(list))
+        printf("%lld Philosopher %d %s\n", get_elapsed(list), list->index, message);
     pthread_mutex_unlock(&list->message->message);
 }
 

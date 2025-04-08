@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 15:28:18 by ituriel           #+#    #+#             */
-/*   Updated: 2025/04/07 14:57:02 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:13:28 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ void philo_miam(t_list *head)
         is_alive(head);
         pthread_mutex_lock(&head->state->fork);
         pthread_mutex_lock(&head->next->state->fork);
-        print_message(head, "has taken left fork.");
-        print_message(head, "has taken right fork.");
-        print_message(head, "is eating.");
-        usleep((head->time_to_eat) * 1000);
+        if (check_full_alive(head))
+        {
+            print_message(head, "has taken left fork.");
+            print_message(head, "has taken right fork.");
+            print_message(head, "is eating.");
+        }
+        precise_usleep((head->time_to_eat) * 1000);
         pthread_mutex_lock(&head->state->priority);
         head->state->priority_n = 0;
         pthread_mutex_unlock(&head->state->priority);
@@ -56,9 +59,10 @@ void philo_zzz(t_list *head)
     {
         is_alive(head);
         pthread_mutex_lock(&head->state->sleeping);
-        print_message(head, "is sleeping.");
+        if (check_full_alive(head))
+            print_message(head, "is sleeping.");
         is_alive(head);
-        usleep(head->time_to_sleep * 1000);
+        precise_usleep(head->time_to_sleep * 1000);
         is_alive(head);
         pthread_mutex_unlock(&head->state->sleeping);
     }
@@ -81,7 +85,7 @@ int philo_controler(t_list *head)
             else
             {
                 while (pthread_mutex_trylock(&head->state->priority) != 0)
-                    sleep(1);
+                    precise_usleep(1);
                 head->state->priority_n += 1;
                 pthread_mutex_unlock(&head->state->priority);
                 return(0);
@@ -89,7 +93,7 @@ int philo_controler(t_list *head)
         }
         return (0);
     }
-   
+    return (0);
 }
 
 void wait_forks(t_list *head)
@@ -98,7 +102,7 @@ void wait_forks(t_list *head)
     {
         while ((head != target_prio(head)) || (!philo_controler(head)))
         {
-            usleep(1);
+            precise_usleep(1);
         }
         return ;
     }
@@ -152,4 +156,5 @@ t_list *target_prio(t_list *head)
         }
         return(result);
     }
+    return (result);
 }

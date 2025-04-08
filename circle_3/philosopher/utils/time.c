@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 10:58:25 by ituriel           #+#    #+#             */
-/*   Updated: 2025/04/07 14:59:02 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:22:14 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,7 @@ int check_alive(t_list *head)
 
     temp = head;
     if (!temp->living_state)
-    {
-        printf("A philosopher died.\n");
         return (0);
-    }
     else
         return(1);
 }
@@ -87,10 +84,7 @@ int check_full_alive(t_list *head)
     while (i != temp->list_size)
     {
         if (!temp->living_state)
-        {
-            printf("A philosopher died.\n");
             return (0);
-        }
         else
             temp = temp->next;
         i++;
