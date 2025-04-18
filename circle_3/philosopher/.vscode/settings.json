@@ -2,6 +2,10 @@
     "files.associations": {
         "philo.h": "c",
         "chrono": "c",
-        "span": "c"
+        "span": "c",
+        "*.tcc": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "string_view": "c"
     }
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 10:58:25 by ituriel           #+#    #+#             */
-/*   Updated: 2025/04/08 12:22:14 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:42:38 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void is_alive(t_list *head)
 
     i = 0;
     elapsed = get_elapsed(head);
-    if (elapsed >= head->last_eat + head->time_to_die)
+    if (elapsed > head->last_eat + head->time_to_die)
     {
         printf("%lld ms Philosopher %d is dead\n", get_elapsed(head), head->index);
         while (i != head->list_size)
@@ -90,4 +90,12 @@ int check_full_alive(t_list *head)
         i++;
     }
     return (1);
+}
+
+void wait_turn(t_list *me)
+{
+    while ((me->requirements < max_requ(me)))
+        usleep(100);
+    while ((me != target_prio(me)) && (!philo_controler(me)))
+        usleep(100);
 }

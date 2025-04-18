@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 15:28:18 by ituriel           #+#    #+#             */
-/*   Updated: 2025/04/08 12:13:28 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/18 18:52:53 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,11 @@
 
 void philo_cogito(t_list *head)
 {
-    while ((check_full_alive(head) == 1))
-    {
-        if ((head != target_prio(head)) && (!philo_controler(head)))
-        {
-            is_alive(head);
-            pthread_mutex_lock(&head->state->thinking);
-            is_alive(head);
-            print_message(head, "is thinking.");
-            pthread_mutex_unlock(&head->state->thinking);     
-            return ;
-        }
-        else
-            return ;
-    }
+    if (!check_full_alive(head))
+        return ;
+    pthread_mutex_lock(&head->state->thinking);
+    print_message(head, "is thinking.");
+    pthread_mutex_unlock(&head->state->thinking);
 }
 
 void philo_miam(t_list *head)
@@ -35,21 +26,36 @@ void philo_miam(t_list *head)
     while ((check_full_alive(head) == 1))
     {
         is_alive(head);
-        pthread_mutex_lock(&head->state->fork);
-        pthread_mutex_lock(&head->next->state->fork);
-        if (check_full_alive(head))
+        if (head->index % 2 == 0)
         {
-            print_message(head, "has taken left fork.");
-            print_message(head, "has taken right fork.");
-            print_message(head, "is eating.");
+            if (check_full_alive(head))
+            {
+                pthread_mutex_lock(&head->state->fork);
+                pthread_mutex_lock(&head->next->state->fork);
+                print_eat(head);
+            }
+            pthread_mutex_unlock(&head->next->state->fork);
+            pthread_mutex_unlock(&head->state->fork);
         }
-        precise_usleep((head->time_to_eat) * 1000);
+        else
+        {
+            if (check_full_alive(head))
+            {
+                pthread_mutex_lock(&head->next->state->fork);
+                pthread_mutex_lock(&head->state->fork);
+                print_eat(head);
+            }
+            pthread_mutex_unlock(&head->state->fork);
+            pthread_mutex_unlock(&head->next->state->fork);
+        }
+        head->last_eat = get_current_mili();
+        usleep((head->time_to_eat) * 1000);
         pthread_mutex_lock(&head->state->priority);
-        head->state->priority_n = 0;
+        head->state->priority_n = get_current_mili() + head->last_eat;
         pthread_mutex_unlock(&head->state->priority);
-        pthread_mutex_unlock(&head->state->fork);
-        pthread_mutex_unlock(&head->next->state->fork);
-        head->last_eat = get_elapsed(head);
+
+        head->last_eat = get_current_mili();
+        return ;
     }
 }
 
@@ -62,10 +68,30 @@ void philo_zzz(t_list *head)
         if (check_full_alive(head))
             print_message(head, "is sleeping.");
         is_alive(head);
-        precise_usleep(head->time_to_sleep * 1000);
+        usleep(head->time_to_sleep * 1000);
         is_alive(head);
         pthread_mutex_unlock(&head->state->sleeping);
+        return ;
     }
+}
+
+unsigned int max_requ(t_list *head)
+{
+    t_list *nav = NULL;
+    unsigned int result;
+    unsigned int i;
+
+    result = 0;
+    i = 0;
+    nav = head;
+    while ((int)i != nav->list_size)
+    {
+        if (result < nav->requirements)
+            result = nav->requirements;
+        nav = nav->next;
+        i++;
+    }
+    return (result);
 }
 
 int philo_controler(t_list *head)

@@ -3,28 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/08 12:01:27 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/18 18:32:55 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void create_node(t_list **head)
+void create_node(t_list **head, t_shared *message)
 {
     t_list *new_node = NULL;
     t_list *nav = NULL;
-    t_shared *message = NULL;
     pthread_t *controler;
 
     new_node = malloc(sizeof(t_list));
     ft_memset(new_node, 0,sizeof(t_list));
     new_node->state = malloc(sizeof(t_mutex));
-    message = malloc(sizeof(t_shared));
     controler = malloc(sizeof(pthread_t));
-    pthread_mutex_init(&message->message, NULL);
     new_node->message = message;
     new_node->controler = *controler;
     ft_memset(new_node->state, 0, sizeof(t_mutex));
@@ -40,7 +37,7 @@ void create_node(t_list **head)
     }
 }
 
-int generate_list(t_list **head, char *argument)
+int generate_list(t_list **head, char *argument, t_shared *message)
 {
     int i;
 
@@ -52,7 +49,7 @@ int generate_list(t_list **head, char *argument)
     }
     while (i != 0)
     {
-        create_node(head);
+        create_node(head, message);
         i--;
     }
     return (1);
@@ -112,9 +109,9 @@ int populate_requirements(t_list **head, char **arguments)
     return(1);
 }
 
-int populate_list (t_list **head, char **arguments)
+int populate_list (t_list **head, char **arguments, t_shared *message)
 {
-    if (generate_list(head, *(arguments)) == 0
+    if (generate_list(head, *(arguments), message) == 0
     || (populate_timers(head, arguments) == 0) 
     || (populate_requirements(head, arguments) == 0))
     {

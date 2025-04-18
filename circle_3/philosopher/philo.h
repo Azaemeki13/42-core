@@ -53,8 +53,8 @@ typedef struct s_list
 // requirements to create the list && clear
 char ** char_to_arg(char **argv);
 char *format_arg(char **arguments);
-void create_node(t_list **head);
-int generate_list(t_list **head, char *argument);
+void create_node(t_list **head, t_shared *message);
+int generate_list(t_list **head, char *argument, t_shared *message);
 void make_it_circular(t_list *head);
 void facto_requirements(t_list *nav, unsigned int requirements);
 int	ft_atoi(const char *nptr);
@@ -62,18 +62,19 @@ void	*ft_memset(void *ptr, int value, size_t num);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
-int populate_list (t_list **head, char **arguments);
+int populate_list (t_list **head, char **arguments, t_shared *message);
 int populate_requirements(t_list **head, char **arguments);
 int populate_timers(t_list **head, char **arguments);
-void clear_list(t_list **head);
+void clear_list(t_list **head, t_shared *message);
 char	**ft_split(char const *s, char c);
 int lst_size(t_list *head);
 
 // Threads & mutexes
 void init_mutex(t_list *head);
 void *routine(void *arg);
-void create_philo(t_list **head);
+void create_philo(t_list **head, t_shared *message);
 void print_message(t_list *list, const char *message);
+void print_eat(t_list *list);
 
 // routines && time
 void philo_miam(t_list *head);
@@ -93,5 +94,7 @@ void *contro_routine(void * arg);
 t_list *find_last(t_list *list);
 void precise_usleep(long long micro);
 int check_full_alive(t_list *head);
+void wait_turn(t_list *me);
+unsigned int max_requ(t_list *head);
 
 #endif

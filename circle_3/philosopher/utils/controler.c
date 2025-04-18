@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 11:32:05 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/08 12:02:52 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/04/18 18:58:00 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void *contro_routine(void * arg)
             if ((!check_alive(temp)))
                 return NULL;
             temp = temp->next;
+            i++;
         }
         precise_usleep(5000);
     }
