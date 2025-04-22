@@ -34,9 +34,10 @@ char	*ft_strdup(const char *src)
 
 size_t	ft_strlen(const char *str)
 {
-	char	*nav = '\0';
+	char	*nav;
 	size_t	i;
 
+	nav = '\0';
 	i = 0;
 	nav = (char *)str;
 	while (nav[i] != 0)

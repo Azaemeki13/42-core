@@ -1,53 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_annex.c                                       :+:      :+:    :+:   */
+/*   time2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/22 16:36:49 by cauffret         ###   ########.fr       */
+/*   Created: 2025/04/22 16:32:21 by cauffret          #+#    #+#             */
+/*   Updated: 2025/04/22 16:59:08 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	facto_requirements(t_list *nav, unsigned int requirements)
+int	check_alive(t_list *head)
 {
 	t_list	*temp;
 
-	temp = nav;
-	while (temp)
-	{
-		temp->requirements = (unsigned int)requirements;
-		init_mutex(temp);
-		temp = temp->next;
-	}
-}
-
-void	make_it_circular(t_list *head)
-{
-	t_list	*temp;
-
-	temp = NULL;
 	temp = head;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = head;
-	head->prev = temp;
+	if (!temp->living_state)
+		return (0);
+	else
+		return (1);
 }
 
-int	lst_size(t_list *head)
+int	check_full_alive(t_list *head)
 {
-	t_list	*nav;
+	t_list	*temp;
 	int		i;
 
-	nav = head;
+	temp = head;
 	i = 0;
-	while (nav != head->prev)
+	while (i != temp->list_size)
 	{
+		if (!temp->living_state)
+			return (0);
+		else
+			temp = temp->next;
 		i++;
-		nav = nav->next;
 	}
-	return (i);
+	return (1);
+}
+
+void	wait_init(void)
+{
+	usleep(100);
 }

@@ -18,7 +18,8 @@ UTILS_SRCS = $(UTILS_DIR)/ft_atoi.c \
 					$(UTILS_DIR)/ft_strjoin.c \
 					$(UTILS_DIR)/time.c \
 					$(UTILS_DIR)/error.c \
-					$(UTILS_DIR)/controler.c
+					$(UTILS_DIR)/controler.c \
+					$(UTILS_DIR)/time2.c
 
 
 #$(UTILS_DIR)/error.c
