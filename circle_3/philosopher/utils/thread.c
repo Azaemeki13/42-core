@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:36:31 by cauffret          #+#    #+#             */
-/*   Updated: 2025/04/22 16:56:53 by cauffret         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:44:47 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*routine(void *arg)
 
 	list = (t_list *)arg;
 	list->last_eat = get_elapsed(list);
-	wait_init(list);
+	wait_init();
 	while (list->requirements > 1 && check_full_alive(list))
 	{
 		list->requirements--;
