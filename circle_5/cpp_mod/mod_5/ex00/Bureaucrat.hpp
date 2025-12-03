@@ -6,7 +6,7 @@
 /*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:02:16 by ituriel           #+#    #+#             */
-/*   Updated: 2025/12/02 12:21:10 by ituriel          ###   ########.fr       */
+/*   Updated: 2025/12/03 13:25:04 by ituriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,18 @@ class Bureaucrat
     public:
 
         // OCF 
-
         Bureaucrat();
-        Bureaucrat(std::string &name, unsigned int grade);
-        // Getters 
-        const std::string &getName();
-        const unsigned int &getGrade();
+        Bureaucrat(const std::string &name, const unsigned int grade);
+        Bureaucrat(Bureaucrat &other);
+        Bureaucrat &operator = (const Bureaucrat &other);
+        ~Bureaucrat();
 
-        // Increment cause why not 
+
+        // Getters 
+        const std::string &getName() const;
+        const unsigned int &getGrade() const;
+
+        // Increment overloads
         Bureaucrat& operator ++();
         Bureaucrat operator ++(int);
         Bureaucrat& operator --();
@@ -48,3 +52,6 @@ class Bureaucrat
                 virtual const char* what() const throw();
         };
     };
+
+    // ostream overload
+    std::ostream &operator <<(std::ostream &out, const Bureaucrat &b);
