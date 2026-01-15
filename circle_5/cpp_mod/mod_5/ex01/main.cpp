@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:58:51 by ituriel           #+#    #+#             */
-/*   Updated: 2025/12/04 12:58:36 by ituriel          ###   ########.fr       */
+/*   Updated: 2026/01/15 10:21:49 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
     try
     {
         Bureaucrat john("John", 5);
-        Form tax("TaxForm", false, 10, 20);
+        Form tax("TaxForm", 10, 20);
 
         std::cout << tax << std::endl;
         john.signForm(tax);
@@ -34,7 +34,7 @@ int main()
     try
     {
         Bureaucrat bob("Bob", 150);
-        Form secret("SecretForm", false, 50, 50);
+        Form secret("SecretForm", 50, 50);
 
         std::cout << secret << std::endl;
         bob.signForm(secret);  // should fail
@@ -48,7 +48,7 @@ int main()
     std::cout << "\n---- Test 3: Form constructor throws (invalid grade) ----" << std::endl;
     try
     {
-        Form invalid("BrokenForm", false, 500, 10); // should throw
+        Form invalid("BrokenForm", 500, 10); // should throw
     }
     catch (std::exception &e)
     {

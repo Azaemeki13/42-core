@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ituriel <ituriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:00:54 by ituriel           #+#    #+#             */
-/*   Updated: 2025/12/08 11:27:03 by ituriel          ###   ########.fr       */
+/*   Updated: 2026/01/15 10:26:14 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Form::Form() : name("Default Form"), isigned(0), g_sign(75), g_execute(75)
     std::cout << "Default constructor called for Form!" << std::endl;
 }
 
-Form::Form(const std::string &name, unsigned int g_sign, unsigned int g_execute) : name(name), isigned(isigned), g_sign(0), g_execute(g_execute)
+Form::Form(const std::string &name, unsigned int g_sign, unsigned int g_execute) : name(name), isigned(0), g_sign(g_sign), g_execute(g_execute)
 {
     gradeChecker(g_sign);
     gradeChecker(g_execute);
