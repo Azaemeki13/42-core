@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 09:38:07 by cauffret          #+#    #+#             */
-/*   Updated: 2026/01/14 14:21:02 by cauffret         ###   ########.fr       */
+/*   Updated: 2026/01/19 13:14:09 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include <climits>
 #include <cstdlib>
 #include <sys/time.h>
+#include <iomanip>
 
 class Tester
 {
@@ -32,15 +33,12 @@ class Tester
         std::vector <std::pair<int, int> > _vpairs;
         std::vector<int> _vwinners;
         std::vector<int> _vlosers;
-        int _vleftover;
-        bool _vhasLeftover;
+
     // deque
         std::deque<int> parseDeque;
         std::deque<std::pair<int, int> > _dpairs;
         std::deque<int> _dwinners;
         std::deque<int> _dlosers;
-        int _dleftover;
-        bool _dhasLeftover;
 
     public:
     // OCF
@@ -57,8 +55,10 @@ class Tester
             void vToQueue();
             std::vector<std::pair<int, int > > vRecursive(std::vector<std::pair<int, int> > input);
             void dToQueue();
-            std::vector<std::pair<int, int> > dRecursive(std::deque<std::pair<int, int> > input);
-            unsigned int findJacob(usigned int n);
+            std::deque<std::pair<int, int> > dRecursive(std::deque<std::pair<int, int> > input);
+            unsigned int findJacob(unsigned int n);
+            void compareMe();
+            void printMe(std::vector<std::pair <int, int> > vecty);
 };
 
 

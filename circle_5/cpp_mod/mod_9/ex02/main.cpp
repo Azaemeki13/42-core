@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 11:14:37 by cauffret          #+#    #+#             */
-/*   Updated: 2026/01/14 11:40:51 by cauffret         ###   ########.fr       */
+/*   Updated: 2026/01/19 13:14:08 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ int main (int argc, char **argv)
     {
         try 
         {
-            Tester merge(argv) ;
-            for (std::vector<int>::const_iterator it = merge.getVec().begin(); it != merge.getVec().end(); ++it)
-                std::cout << " Vector value: " << *it << std::endl;
-            for (std::deque<int>::const_iterator it = merge.getDeq().begin(); it != merge.getDeq().end(); ++it)
-                std::cout << " Deque value: " << *it << std::endl;
+            Tester merge(argv);
+            merge.compareMe();
         }
         catch (std::runtime_error &e)
         {
