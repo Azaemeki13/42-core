@@ -43,8 +43,11 @@ class Span
         template<typename iterator>
         void addRange(iterator start, iterator end)
         {
-            for (; start != end; start++)
-                addNumber(*start);
+            unsigned int rangeSize = std::distance(start,end);
+            if (a_index + rangeSize > capacity)
+                throw fullArray();
+            std::copy(start, end, myArray + a_index);
+            a_index += rangeSize;
         }
         unsigned int shortestSpan();
         unsigned int longestSpan();

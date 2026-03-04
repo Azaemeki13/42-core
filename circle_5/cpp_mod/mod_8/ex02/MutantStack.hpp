@@ -22,13 +22,22 @@
 #include <cmath>
 #include <stack>
 
-template<typename T> 
-class MutantStack : public std::stack<T>
+template<typename T, typename Container = std::deque<T> > 
+class MutantStack : public std::stack<T, Container>
 {
     private:
 
     public:
-        typedef typename std::stack<T>::container_type::iterator iterator;
+        MutantStack() : std::stack<T, Container>() {}
+        MutantStack(const MutantStack &other) : std::stack<T, Container>(other) {} // using here (other) to call constructor from udnerlying container
+        MutantStack& operator =(const MutantStack &other)
+        {
+            if (this != &other)
+                std::stack<T,Container>::operator=(other); // way to  catch the underlying operator on the stack
+            return (*this);
+        }
+        virtual ~MutantStack(){}
+        typedef typename std::stack<T, Container>::container_type::iterator iterator;
         iterator begin();
         iterator end();
 };
