@@ -6,7 +6,7 @@
 /*   By: cauffret <cauffret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 09:38:05 by cauffret          #+#    #+#             */
-/*   Updated: 2026/01/19 13:23:28 by cauffret         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:25:03 by cauffret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,76 +122,89 @@ void Tester::vToQueue()
     }
 }
 
-std::vector<std::pair<int, int > > Tester::vRecursive(std::vector<std::pair<int, int> > input)
+std::vector<int> Tester::vRecursive(std::vector<int> input)
 {
-    std::vector<std::pair<int, int> > result_w;
-    std::vector<std::pair<int, int> > result_l;
     static const long long jacob_array[] = {0, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923};
     std::vector<long long> jacob_vec(jacob_array, jacob_array + sizeof(jacob_array) / sizeof(jacob_array[0]));
-    std::pair<int, int> straggler;
-    bool has_straggler = 0;
+    int straggler = -1;
+    bool has_straggler = false;
     if (input.size() % 2 != 0)
     {
         straggler = input.back();
-        has_straggler = 1;
+        has_straggler = true;
         input.pop_back();
     }
     if (input.size() < 2)
-        return(input);
-    else
     {
-        for(std::vector<std::pair<int, int> >::iterator it = input.begin(); it != input.end(); it += 2)
+        if (has_straggler)
         {
-            int first = it->first;
-            int second = (it + 1)->first;
-            if (first > second)
-            {
-                result_w.push_back(*it);
-                result_l.push_back(*(it + 1));
-            }
+            if (input.empty())
+                input.push_back(straggler);
+            else if (straggler < input[0])
+                input.insert(input.begin(), straggler);
             else
+                input.push_back(straggler);
+        }
+        return(input);
+    }
+    std::vector<int> winners;
+    std::vector<int> losers;
+    for (size_t i = 0; i < input.size(); i += 2)
+    {
+        if (input[i] > input[i + 1])
+        {
+            winners.push_back(input[i]);
+            losers.push_back(input[i + 1]);
+        }
+        else
+        {
+            winners.push_back(input[i + 1]);
+            losers.push_back(input[i]);
+        }
+    }
+    std::vector<std::pair<int, int> > winner_to_loser;
+    for (size_t i = 0; i < winners.size(); ++i)
+        winner_to_loser.push_back(std::make_pair(winners[i], losers[i]));
+    std::vector<int> sorted_winners = vRecursive(winners);
+    std::vector<int> reordered_losers;
+    for (size_t i = 0; i < sorted_winners.size(); ++i)
+    {
+        for (size_t j = 0; j < winner_to_loser.size(); ++j)
+        {
+            if (winner_to_loser[j].first == sorted_winners[i])
             {
-                result_w.push_back(*(it + 1));
-                result_l.push_back(*it);
+                reordered_losers.push_back(winner_to_loser[j].second);
+                break;
             }
         }
     }
-    std::vector<std::pair<int, int> > main_sort = vRecursive(result_w);
-    std::vector<int> just_chain;
-    for (size_t i = 0; i < main_sort.size(); ++i)
-        just_chain.push_back(main_sort[i].first);
-    if(!result_l.empty())
-        just_chain.insert(just_chain.begin(), result_l[0].first);
-    size_t last_j  = 1; // start at 1 because we previously did term 1, also sets min value of Jn we want to go at, from Jupper_boud to Jlower_bound
-    for(size_t i = 2; i < jacob_vec.size(); ++i) // browsing jacobsthal
+    std::vector<int> chain(sorted_winners);
+    if (!reordered_losers.empty())
+        chain.insert(chain.begin(), reordered_losers[0]);
+    size_t last_j = 1;
+    for (size_t i = 2; i < jacob_vec.size(); ++i)
     {
-        size_t curr_j = jacob_vec[i]; // current jacobsthal term J(n)
-        size_t actual_end = std::min(curr_j, result_l.size()); // make sure that we have the min value to not go OOB
+        size_t curr_j = jacob_vec[i];
+        size_t actual_end = std::min(curr_j, reordered_losers.size());
         for (size_t k = actual_end; k > last_j; --k)
         {
-            int loser_value = result_l[k - 1].first; // need to find the loser 
-            int winner_value = result_w[k - 1].first; // need to find the winner (same index be cause same time comparaison)
-            std::vector<int>::iterator it_w = std::lower_bound(just_chain.begin(), just_chain.end(), winner_value); // lower bound IS binary search and returns the slot in just chain that is the winner's.
-            std::vector<int>::iterator it_l = std::lower_bound(just_chain.begin(), it_w, loser_value); // EXACTLY WHERE TO INSERT THE LOSER
-            just_chain.insert(it_l, loser_value);
+            int loser_value = reordered_losers[k - 1];
+            int winner_value = sorted_winners[k - 1];
+            std::vector<int>::iterator it_w = std::lower_bound(chain.begin(), chain.end(), winner_value);
+            std::vector<int>::iterator it_l = std::lower_bound(chain.begin(), it_w, loser_value);
+            chain.insert(it_l, loser_value);
         }
         last_j = actual_end;
-        if(last_j  >= result_l.size())
+        if (last_j >= reordered_losers.size())
             break;
     }
     if (has_straggler)
     {
-        std::vector<int>::iterator stag_it = std::lower_bound(just_chain.begin(), just_chain.end(), straggler.first);
-        just_chain.insert(stag_it, straggler.first);
-
+        std::vector<int>::iterator stag_it = std::lower_bound(chain.begin(), chain.end(), straggler);
+        chain.insert(stag_it, straggler);
     }
-    std::vector<std::pair <int, int> > ret_final;
-    for(size_t i = 0; i < just_chain.size(); ++i)
-        ret_final.push_back(std::make_pair(just_chain[i], 0));
-    return(ret_final);
+    return(chain);
 }
-
-
 
 void Tester::dToQueue()
 {
@@ -214,84 +227,99 @@ void Tester::dToQueue()
     }
 }
 
-std::deque<std::pair<int, int > > Tester::dRecursive(std::deque<std::pair<int, int> > input)
+std::deque<int> Tester::dRecursive(std::deque<int> input)
 {
-    std::deque<std::pair<int, int> > result_w;
-    std::deque<std::pair<int, int> > result_l;
     static const long long jacob_array[] = {0, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923};
     std::deque<long long> jacob_deq(jacob_array, jacob_array + sizeof(jacob_array) / sizeof(jacob_array[0]));
-    std::pair<int, int> straggler;
-    bool has_straggler = 0;
+    int straggler = -1;
+    bool has_straggler = false;
     if (input.size() % 2 != 0)
     {
         straggler = input.back();
-        has_straggler = 1;
+        has_straggler = true;
         input.pop_back();
     }
     if (input.size() < 2)
-        return(input);
-    else
     {
-        for(std::deque<std::pair<int, int> >::iterator it = input.begin(); it != input.end(); it += 2)
+        if (has_straggler)
         {
-            int first = it->first;
-            int second = (it + 1)->first;
-            if (first > second)
-            {
-                result_w.push_back(*it);
-                result_l.push_back(*(it + 1));
-            }
+            if (input.empty())
+                input.push_back(straggler);
+            else if (straggler < input[0])
+                input.insert(input.begin(), straggler);
             else
+                input.push_back(straggler);
+        }
+        return(input);
+    }
+    std::deque<int> winners;
+    std::deque<int> losers;
+    for (size_t i = 0; i < input.size(); i += 2)
+    {
+        if (input[i] > input[i + 1])
+        {
+            winners.push_back(input[i]);
+            losers.push_back(input[i + 1]);
+        }
+        else
+        {
+            winners.push_back(input[i + 1]);
+            losers.push_back(input[i]);
+        }
+    }
+    std::deque<std::pair<int, int> > winner_to_loser;
+    for (size_t i = 0; i < winners.size(); ++i)
+        winner_to_loser.push_back(std::make_pair(winners[i], losers[i]));
+    std::deque<int> sorted_winners = dRecursive(winners);
+    std::deque<int> reordered_losers;
+    for (size_t i = 0; i < sorted_winners.size(); ++i)
+    {
+        for (size_t j = 0; j < winner_to_loser.size(); ++j)
+        {
+            if (winner_to_loser[j].first == sorted_winners[i])
             {
-                result_w.push_back(*(it + 1));
-                result_l.push_back(*it);
+                reordered_losers.push_back(winner_to_loser[j].second);
+                break;
             }
         }
     }
-    std::deque<std::pair<int, int> > main_sort = dRecursive(result_w);
-    std::deque<int> just_chain;
-    for (size_t i = 0; i < main_sort.size(); ++i)
-        just_chain.push_back(main_sort[i].first);
-    if(!result_l.empty())
-        just_chain.insert(just_chain.begin(), result_l[0].first);
-    size_t last_j  = 1; // start at 1 because we previously did term 1, also sets min value of Jn we want to go at, from Jupper_boud to Jlower_bound
-    for(size_t i = 2; i < jacob_deq.size(); ++i) // browsing jacobsthal
+    std::deque<int> chain(sorted_winners);
+    if (!reordered_losers.empty())
+        chain.insert(chain.begin(), reordered_losers[0]);
+    size_t last_j = 1;
+    for (size_t i = 2; i < jacob_deq.size(); ++i)
     {
-        size_t curr_j = jacob_deq[i]; // current jacobsthal term J(n)
-        size_t actual_end = std::min(curr_j, result_l.size()); // make sure that we have the min value to not go OOB
+        size_t curr_j = jacob_deq[i];
+        size_t actual_end = std::min(curr_j, reordered_losers.size());
         for (size_t k = actual_end; k > last_j; --k)
         {
-            int loser_value = result_l[k - 1].first; // need to find the loser 
-            int winner_value = result_w[k - 1].first; // need to find the winner (same index be cause same time comparaison)
-            std::deque<int>::iterator it_w = std::lower_bound(just_chain.begin(), just_chain.end(), winner_value); // lower bound IS binary search and returns the slot in just chain that is the winner's.
-            std::deque<int>::iterator it_l = std::lower_bound(just_chain.begin(), it_w, loser_value); // EXACTLY WHERE TO INSERT THE LOSER
-            just_chain.insert(it_l, loser_value);
+            int loser_value = reordered_losers[k - 1];
+            int winner_value = sorted_winners[k - 1];
+            std::deque<int>::iterator it_w = std::lower_bound(chain.begin(), chain.end(), winner_value);
+            std::deque<int>::iterator it_l = std::lower_bound(chain.begin(), it_w, loser_value);
+            chain.insert(it_l, loser_value);
         }
         last_j = actual_end;
-        if(last_j  >= result_l.size())
+        if (last_j >= reordered_losers.size())
             break;
     }
     if (has_straggler)
     {
-        std::deque<int>::iterator stag_it = std::lower_bound(just_chain.begin(), just_chain.end(), straggler.first);
-        just_chain.insert(stag_it, straggler.first);
-
+        std::deque<int>::iterator stag_it = std::lower_bound(chain.begin(), chain.end(), straggler);
+        chain.insert(stag_it, straggler);
     }
-    std::deque<std::pair <int, int> > ret_final;
-    for(size_t i = 0; i < just_chain.size(); ++i)
-        ret_final.push_back(std::make_pair(just_chain[i], 0));
-    return(ret_final);
+    return(chain);
 }
 
-void Tester::printMe(std::vector<std::pair <int, int> > vecty)
+void Tester::printMe(std::vector<int> vecty)
 {
     std::cout << "Before: ";
-    for (size_t i = 0; i < parseVector.size() && i < 5; ++i)
+    for (size_t i = 0; i < parseVector.size(); ++i)
         std::cout << parseVector[i] << " ";
     std::cout << std::endl;
     std::cout << "After: ";
-    for (size_t i = 0; i < vecty.size() && i < 5; ++i)
-        std::cout << vecty[i].first << " ";
+    for (size_t i = 0; i < vecty.size(); ++i)
+        std::cout << vecty[i] << " ";
     std::cout << std::endl;
 }
 
@@ -299,12 +327,10 @@ void Tester::compareMe()
 {
     struct timeval startv, endv, startd, endd;
     gettimeofday(&startv, NULL);
-    vToQueue();
-    std::vector<std::pair<int, int> > vecty = vRecursive(_vpairs);
+    std::vector<int> vecty = vRecursive(parseVector);
     gettimeofday(&endv, NULL);
     gettimeofday(&startd, NULL);
-    dToQueue();
-    std::deque<std::pair <int, int> > decty = dRecursive(_dpairs);
+    std::deque<int> decty = dRecursive(parseDeque);
     gettimeofday(&endd, NULL);
     printMe(vecty);
     long vseconds = endv.tv_sec - startv.tv_sec;

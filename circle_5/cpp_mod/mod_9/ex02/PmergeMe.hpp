@@ -53,12 +53,12 @@ class Tester
     // functions 
             void toParser(char **argv);
             void vToQueue();
-            std::vector<std::pair<int, int > > vRecursive(std::vector<std::pair<int, int> > input);
+            std::vector<int> vRecursive(std::vector<int> input);
             void dToQueue();
-            std::deque<std::pair<int, int> > dRecursive(std::deque<std::pair<int, int> > input);
+            std::deque<int> dRecursive(std::deque<int> input);
             unsigned int findJacob(unsigned int n);
             void compareMe();
-            void printMe(std::vector<std::pair <int, int> > vecty);
+            void printMe(std::vector<int> vecty);
 };
 
 
